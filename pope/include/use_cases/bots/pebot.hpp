@@ -1,0 +1,1 @@
+// Bot with perfect evaluation
