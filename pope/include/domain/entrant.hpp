@@ -30,6 +30,7 @@ class Entrant {
     std::string country; ///< Country
     std::string city; ///< City
     std::list<Paper> papers; ///< Entrant's papers
+    unsigned int bribe; ///< Bribe for immigration officer
     std::list<std::string> contraband; ///< Contraband (entrant's illegal items)
 
     /*!
@@ -53,12 +54,14 @@ class Entrant {
      *     City
      * \param papers
      *     Entrant's papers
+     * \param bribe
+     *     Bribe for immigration officer
      * \param contraband
      *     Contraband (entrant's illegal items)
      */
     Entrant(Picture pic, std::string name, char sex, Date date_of_birth,
       unsigned int height, unsigned int weight, std::string country,
-      std::string city, std::list<Paper> papers,
+      std::string city, std::list<Paper> papers, unsigned int bribe,
       std::list<std::string> contraband) {
         this->pic = pic;
         this->name = name;
@@ -69,8 +72,14 @@ class Entrant {
         this->country = country;
         this->city = city;
         this->papers = papers;
+        this->bribe = bribe;
         this->contraband = contraband;
     }
+
+    /*!
+     * \brief Entrant empty constructor
+     */
+    Entrant() { /* empty */ }
 };
 
 #endif /* _POPE_ENTRANT_HPP_ */

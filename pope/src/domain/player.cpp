@@ -1,5 +1,9 @@
 #include "domain/player.hpp"
 
+bool Player::decision() {
+  return true;
+}
+
 void Player::approve() {
   // Get passport
   for (auto paper : entrant.papers) {

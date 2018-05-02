@@ -19,7 +19,17 @@
  */
 class Player {
   public:
+    bool arrested; ///< The player was arrested
+    int credits; ///< The player's money
     Entrant entrant; ///< Entrant to be served
+
+    /*!
+     * \brief Player constructor
+     */
+    Player() {
+      this->arrested = false;
+      this->credits = 0;
+    }
 
     /*!
      * \brief Get the papers of the entrant
@@ -31,6 +41,12 @@ class Player {
       this->entrant = entrant;
     }
 
+    /*!
+     * \brief Player decision
+     */
+    bool decision();
+
+  protected:
     /*!
      * \brief Approve entrant
      */
