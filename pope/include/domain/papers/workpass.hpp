@@ -7,8 +7,8 @@
   terms of the MIT License.
 */
 
-#ifndef _POPE_IDCARD_HPP_
-#define _POPE_IDCARD_HPP_
+#ifndef _POPE_WORKPASS_HPP_
+#define _POPE_WORKPASS_HPP_
 
 #include "paper.hpp"
 #include "date.hpp"
@@ -42,6 +42,11 @@ class WorkPass : public Paper {
         this->seal = seal;
         this->end = end;
     }
+
+    /*!
+     * \brief Work pass empty constructor
+     */
+    WorkPass() { /* empty */ }
 };
 
-#endif /* _POPE_IDCARD_HPP_ */
+#endif /* _POPE_WORKPASS_HPP_ */

@@ -31,6 +31,11 @@ class Paper {
       this->firstname = firstname;
       this->lastname = lastname;
     }
+
+    /*!
+     * \brief Paper empty constructor
+     */
+    Paper() { /* empty */ }
 };
 
 #include "passport.hpp"

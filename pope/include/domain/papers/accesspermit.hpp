@@ -23,7 +23,7 @@ class AccessPermit : public Paper {
     std::string passport_number; ///< Passport number
     std::string purpose; ///< Purpose
     Duration duration; ///< Duration of stay
-    unsigned int height; ///< Entrant height
+    float height; ///< Entrant height
     unsigned int weight; ///< Entrant weight
     Date expiration_date; ///< Expiration date
     std::string physical_appearance; ///< Physical appearance
@@ -56,9 +56,8 @@ class AccessPermit : public Paper {
      */
     AccessPermit(std::string firstname, std::string lastname, std::string seal,
       std::string nationality, std::string passport_number, std::string purpose,
-      Duration duration, unsigned int height, unsigned int weight,
-      Date expiration_date, std::string physical_appearance) :
-        Paper(firstname, lastname) {
+      Duration duration, float height, unsigned int weight, Date expiration_date,
+      std::string physical_appearance) : Paper(firstname, lastname) {
           this->seal = seal;
           this->nationality = nationality;
           this->passport_number = passport_number;
@@ -69,6 +68,11 @@ class AccessPermit : public Paper {
           this->expiration_date = expiration_date;
           this->physical_appearance = physical_appearance;
     }
+
+    /*!
+     * \brief Access permit empty constructor
+     */
+    AccessPermit() { /* empty */ }
 };
 
 #endif /* _POPE_ACCESSPERMIT_HPP_ */

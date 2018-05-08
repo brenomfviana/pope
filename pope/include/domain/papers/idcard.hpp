@@ -24,11 +24,11 @@ class IDCard : public Paper {
     Date date_of_birth; ///< Date of birth of entrant
     std::string country; ///< Country
     std::string city; ///< City
-    unsigned int height; ///< Entrant's height
+    float height; ///< Entrant's height
     unsigned int weight; ///< Entrant's weight
 
     /*!
-     * \brief IDCard constructor
+     * \brief ID card constructor
      *
      * \param pic
      *     Entrant's picture
@@ -50,8 +50,8 @@ class IDCard : public Paper {
      *     Entrant's weight
      */
     IDCard(Picture pic, std::string firstname, std::string lastname, char sex,
-      Date date_of_birth, std::string country, std::string city,
-      unsigned int height, unsigned int weight) : Paper(firstname, lastname) {
+      Date date_of_birth, std::string country, std::string city, float height,
+      unsigned int weight) : Paper(firstname, lastname) {
         this->pic = pic;
         this->sex = sex;
         this->date_of_birth = date_of_birth;
@@ -60,6 +60,11 @@ class IDCard : public Paper {
         this->height = height;
         this->weight = weight;
     }
+
+    /*!
+     * \brief ID card empty constructor
+     */
+    IDCard() { /* empty */ }
 };
 
 #endif /* _POPE_IDCARD_HPP_ */

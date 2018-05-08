@@ -57,8 +57,8 @@ class Passport : public Paper {
      */
     Passport(std::string passport_number, std::string seal, Picture pic,
       std::string firstname, std::string lastname, char sex, Date date_of_birth,
-      std::string country, std::string issuing_city, Date expiration_date,
-      bool stamp) : Paper(firstname, lastname) {
+      std::string country, std::string issuing_city, Date expiration_date) :
+      Paper(firstname, lastname) {
         this->passport_number = passport_number;
         this->seal = seal;
         this->pic = pic;
@@ -67,8 +67,13 @@ class Passport : public Paper {
         this->country = country;
         this->issuing_city = issuing_city;
         this->expiration_date = expiration_date;
-        this->stamp = stamp;
+        this->stamp = false;
     }
+
+    /*!
+     * \brief Passport empty constructor
+     */
+    Passport() { /* empty */ }
 };
 
 #endif /* _POPE_PASSPORT_HPP_ */

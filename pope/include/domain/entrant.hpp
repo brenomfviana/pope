@@ -22,14 +22,15 @@
 class Entrant {
   public:
     Picture pic; ///< Entrant's picture
-    std::string name; ///< Entrant's name
+    std::string firstname, lastname; ///< Entrant's name
     char sex; ///< Entrant's sex
     Date date_of_birth; ///< Date of birth of entrant
-    unsigned int height; ///< Entrant's height
+    float height; ///< Entrant's height
     unsigned int weight; ///< Entrant's weight
     std::string country; ///< Country
     std::string city; ///< City
-    std::list<Paper> papers; ///< Entrant's papers
+    std::list<Paper*> papers; ///< Entrant's papers
+    std::string purpose; ///< Purpose
     unsigned int bribe; ///< Bribe for immigration officer
     std::list<std::string> contraband; ///< Contraband (entrant's illegal items)
 
@@ -38,8 +39,10 @@ class Entrant {
      *
      * \param pic
      *     Entrant's picture
-     * \param name
-     *     Entrant's name
+     * \param firstname
+     *     Entrant's firstname
+     * \param lastname
+     *     Entrant's lastname
      * \param sex
      *     Entrant's sex
      * \param date_of_birth
@@ -54,17 +57,20 @@ class Entrant {
      *     City
      * \param papers
      *     Entrant's papers
+     * \param purpose
+     *     Purpose
      * \param bribe
      *     Bribe for immigration officer
      * \param contraband
      *     Contraband (entrant's illegal items)
      */
-    Entrant(Picture pic, std::string name, char sex, Date date_of_birth,
-      unsigned int height, unsigned int weight, std::string country,
-      std::string city, std::list<Paper> papers, unsigned int bribe,
-      std::list<std::string> contraband) {
+    Entrant(Picture pic, std::string firstname, std::string lastname, char sex,
+      Date date_of_birth, float height, unsigned int weight, std::string country,
+      std::string city, std::list<Paper*> papers, std::string purpose,
+      unsigned int bribe, std::list<std::string> contraband) {
         this->pic = pic;
-        this->name = name;
+        this->firstname = firstname;
+        this->lastname = lastname;
         this->sex = sex;
         this->date_of_birth = date_of_birth;
         this->height = height;
@@ -72,6 +78,7 @@ class Entrant {
         this->country = country;
         this->city = city;
         this->papers = papers;
+        this->purpose = purpose;
         this->bribe = bribe;
         this->contraband = contraband;
     }
