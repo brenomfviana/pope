@@ -1,21 +1,15 @@
 ### Data of the game Paper's Please extracted from it's wiki and can be accessed at: http://papersplease.wikia.com
 
 # Countries
-countries:
-  - name: antegria
-    cities: [ St. Marmero, Glorian, Outer Grouse ]
-  - name: arstotzka
-    cities: [ Altan, Vescillo, Burnton, Octovalis, Gennistora, Lendiforma, Wozenfield, Fardesto ]
-  - name: impor
-    cities: [ Enkyo, Haihan, Tsunkeido ]
-  - name: kolechia
-    cities: [ Yurko City, Vedor, West Grestin ]
-  - name: obristan
-    cities: [ Skal, Lorndaz, Mergerous ]
-  - name: republia
-    cities: [ True Glorian, Lesrenadi, Bostan ]
-  - name: unitedfederation
-    cities: [ Great Rapid, Shingleton, Korista City ]
+countries: [ antegria, arstotzka, impor, kolechia, obristan, republia, unitedfederation ]
+cities:
+  antegria: [ St. Marmero, Glorian, Outer Grouse ]
+  arstotzka: [ Altan, Vescillo, Burnton, Octovalis, Gennistora, Lendiforma, Wozenfield, Fardesto ]
+  impor: [ Enkyo, Haihan, Tsunkeido ]
+  kolechia: [ Yurko City, Vedor, West Grestin ]
+  obristan: [ Skal, Lorndaz, Mergerous ]
+  republia: [ True Glorian, Lesrenadi, Bostan ]
+  unitedfederation: [ Great Rapid, Shingleton, Korista City ]
 issuing_city:
   antegria: [ St. Marmero, Glorian, Outer Grouse ]
   arstotzka: [ Orvech Vonor, East Grestin, Paradizna ]
@@ -44,11 +38,11 @@ max_weight: 150
 min_weight: 45
 
 # Documents
-passport_number: *****-***** # Format
-valid_moa_seals: [ A, B ] # M.O.A (Ministry of Admission)
-forged_moa_seals: [ C, D, E, F, G, H, I ]
-valid_mol_seals: [ A, B, C, D ] # M.O.L (Ministry of Labor)
-forged_mol_seals: [ E, F, G, H, I ]
+passport_number: aaaaa_aaaaa # Format
+valid_moa_seals: [ AA, AB ] # M.O.A (Ministry of Admission)
+forged_moa_seals: [ AC, AD, AE, AF, AG, AH, AI ]
+valid_mol_seals: [ LA, LB, LC, LD ] # M.O.L (Ministry of Labor)
+forged_mol_seals: [ LE, LF, LG, LH, LI ]
 works: [ Accounting, Agriculture, Architecture, Aviation, Construction, Dentistry, Drafting, Engineering, Fine Arts, Fishing, Food Service, General labor, Healthcare, Manufacturing, Research, Sports, Statistics, Surveying ]
 purpose: [ Visit, Transit, Work, Immigrate ]
 
