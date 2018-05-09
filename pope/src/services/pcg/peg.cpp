@@ -1,13 +1,119 @@
 #include "services/pcg/peg.hpp"
-#include <ctime>
-#include "commons/common.hpp"
+#include <sys/types.h>
+#include <dirent.h>
 
 std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   std::list<Entrant*> entrants;
+  YAML::Emitter out;
   // Generate entrants
+  out << YAML::BeginSeq;
   for (int i = 0; i < n; i++) {
-    entrants.push_back(new_entrant(database));
+    Entrant* entrant = new_entrant(database);
+    entrants.push_back(entrant);
+    out << YAML::Value << YAML::BeginMap;
+    out << YAML::Key << "entrant" << YAML::Value;
+      out << YAML::BeginMap;
+        out << YAML::Key << "pic" << YAML::Value << YAML::BeginSeq
+          << entrant->pic.hair << entrant->pic.facial_hair
+          << entrant->pic.vision << entrant->pic.other << YAML::EndSeq;
+        out << YAML::Key << "firstname" << YAML::Value << entrant->firstname;
+        out << YAML::Key << "lastname" << YAML::Value << entrant->lastname;
+        out << YAML::Key << "sex" << YAML::Value << entrant->sex;
+        out << YAML::Key << "date_of_birth" << YAML::Value << entrant->date_of_birth.to_str();
+        out << YAML::Key << "height" << YAML::Value << entrant->height;
+        out << YAML::Key << "weight" << YAML::Value << entrant->weight;
+        out << YAML::Key << "country" << YAML::Value << entrant->country;
+        out << YAML::Key << "city" << YAML::Value << entrant->city;
+        out << YAML::Key << "purpose" << YAML::Value << entrant->purpose;
+        out << YAML::Key << "bribe" << YAML::Value << std::to_string(entrant->bribe);
+        out << YAML::Key << "contraband" << YAML::Value << entrant->contraband;
+      out << YAML::EndMap;
+    for (Paper* paper : entrant->papers) {
+      // Passport
+      if (typeid(*paper) == typeid(Passport)) {
+        Passport* passport = dynamic_cast<Passport*>(paper);
+        out << YAML::Key << "passport" << YAML::Value;
+          out << YAML::BeginMap;
+            out << YAML::Key << "pic" << YAML::Value << YAML::BeginSeq
+              << passport->pic.hair << passport->pic.facial_hair
+              << passport->pic.vision << passport->pic.other << YAML::EndSeq;
+            out << YAML::Key << "firstname" << YAML::Value << passport->firstname;
+            out << YAML::Key << "lastname" << YAML::Value << passport->lastname;
+            out << YAML::Key << "passport_number" << YAML::Value << passport->passport_number;
+            out << YAML::Key << "seal" << YAML::Value << passport->seal;
+            out << YAML::Key << "sex" << YAML::Value << passport->sex;
+            out << YAML::Key << "date_of_birth" << YAML::Value << passport->date_of_birth.to_str();
+            out << YAML::Key << "country" << YAML::Value << passport->country;
+            out << YAML::Key << "issuing_city" << YAML::Value << passport->issuing_city;
+            out << YAML::Key << "expiration_date" << YAML::Value << passport->expiration_date.to_str();
+          out << YAML::EndMap;
+      }
+      // ID card
+      if (typeid(*paper) == typeid(IDCard)) {
+        IDCard* idcard = dynamic_cast<IDCard*>(paper);
+        out << YAML::Key << "idcard" << YAML::Value;
+          out << YAML::BeginMap;
+            out << YAML::Key << "pic" << YAML::Value << YAML::BeginSeq
+              << idcard->pic.hair << idcard->pic.facial_hair
+              << idcard->pic.vision << idcard->pic.other << YAML::EndSeq;
+            out << YAML::Key << "firstname" << YAML::Value << idcard->firstname;
+            out << YAML::Key << "lastname" << YAML::Value << idcard->lastname;
+            out << YAML::Key << "sex" << YAML::Value << idcard->sex;
+            out << YAML::Key << "date_of_birth" << YAML::Value << idcard->date_of_birth.to_str();
+            out << YAML::Key << "country" << YAML::Value << idcard->country;
+            out << YAML::Key << "city" << YAML::Value << idcard->city;
+            out << YAML::Key << "height" << YAML::Value << idcard->height;
+            out << YAML::Key << "weight" << YAML::Value << idcard->weight;
+          out << YAML::EndMap;
+      }
+      // Access permit
+      if (typeid(*paper) == typeid(AccessPermit)) {
+        AccessPermit* accesspermit = dynamic_cast<AccessPermit*>(paper);
+        out << YAML::Key << "accesspermit" << YAML::Value;
+          out << YAML::BeginMap;
+            out << YAML::Key << "firstname" << YAML::Value << accesspermit->firstname;
+            out << YAML::Key << "lastname" << YAML::Value << accesspermit->lastname;
+            out << YAML::Key << "seal" << YAML::Value << accesspermit->seal;
+            out << YAML::Key << "nationality" << YAML::Value << accesspermit->nationality;
+            out << YAML::Key << "passport_number" << YAML::Value << accesspermit->passport_number;
+            out << YAML::Key << "purpose" << YAML::Value << accesspermit->purpose;
+            out << YAML::Key << "duration" << YAML::Value << accesspermit->duration.to_str();
+            out << YAML::Key << "height" << YAML::Value << accesspermit->height;
+            out << YAML::Key << "weight" << YAML::Value << accesspermit->weight;
+            out << YAML::Key << "expiration_date" << YAML::Value << accesspermit->expiration_date.to_str();
+            out << YAML::Key << "physical_appearance" << YAML::Value << accesspermit->physical_appearance;
+          out << YAML::EndMap;
+      }
+      // Work pass
+      if (typeid(*paper) == typeid(WorkPass)) {
+        WorkPass* workpass = dynamic_cast<WorkPass*>(paper);
+        out << YAML::Key << "workpass" << YAML::Value;
+          out << YAML::BeginMap;
+            out << YAML::Key << "firstname" << YAML::Value << workpass->firstname;
+            out << YAML::Key << "lastname" << YAML::Value << workpass->lastname;
+            out << YAML::Key << "seal" << YAML::Value << workpass->seal;
+            out << YAML::Key << "field" << YAML::Value << workpass->field;
+            out << YAML::Key << "enddate" << YAML::Value << workpass->end.to_str();
+          out << YAML::EndMap;
+      }
+    }
+    out << YAML::EndMap;
   }
+  // Save content
+  DIR *dp;
+  int i;
+  struct dirent *ep;
+  dp = opendir ("pcg/");
+  if (dp != NULL) {
+    while (ep = readdir(dp)) { i++; }
+    (void) closedir(dp);
+  }
+  out << YAML::EndSeq;
+  std::ofstream write;
+  std::string s = "pcg/pcg" + std::to_string(i) + ".yml";
+  write.open (s.c_str());
+  write << out.c_str();
+  write.close();
   // Shuffle list
   shuffle(entrants);
   return entrants;
@@ -24,7 +130,7 @@ Entrant* PEG::new_entrant(YAML::Node database) {
   // Gender-dependent variables
   std::string firstname;
   std::string hair;
-  std::string facial_hair;
+  std::string facial_hair = "None";
   if (sex == MALE) {
     // Male hair
     randi = RandomInt(0, database["male_hair"].size() - 1);
@@ -96,7 +202,7 @@ Entrant* PEG::new_entrant(YAML::Node database) {
   // Illegal variables
   int invalid_fields;
   unsigned int bribe;
-  std::list<std::string> contraband;
+  std::string contraband;
   // Is illegal?
   rng.seed(std::random_device()());
   randi = RandomInt(0, 4);
@@ -117,7 +223,7 @@ Entrant* PEG::new_entrant(YAML::Node database) {
     if (randi(rng) == 0) {
       randi = RandomInt(0, database["contraband"].size() - 1);
       rng.seed(std::random_device()());
-      contraband.push_back(database["contraband"][randi(rng)].as<std::string>());
+      contraband = database["contraband"][randi(rng)].as<std::string>();
     }
   }
 
@@ -194,16 +300,16 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
     std::string facial_hair = entrant->pic.facial_hair;
     std::string vision = entrant->pic.vision;
     std::string other = entrant->pic.other;
-    // Change picture
-    if (entrant->sex == MALE) {
-      randi = RandomInt(0, database["male_hair"].size() - 1);
-      rng.seed(std::random_device()());
-      hair = database["male_hair"][randi(rng)].as<std::string>();
-    } else {
-      randi = RandomInt(0, database["female_hair"].size() - 1);
-      rng.seed(std::random_device()());
-      hair = database["female_hair"][randi(rng)].as<std::string>();
-    }
+    // // Change picture
+    // if (entrant->sex == MALE) {
+    //   randi = RandomInt(0, database["male_hair"].size() - 1);
+    //   rng.seed(std::random_device()());
+    //   hair = database["male_hair"][randi(rng)].as<std::string>();
+    // } else {
+    //   randi = RandomInt(0, database["female_hair"].size() - 1);
+    //   rng.seed(std::random_device()());
+    //   hair = database["female_hair"][randi(rng)].as<std::string>();
+    // }
     Picture picture(hair, facial_hair, vision, other);
 
     // If the entrant is illegal
@@ -343,16 +449,16 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
     std::string facial_hair = entrant->pic.facial_hair;
     std::string vision = entrant->pic.vision;
     std::string other = entrant->pic.other;
-    // Change picture
-    if (entrant->sex == MALE) {
-      randi = RandomInt(0, database["male_hair"].size() - 1);
-      rng.seed(std::random_device()());
-      hair = database["male_hair"][randi(rng)].as<std::string>();
-    } else {
-      randi = RandomInt(0, database["female_hair"].size() - 1);
-      rng.seed(std::random_device()());
-      hair = database["female_hair"][randi(rng)].as<std::string>();
-    }
+    // // Change picture
+    // if (entrant->sex == MALE) {
+    //   randi = RandomInt(0, database["male_hair"].size() - 1);
+    //   rng.seed(std::random_device()());
+    //   hair = database["male_hair"][randi(rng)].as<std::string>();
+    // } else {
+    //   randi = RandomInt(0, database["female_hair"].size() - 1);
+    //   rng.seed(std::random_device()());
+    //   hair = database["female_hair"][randi(rng)].as<std::string>();
+    // }
     Picture picture(hair, facial_hair, vision, other);
 
     // If the entrant is illegal

@@ -14,10 +14,13 @@ class WorkPass;
 
 #include <algorithm>
 #include <iostream>
+#include <fstream>
+#include <ctime>
 #include <list>
 #include <vector>
 #include <random>
 #include <yaml-cpp/yaml.h>
+#include "commons/common.hpp"
 #include "domain/entrant.hpp"
 #include "domain/papers/paper.hpp"
 #include "domain/papers/date.hpp"
