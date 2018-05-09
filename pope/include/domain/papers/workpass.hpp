@@ -47,6 +47,9 @@ class WorkPass : public Paper {
      * \brief Work pass empty constructor
      */
     WorkPass() { /* empty */ }
+
+  private:
+    void paper() { /* empty */ }
 };
 
 #endif /* _POPE_WORKPASS_HPP_ */

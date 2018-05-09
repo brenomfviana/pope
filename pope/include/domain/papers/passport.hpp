@@ -74,6 +74,9 @@ class Passport : public Paper {
      * \brief Passport empty constructor
      */
     Passport() { /* empty */ }
+
+  private:
+    void paper() { /* empty */ }
 };
 
 #endif /* _POPE_PASSPORT_HPP_ */

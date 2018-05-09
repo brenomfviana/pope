@@ -32,7 +32,7 @@ class Entrant {
     std::list<Paper*> papers; ///< Entrant's papers
     std::string purpose; ///< Purpose
     unsigned int bribe; ///< Bribe for immigration officer
-    std::list<std::string> contraband; ///< Contraband (entrant's illegal items)
+    std::string contraband; ///< Contraband (entrant's illegal item)
 
     /*!
      * \brief Entrant's constructor
@@ -62,12 +62,12 @@ class Entrant {
      * \param bribe
      *     Bribe for immigration officer
      * \param contraband
-     *     Contraband (entrant's illegal items)
+     *     Contraband (entrant's illegal item)
      */
     Entrant(Picture pic, std::string firstname, std::string lastname, char sex,
       Date date_of_birth, float height, unsigned int weight, std::string country,
       std::string city, std::list<Paper*> papers, std::string purpose,
-      unsigned int bribe, std::list<std::string> contraband) {
+      unsigned int bribe, std::string contraband) {
         this->pic = pic;
         this->firstname = firstname;
         this->lastname = lastname;

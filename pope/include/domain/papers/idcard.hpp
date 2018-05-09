@@ -65,6 +65,9 @@ class IDCard : public Paper {
      * \brief ID card empty constructor
      */
     IDCard() { /* empty */ }
+
+  private:
+    void paper() { /* empty */ }
 };
 
 #endif /* _POPE_IDCARD_HPP_ */

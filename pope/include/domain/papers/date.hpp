@@ -41,6 +41,17 @@ class Date {
      * \brief Date empty constructor
      */
     Date() { /* empty */ }
+
+    /*!
+     * \brief Convert date to string
+     *
+     * \return
+     *     String corresponding to the date
+     */
+    std::string to_str() {
+      return (std::to_string(this->day) + "/" + std::to_string(this->month) +
+        "/" + std::to_string(this->year));
+    }
 };
 
 typedef Date Duration;

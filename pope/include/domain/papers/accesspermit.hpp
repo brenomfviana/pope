@@ -73,6 +73,9 @@ class AccessPermit : public Paper {
      * \brief Access permit empty constructor
      */
     AccessPermit() { /* empty */ }
+
+  private:
+    void paper() { /* empty */ }
 };
 
 #endif /* _POPE_ACCESSPERMIT_HPP_ */

@@ -36,6 +36,9 @@ class Paper {
      * \brief Paper empty constructor
      */
     Paper() { /* empty */ }
+
+  private:
+    virtual void paper() = 0;
 };
 
 #include "passport.hpp"
