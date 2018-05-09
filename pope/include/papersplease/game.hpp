@@ -10,7 +10,9 @@
 #ifndef _POPE_GAME_HPP_
 #define _POPE_GAME_HPP_
 
+#include <yaml-cpp/yaml.h>
 #include "domain/player.hpp"
+#include "services/readers/database_reader.hpp"
 
 #define NAM 2 // Number of acceptable mistakes
 #define SALARY 5
@@ -62,14 +64,14 @@ class Game {
     /*!
      * \brief Check if the decision on an entrant was right or not
      *
-     * \param decision
-     *     Player's decision
+     * \param entrant
+     *     Entrant
      *
      * \return
      *     True if the player made a right decision (according to the laws) and
      *     false otherwise
      */
-    bool check_service(bool decision);
+    bool check_service(Entrant* entrant);
 
     /*!
      * \brief Check player illegal gains
