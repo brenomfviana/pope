@@ -12,6 +12,7 @@
 
 class WorkPass;
 
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <vector>
@@ -31,12 +32,14 @@ class WorkPass;
 class PEG {
   public:
     /*!
-     * \brief
+     * \brief Generate n entrants procedurally
      *
      * \param database
      *     Database
+     * \param n
+     *     Number of entrants to be generated
      */
-    static std::list<Entrant*> generate(YAML::Node database);
+    static std::list<Entrant*> generate(YAML::Node database, int n);
   private:
     /*!
      * \brief
@@ -53,7 +56,7 @@ class PEG {
      *     Database
      */
     static Passport* new_passport(YAML::Node database, Entrant* entrant,
-      bool illegal, int& illegal_fields);
+      bool illegal, int& invalid_fields);
 
     /*!
      * \brief
@@ -62,7 +65,7 @@ class PEG {
      *     Database
      */
     static IDCard* new_idcard(YAML::Node database, Entrant* entrant,
-      bool illegal, int& illegal_fields);
+      bool illegal, int& invalid_fields);
 
     /*!
      * \brief
@@ -71,7 +74,7 @@ class PEG {
      *     Database
      */
     static AccessPermit* new_accesspermit(YAML::Node database, Entrant* entrant,
-      Passport* passport, bool illegal, int& illegal_fields);
+      Passport* passport, bool illegal, int& invalid_fields);
 
     /*!
      * \brief
@@ -80,7 +83,7 @@ class PEG {
      *     Database
      */
     static WorkPass* new_workpass(YAML::Node database, Entrant* entrant,
-      AccessPermit* accesspermit, bool illegal, int& illegal_fields);
+      AccessPermit* accesspermit, bool illegal, int& invalid_fields);
 };
 
 typedef std::uniform_int_distribution<std::mt19937::result_type> RandomInt;

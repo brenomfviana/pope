@@ -2,14 +2,15 @@
 
 void Game::start() {
   // Game loop
+  // Current day 24,11,1982
   // while (!this->player->arrested && !win()) {
   //   // End day
   //   end_day();
   // }
-  for (Entrant entrant : entrants) {
+  for (Entrant* entrant : entrants) {
     this->ecount++;
     // Get papers
-    this->player->papers_please(entrant);
+    this->player->papers_please(*entrant);
     // Player decision
     bool decision = this->player->decision();
     // Check service

@@ -20,7 +20,7 @@
  */
 class Game {
   public:
-    std::list<Entrant> entrants; ///< Entrant's list
+    std::list<Entrant*> entrants; ///< Entrant's list
     Player* player; ///< Player
     unsigned int max_entrants; /// Max number of entrants
     unsigned int mcount; ///< Mistakes counter (per day)
@@ -35,7 +35,7 @@ class Game {
      * \param player
      *     Player
      */
-    Game(std::list<Entrant> entrants, Player* player) {
+    Game(std::list<Entrant*> entrants, Player* player) {
       this->entrants = entrants;
       this->player = player;
       this->max_entrants = entrants.size();
