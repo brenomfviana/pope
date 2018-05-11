@@ -1,13 +1,11 @@
 #include "papersplease/game.hpp"
 
 void Game::start() {
-  // Game loop
-  // Current day 24,11,1982
-  // while (!this->player->arrested && !win()) {
-  //   // End day
-  //   end_day();
-  // }
-  for (Entrant* entrant : entrants) {
+  // Game loop -- Current day 24,11,1982
+  while (!this->player->arrested && !win()) {
+    auto start = steady_clock::now();
+    Entrant* entrant = this->entrants.front();
+    this->entrants.pop_front();
     this->ecount++;
     // Get papers
     this->player->papers_please(*entrant);
@@ -22,8 +20,11 @@ void Game::start() {
         this->player->credits -= SALARY;
       }
     }
+    auto end = steady_clock::now();
+    std::cout << "that took " << duration_cast<milliseconds>(end - start).count()
+              << " milliseconds\n";
+    // end_day();
   }
-  end_day();
 }
 
 void Game::end_day() {
@@ -38,17 +39,23 @@ void Game::end_day() {
     // Check end of entrants
     if (win()) {
       // Show message
+      std::cout << "Congrats! You helped your country!" << '\n';
     }
     this->number_of_days++;
   }
+  struct tm aux;
+  aux.tm_year = current_day / 10000 - 1900;
+  aux.tm_mon = (current_day % 10000) / 100 - 1;
+  aux.tm_mday = current_day % 100 + 1;
+  current_day = mktime(&aux);
 }
 
 bool Game::check_service(Entrant* entrant) {
   YAML::Node database = DatabaseReader::read("assets/database.yml");
-  Passport* passport;
-  IDCard* idcard;
-  AccessPermit* accesspermit;
-  WorkPass* workpass;
+  Passport* passport = nullptr;
+  IDCard* idcard = nullptr;
+  AccessPermit* accesspermit = nullptr;
+  WorkPass* workpass = nullptr;
 
   // Papers
   for (Paper* paper : entrant->papers) {
@@ -71,122 +78,131 @@ bool Game::check_service(Entrant* entrant) {
   }
 
   // Check passport
-  if (entrant->pic.hair != passport->pic.hair &&
-    entrant->pic.facial_hair != passport->pic.facial_hair &&
-    entrant->pic.vision != passport->pic.vision &&
-    entrant->pic.other != passport->pic.other) {
+  if (passport != nullptr) {
+    if (entrant->pic.hair != passport->pic.hair ||
+      entrant->pic.facial_hair != passport->pic.facial_hair ||
+      entrant->pic.vision != passport->pic.vision ||
+      entrant->pic.other != passport->pic.other) {
+        return false;
+      }
+    if (entrant->firstname != passport->firstname ||
+      entrant->lastname != passport->lastname) {
+        return false;
+      }
+    if (passport->seal != "AA" && passport->seal != "AB") {
       return false;
     }
-  if (entrant->firstname != passport->firstname &&
-    entrant->lastname != passport->firstname) {
+    if (entrant->sex != passport->sex) {
       return false;
     }
-  if (passport->seal != "AA" && passport->seal != "AB") {
-    return false;
-  }
-  if (entrant->sex != passport->sex) {
-    return false;
-  }
-  int count = 0;
-  for (std::size_t i = 0; i < database["issuing_city"][entrant->country].size(); i++) {
-    if (idcard->city == database["issuing_city"][entrant->country][i].as<std::string>()) {
-      break;
+    int count = 0;
+    for (std::size_t i = 0; i < database["issuing_city"][entrant->country].size(); i++) {
+      if (passport->issuing_city == database["issuing_city"][entrant->country][i].as<std::string>()) {
+        break;
+      }
+      count++;
     }
-    count++;
-  }
-  if (count == database["issuing_city"][entrant->country].size()) {
-    return false;
-  }
-  Date d = passport->expiration_date;
-  struct tm aux;
-  aux.tm_year = d.year - 1900;
-  aux.tm_mon = d.month - 1;
-  aux.tm_mday = d.day;
-  time_t tend = mktime(&aux);
-  if (406944000 > tend) {
-    return false;
+    if (count >= database["issuing_city"][entrant->country].size()) {
+      return false;
+    }
+    Date d = passport->expiration_date;
+    struct tm aux;
+    aux.tm_year = d.year - 1900;
+    aux.tm_mon = d.month - 1;
+    aux.tm_mday = d.day;
+    time_t tend = mktime(&aux);
+    if (current_day > tend) {
+      return false;
+    }
   }
 
   // Check ID card
-  if (idcard->pic.hair != passport->pic.hair &&
-    idcard->pic.facial_hair != passport->pic.facial_hair &&
-    idcard->pic.vision != passport->pic.vision &&
-    idcard->pic.other != passport->pic.other) {
+  if (idcard != nullptr && passport != nullptr && entrant != nullptr) {
+    if (idcard->pic.hair != entrant->pic.hair ||
+      idcard->pic.facial_hair != entrant->pic.facial_hair ||
+      idcard->pic.vision != entrant->pic.vision ||
+      idcard->pic.other != entrant->pic.other) {
+        return false;
+      }
+    if (idcard->firstname != passport->firstname ||
+      idcard->lastname != passport->lastname) {
+        return false;
+      }
+    if (entrant->sex != idcard->sex) {
       return false;
     }
-  if (idcard->firstname != passport->firstname &&
-    idcard->lastname != passport->firstname) {
+    if (passport->date_of_birth.to_str() != idcard->date_of_birth.to_str()) {
       return false;
     }
-  if (entrant->sex != idcard->sex) {
-    return false;
-  }
-  if (passport->date_of_birth.to_str() != idcard->date_of_birth.to_str()) {
-    return false;
-  }
-  count = 0;
-  for (std::size_t i = 0; i < database["cities"][entrant->country].size(); i++) {
-    if (idcard->city == database["cities"][entrant->country][i].as<std::string>()) {
-      break;
+    int count = 0;
+    for (std::size_t i = 0; i < database["cities"][entrant->country].size(); i++) {
+      if (idcard->city == database["cities"][entrant->country][i].as<std::string>()) {
+        break;
+      }
+      count++;
     }
-    count++;
-  }
-  if (count == database["cities"][entrant->country].size()) {
-    return false;
-  }
-  if (idcard->height != entrant->height) {
-    return false;
-  }
-  if (idcard->weight != entrant->weight) {
-    return false;
+    if (count >= database["cities"][entrant->country].size()) {
+      return false;
+    }
+    if (idcard->height != entrant->height) {
+      return false;
+    }
+    if (idcard->weight != entrant->weight) {
+      return false;
+    }
   }
 
   // Check access permit
-  if (accesspermit->firstname != passport->firstname &&
-  accesspermit->lastname != passport->firstname) {
-    return false;
-  }
-  if (accesspermit->seal != "AA" && accesspermit->seal != "AB") {
-    return false;
-  }
-  if (accesspermit->nationality != entrant->country) {
-    return false;
-  }
-  if (accesspermit->passport_number != passport->passport_number) {
-    return false;
-  }
-  if (accesspermit->purpose != entrant->purpose) {
-    return false;
-  }
-  d = accesspermit->expiration_date;
-  aux.tm_year = d.year - 1900;
-  aux.tm_mon = d.month - 1;
-  aux.tm_mday = d.day;
-  tend = mktime(&aux);
-  if (406944000 > tend) {
-    return false;
-  }
-  if (accesspermit->height != entrant->height) {
-    return false;
-  }
-  if (accesspermit->weight != entrant->weight) {
-    return false;
-  }
-  if (accesspermit->physical_appearance != passport->pic.hair ||
-    accesspermit->physical_appearance != passport->pic.facial_hair ||
-    accesspermit->physical_appearance != passport->pic.vision ||
-    accesspermit->physical_appearance != passport->pic.other) {
+  if (accesspermit != nullptr && passport != nullptr && entrant != nullptr) {
+    if (accesspermit->firstname != passport->firstname &&
+      accesspermit->lastname != passport->lastname) {
+        return false;
+      }
+    if (accesspermit->seal != "AA" && accesspermit->seal != "AB") {
       return false;
     }
+    if (accesspermit->nationality != entrant->country) {
+      return false;
+    }
+    if (accesspermit->passport_number != passport->passport_number) {
+      return false;
+    }
+    if (accesspermit->purpose != entrant->purpose) {
+      return false;
+    }
+    Date d = accesspermit->expiration_date;
+    struct tm aux;
+    aux.tm_year = d.year - 1900;
+    aux.tm_mon = d.month - 1;
+    aux.tm_mday = d.day;
+    time_t tend = mktime(&aux);
+    if (current_day > tend) {
+      return false;
+    }
+    if (accesspermit->height != entrant->height) {
+      return false;
+    }
+    if (accesspermit->weight != entrant->weight) {
+      return false;
+    }
+    if (accesspermit->physical_appearance != passport->pic.hair ||
+      accesspermit->physical_appearance != passport->pic.facial_hair ||
+      accesspermit->physical_appearance != passport->pic.vision ||
+      accesspermit->physical_appearance != passport->pic.other) {
+        return false;
+      }
+  }
 
   // Check work pass
-  if (workpass->firstname != passport->firstname &&
-  workpass->lastname != passport->firstname) {
-    return false;
-  }
-  if (workpass->seal != "LA" && workpass->seal != "LB" &&
-      workpass->seal != "LC" && workpass->seal != "LD") {
-    return false;
+  if (workpass != nullptr && passport != nullptr) {
+    if (workpass->firstname != passport->firstname ||
+      workpass->lastname != passport->lastname) {
+        return false;
+      }
+    if (workpass->seal != "LA" || workpass->seal != "LB" ||
+      workpass->seal != "LC" || workpass->seal != "LD") {
+        return false;
+      }
   }
 
   return true;
@@ -201,7 +217,7 @@ bool Game::check_illegal_gains() {
 }
 
 bool Game::bankruptcy() {
-  return (0 > this->player);
+  return (0 > this->player->credits);
 }
 
 bool Game::check_delinquency() {

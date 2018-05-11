@@ -20,12 +20,13 @@ int main(int argc, char *argv[]) {
   // Check flags
   if (strcmp(argv[1], "-pcg") == 0) {
     // Generate content
-    entrants = PEG::generate(DatabaseReader::read("assets/database.yml"), 10);
-    // Save generated content
+    entrants = PEG::generate(DatabaseReader::read("assets/database.yml"), 100);
   } else if (strcmp(argv[1], "-r") == 0) {
-    // Read list of people (entrants and supervisors)
+    // Read list of people (entrants)
   } else {
     // ERROR
+    std::cerr << "Error: Invalid arguments." << '\n';
+    return EXIT_FAILURE;
   }
   // Start game
   Player* player = new Player();

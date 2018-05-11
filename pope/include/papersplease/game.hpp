@@ -10,12 +10,16 @@
 #ifndef _POPE_GAME_HPP_
 #define _POPE_GAME_HPP_
 
+#include <iostream>
+#include <chrono>
 #include <yaml-cpp/yaml.h>
 #include "domain/player.hpp"
 #include "services/readers/database_reader.hpp"
 
 #define NAM 2 // Number of acceptable mistakes
 #define SALARY 5
+
+using namespace std::chrono;
 
 /*!
  * \brief This class represents a game
@@ -28,6 +32,7 @@ class Game {
     unsigned int mcount; ///< Mistakes counter (per day)
     unsigned int ecount; ///< Number of entrant served (per day)
     unsigned int number_of_days; ///< Number of days
+    time_t current_day = 406944000; ///< Currrent day
 
     /*!
      * \brief Game constructor
