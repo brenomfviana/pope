@@ -5,10 +5,24 @@
 std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   std::list<Entrant*> entrants;
   YAML::Emitter out;
+  // Random variables
+  std::mt19937 rng;
+  RandomInt randi;
+  // Number of illegal entrants
+  randi = RandomInt(((int) n * 0.25), ((int) n * 0.75));
+  rng.seed(std::random_device()());
+  int noie = randi(rng);
   // Generate entrants
   out << YAML::BeginSeq;
   for (int i = 0; i < n; i++) {
-    Entrant* entrant = new_entrant(database);
+    Entrant* entrant;
+    if (i < noie) {
+      // Illegal entrant
+      entrant = new_entrant(database, true);
+    } else {
+      // Legal entrant
+      entrant = new_entrant(database, false);
+    }
     entrants.push_back(entrant);
     out << YAML::Value << YAML::BeginMap;
     out << YAML::Key << "entrant" << YAML::Value;
@@ -101,16 +115,16 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   }
   // Save content
   DIR *dp;
-  int i;
+  int i = 0;
   struct dirent *ep;
-  dp = opendir ("pcg/");
+  dp = opendir("pcg/");
   if (dp != NULL) {
     while (ep = readdir(dp)) { i++; }
     (void) closedir(dp);
   }
   out << YAML::EndSeq;
   std::ofstream write;
-  std::string s = "pcg/pcg" + std::to_string(i) + ".yml";
+  std::string s = "pcg/pcg" + std::to_string(i - 1) + ".yml";
   write.open (s.c_str());
   write << out.c_str();
   write.close();
@@ -119,7 +133,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   return entrants;
 }
 
-Entrant* PEG::new_entrant(YAML::Node database) {
+Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
   // Random variables
   std::mt19937 rng;
   RandomInt randi;
@@ -174,7 +188,7 @@ Entrant* PEG::new_entrant(YAML::Node database) {
   randi = RandomInt(dmin, dmax);
   time_t gd = randi(rng);
   struct tm* tm = localtime(&gd);
-  Date date_of_birth(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+  Date date_of_birth(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
   // Height
   rng.seed(std::random_device()());
   randi = RandomInt((int) (database["min_height"].as<float>() * 100),
@@ -198,15 +212,12 @@ Entrant* PEG::new_entrant(YAML::Node database) {
   rng.seed(std::random_device()());
   std::string purpose = database["purpose"][randi(rng)].as<std::string>();
 
+
   //// Illegal entrant
   // Illegal variables
   int invalid_fields;
   unsigned int bribe;
   std::string contraband;
-  // Is illegal?
-  rng.seed(std::random_device()());
-  randi = RandomInt(0, 4);
-  bool illegal = (randi(rng) == 0);
   // If the entrant is illegal
   if (illegal) {
     // Amount of invalid fields
@@ -294,7 +305,7 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
     randi = RandomInt(dmin, dmax);
     time_t gd = randi(rng);
     struct tm* tm = localtime(&gd);
-    Date expiration_date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+    Date expiration_date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
     // Other hair on picture
     std::string hair = entrant->pic.hair;
     std::string facial_hair = entrant->pic.facial_hair;
@@ -412,7 +423,7 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
             randi = RandomInt(dmin, dmax);
             time_t gd = 406944000 - randi(rng);
             struct tm* tm = localtime(&gd);
-            expiration_date = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+            expiration_date = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
             break;
           }
       }
@@ -618,7 +629,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
     randi = RandomInt(dmin, dmax);
     time_t gd = randi(rng);
     struct tm* tm = localtime(&gd);
-    Date expiration_date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+    Date expiration_date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
     // Physical appearance
     randi = RandomInt(0, pa.size() - 1);
     rng.seed(std::random_device()());
@@ -631,7 +642,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
       randi = RandomInt(dmin, dmax);
       time_t gd = randi(rng);
       struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
     }
     if (purpose == "Transit") {
       time_t dmin = 172800;
@@ -639,7 +650,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
       randi = RandomInt(dmin, dmax);
       time_t gd = randi(rng);
       struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
     }
     if (purpose == "Work") {
       time_t dmin = 7862400;
@@ -647,7 +658,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
       randi = RandomInt(dmin, dmax);
       time_t gd = randi(rng);
       struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
     }
 
     // If the entrant is illegal
@@ -684,7 +695,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
             randi = RandomInt(dmin, dmax);
             time_t gd = 406944000 - randi(rng);
             struct tm* tm = localtime(&gd);
-            expiration_date = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+            expiration_date = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
             break;
           }
         case 3:
@@ -808,7 +819,7 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
     aux.tm_mday = d.day;
     time_t tend = 406944000 + mktime(&aux);
     struct tm* tm = localtime(&tend);
-    Date end(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+    Date end(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
 
     // Work field
     randi = RandomInt(0, database["works"].size() - 1);

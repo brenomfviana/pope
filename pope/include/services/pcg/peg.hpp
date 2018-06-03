@@ -49,8 +49,10 @@ class PEG {
      *
      * \param database
      *     Database
+     * \param illegal
+     *     If the entrant to be generated is an illegal entrant
      */
-    static Entrant* new_entrant(YAML::Node database);
+    static Entrant* new_entrant(YAML::Node database, bool illegal);
 
     /*!
      * \brief
