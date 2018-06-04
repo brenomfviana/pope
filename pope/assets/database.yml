@@ -39,10 +39,10 @@ min_weight: 45
 
 # Documents
 passport_number: aaaaa_aaaaa # Format
-valid_moa_seals: [ AA, AB ] # M.O.A (Ministry of Admission)
-forged_moa_seals: [ AC, AD, AE, AF, AG, AH, AI ]
-valid_mol_seals: [ LA, LB, LC, LD ] # M.O.L (Ministry of Labor)
-forged_mol_seals: [ LE, LF, LG, LH, LI ]
+valid_moa_stamps: [ AA, AB ] # M.O.A (Ministry of Admission)
+forged_moa_stamps: [ AC, AD, AE, AF, AG, AH, AI ]
+valid_mol_stamps: [ LA, LB, LC, LD ] # M.O.L (Ministry of Labor)
+forged_mol_stamps: [ LE, LF, LG, LH, LI ]
 works: [ Accounting, Agriculture, Architecture, Aviation, Construction, Dentistry, Drafting, Engineering, Fine Arts, Fishing, Food Service, General labor, Healthcare, Manufacturing, Research, Sports, Statistics, Surveying ]
 purpose: [ Visit, Transit, Work, Immigrate ]
 
