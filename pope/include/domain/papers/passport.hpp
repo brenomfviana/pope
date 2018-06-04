@@ -20,22 +20,22 @@
 class Passport : public Paper {
   public:
     std::string passport_number; ///< Passport number
-    std::string seal; ///< Seal
+    std::string moa_stamp; ///< Ministry of Admission stamp
     Picture pic; ///< Entrant's picture
     char sex; ///< Entrant's sex
     Date date_of_birth; ///< Date of birth of entrant
     std::string country; ///< Country
     std::string issuing_city; ///< Issuing city
     Date expiration_date; ///< Expiration date
-    bool stamp; ///< Stamp
+    bool entry_visa; ///< Entry visa
 
     /*!
      * \brief Passport constructor
      *
      * \param passport_number
      *     Passport number
-     * \param seal
-     *     Seal
+     * \param moa_stamp
+     *     Ministry of Admission stamp
      * \param pic
      *     Entrant's picture
      * \param firstname
@@ -52,22 +52,20 @@ class Passport : public Paper {
      *     Issuing city
      * \param expiration_date
      *     Expiration date
-     * \param stamp
-     *     Stamp
      */
-    Passport(std::string passport_number, std::string seal, Picture pic,
+    Passport(std::string passport_number, std::string moa_stamp, Picture pic,
       std::string firstname, std::string lastname, char sex, Date date_of_birth,
       std::string country, std::string issuing_city, Date expiration_date) :
       Paper(firstname, lastname) {
         this->passport_number = passport_number;
-        this->seal = seal;
+        this->moa_stamp = moa_stamp;
         this->pic = pic;
         this->sex = sex;
         this->date_of_birth = date_of_birth;
         this->country = country;
         this->issuing_city = issuing_city;
         this->expiration_date = expiration_date;
-        this->stamp = false;
+        this->entry_visa = false;
     }
 
     /*!

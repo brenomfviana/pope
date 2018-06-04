@@ -89,7 +89,7 @@ bool Game::check_service(Entrant* entrant) {
       entrant->lastname != passport->lastname) {
         return false;
       }
-    if (passport->seal != "AA" && passport->seal != "AB") {
+    if (passport->moa_stamp != "AA" && passport->moa_stamp != "AB") {
       return false;
     }
     if (entrant->sex != passport->sex) {
@@ -158,7 +158,7 @@ bool Game::check_service(Entrant* entrant) {
       accesspermit->lastname != passport->lastname) {
         return false;
       }
-    if (accesspermit->seal != "AA" && accesspermit->seal != "AB") {
+    if (accesspermit->moa_stamp != "AA" && accesspermit->moa_stamp != "AB") {
       return false;
     }
     if (accesspermit->nationality != entrant->country) {
@@ -199,8 +199,8 @@ bool Game::check_service(Entrant* entrant) {
       workpass->lastname != passport->lastname) {
         return false;
       }
-    if (workpass->seal != "LA" || workpass->seal != "LB" ||
-      workpass->seal != "LC" || workpass->seal != "LD") {
+    if (workpass->mol_stamp != "LA" || workpass->mol_stamp != "LB" ||
+      workpass->mol_stamp != "LC" || workpass->mol_stamp != "LD") {
         return false;
       }
   }

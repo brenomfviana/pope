@@ -28,10 +28,10 @@ std::list<Entrant*> ContentReader::read(std::string path) {
         paper["pic"][3].as<std::string>());
       // Passport
       Passport* passport = new Passport(paper["passport_number"].as<std::string>(),
-        paper["seal"].as<std::string>(), pic, paper["firstname"].as<std::string>(),
-          paper["lastname"].as<std::string>(), paper["sex"].as<char>(),
-          paper["date_of_birth"].as<Date>(), paper["country"].as<std::string>(),
-          paper["issuing_city"].as<std::string>(), paper["expiration_date"].as<Date>());
+        paper["moa_stamp"].as<std::string>(), pic, paper["firstname"].as<std::string>(),
+        paper["lastname"].as<std::string>(), paper["sex"].as<char>(),
+        paper["date_of_birth"].as<Date>(), paper["country"].as<std::string>(),
+        paper["issuing_city"].as<std::string>(), paper["expiration_date"].as<Date>());
       papers.push_back(passport);
     }
     // Get ID card
@@ -54,9 +54,9 @@ std::list<Entrant*> ContentReader::read(std::string path) {
     if (object["accesspermit"]) {
       const YAML::Node& paper = object["accesspermit"];
       AccessPermit* accesspermit = new AccessPermit(paper["firstname"].as<std::string>(),
-        paper["lastname"].as<std::string>(), paper["seal"].as<std::string>(),
+        paper["lastname"].as<std::string>(), paper["moa_stamp"].as<std::string>(),
         paper["nationality"].as<std::string>(), paper["passport_number"].as<std::string>(),
-        paper["purpose"].as<std::string>(), paper["duration"].as<Duration>(),
+        paper["purpose"].as<std::string>(), paper["duration"].as<unsigned int>(),
         paper["height"].as<float>(), paper["weight"].as<unsigned int>(),
         paper["expiration_date"].as<Date>(), paper["physical_appearance"].as<std::string>());
       papers.push_back(accesspermit);
@@ -66,7 +66,7 @@ std::list<Entrant*> ContentReader::read(std::string path) {
       const YAML::Node& paper = object["workpass"];
       WorkPass* workpass = new WorkPass(paper["firstname"].as<std::string>(),
         paper["lastname"].as<std::string>(), paper["field"].as<std::string>(),
-        paper["seal"].as<std::string>(), paper["enddate"].as<Date>());
+        paper["mol_stamp"].as<std::string>(), paper["enddate"].as<Date>());
       papers.push_back(workpass);
     }
     // Get entrant
@@ -79,7 +79,7 @@ std::list<Entrant*> ContentReader::read(std::string path) {
       object["date_of_birth"].as<Date>(), object["height"].as<float>(),
       object["weight"].as<unsigned int>(), object["country"].as<std::string>(),
       object["city"].as<std::string>(), papers, object["purpose"].as<std::string>(),
-      object["bribe"].as<unsigned int>(), object["contraband"].as<std::string>());
+      object["bribe"].as<unsigned int>());
   }
   // Shuffle list
   shuffle(entrants);

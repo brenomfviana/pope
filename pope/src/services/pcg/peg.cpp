@@ -40,7 +40,6 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
         out << YAML::Key << "city" << YAML::Value << entrant->city;
         out << YAML::Key << "purpose" << YAML::Value << entrant->purpose;
         out << YAML::Key << "bribe" << YAML::Value << std::to_string(entrant->bribe);
-        out << YAML::Key << "contraband" << YAML::Value << entrant->contraband;
       out << YAML::EndMap;
     for (Paper* paper : entrant->papers) {
       // Passport
@@ -54,7 +53,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
             out << YAML::Key << "firstname" << YAML::Value << passport->firstname;
             out << YAML::Key << "lastname" << YAML::Value << passport->lastname;
             out << YAML::Key << "passport_number" << YAML::Value << passport->passport_number;
-            out << YAML::Key << "seal" << YAML::Value << passport->seal;
+            out << YAML::Key << "moa_stamp" << YAML::Value << passport->moa_stamp;
             out << YAML::Key << "sex" << YAML::Value << passport->sex;
             out << YAML::Key << "date_of_birth" << YAML::Value << passport->date_of_birth.to_str();
             out << YAML::Key << "country" << YAML::Value << passport->country;
@@ -87,11 +86,11 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
           out << YAML::BeginMap;
             out << YAML::Key << "firstname" << YAML::Value << accesspermit->firstname;
             out << YAML::Key << "lastname" << YAML::Value << accesspermit->lastname;
-            out << YAML::Key << "seal" << YAML::Value << accesspermit->seal;
+            out << YAML::Key << "moa_stamp" << YAML::Value << accesspermit->moa_stamp;
             out << YAML::Key << "nationality" << YAML::Value << accesspermit->nationality;
             out << YAML::Key << "passport_number" << YAML::Value << accesspermit->passport_number;
             out << YAML::Key << "purpose" << YAML::Value << accesspermit->purpose;
-            out << YAML::Key << "duration" << YAML::Value << accesspermit->duration.to_str();
+            out << YAML::Key << "duration" << YAML::Value << accesspermit->duration;
             out << YAML::Key << "height" << YAML::Value << accesspermit->height;
             out << YAML::Key << "weight" << YAML::Value << accesspermit->weight;
             out << YAML::Key << "expiration_date" << YAML::Value << accesspermit->expiration_date.to_str();
@@ -105,7 +104,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
           out << YAML::BeginMap;
             out << YAML::Key << "firstname" << YAML::Value << workpass->firstname;
             out << YAML::Key << "lastname" << YAML::Value << workpass->lastname;
-            out << YAML::Key << "seal" << YAML::Value << workpass->seal;
+            out << YAML::Key << "mol_stamp" << YAML::Value << workpass->mol_stamp;
             out << YAML::Key << "field" << YAML::Value << workpass->field;
             out << YAML::Key << "enddate" << YAML::Value << workpass->end.to_str();
           out << YAML::EndMap;
@@ -217,7 +216,6 @@ Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
   // Illegal variables
   int invalid_fields;
   unsigned int bribe;
-  std::string contraband;
   // If the entrant is illegal
   if (illegal) {
     // Amount of invalid fields
@@ -228,21 +226,13 @@ Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
     randi = RandomInt(0, 4);
     rng.seed(std::random_device()());
     bribe = randi(rng) * 5;
-    // If the entrant has contraband
-    rng.seed(std::random_device()());
-    randi = RandomInt(0, 3);
-    if (randi(rng) == 0) {
-      randi = RandomInt(0, database["contraband"].size() - 1);
-      rng.seed(std::random_device()());
-      contraband = database["contraband"][randi(rng)].as<std::string>();
-    }
   }
 
   // Generate entrant's papers
   std::list<Paper*> papers;
   // Create entrant
   Entrant* entrant = new Entrant(pic, firstname, lastname, sex, date_of_birth,
-    height, weight, country, city, papers, purpose, bribe, contraband);
+    height, weight, country, city, papers, purpose, bribe);
   // Passport
   Passport* passport = new_passport(database, entrant, illegal, invalid_fields);
   entrant->papers.push_back(passport);
@@ -286,10 +276,10 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
       s[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
     }
     std::string passport_number(s);
-    // Seal
-    randi = RandomInt(0, database["valid_moa_seals"].size() - 1);
+    // M.O.A. Stamp
+    randi = RandomInt(0, database["valid_moa_stamps"].size() - 1);
     rng.seed(std::random_device()());
-    std::string seal = database["valid_moa_seals"][randi(rng)].as<std::string>();
+    std::string moa_stamp = database["valid_moa_stamps"][randi(rng)].as<std::string>();
     // Issuing city
     std::string issuing_city;
     if (entrant->country == "arstotzka") {
@@ -364,10 +354,10 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
           }
         case 3:
           {
-            // Seal
-            randi = RandomInt(0, database["forged_moa_seals"].size() - 1);
+            // M.O.A. Stamp
+            randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
             rng.seed(std::random_device()());
-            std::string seal = database["forged_moa_seals"][randi(rng)].as<std::string>();
+            std::string moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
             break;
           }
         case 4:
@@ -436,7 +426,7 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
 
     picture = Picture(hair, facial_hair, vision, other);
 
-    return (new Passport(passport_number, seal, picture, firstname, lastname,
+    return (new Passport(passport_number, moa_stamp, picture, firstname, lastname,
       sex, date_of_birth, country, issuing_city, expiration_date));
 }
 
@@ -619,10 +609,10 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
     unsigned int weight = entrant->weight;
     std::string country = entrant->country;
     std::string purpose = entrant->purpose;
-    // Seal
-    randi = RandomInt(0, database["valid_moa_seals"].size() - 1);
+    // M.O.A. Stamp
+    randi = RandomInt(0, database["valid_moa_stamps"].size() - 1);
     rng.seed(std::random_device()());
-    std::string seal = database["valid_moa_seals"][randi(rng)].as<std::string>();
+    std::string moa_stamp = database["valid_moa_stamps"][randi(rng)].as<std::string>();
     // Expiration date
     time_t dmin = 406944000;
     time_t dmax = 473299200;
@@ -635,30 +625,24 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
     rng.seed(std::random_device()());
     std::string physical_appearance = pa[randi(rng)];
     // Duration
-    Duration duration;
+    unsigned int duration;
     if (purpose == "Visit") {
-      time_t dmin = 1209600;
-      time_t dmax = 7862400;
+      int dmin = 14;
+      int dmax = 90;
       randi = RandomInt(dmin, dmax);
-      time_t gd = randi(rng);
-      struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
+      duration = randi(rng);
     }
     if (purpose == "Transit") {
-      time_t dmin = 172800;
-      time_t dmax = 1209600;
+      int dmin = 2;
+      int dmax = 14;
       randi = RandomInt(dmin, dmax);
-      time_t gd = randi(rng);
-      struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
+      duration = randi(rng);
     }
     if (purpose == "Work") {
-      time_t dmin = 7862400;
-      time_t dmax = 31622400;
+      int dmin = 30;
+      int dmax = 180;
       randi = RandomInt(dmin, dmax);
-      time_t gd = randi(rng);
-      struct tm* tm = localtime(&gd);
-      duration = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
+      duration = randi(rng);
     }
 
     // If the entrant is illegal
@@ -681,10 +665,10 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           break;
         case 1:
           {
-            // Seal
-            randi = RandomInt(0, database["forged_moa_seals"].size() - 1);
+            // M.O.A. Stamp
+            randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
             rng.seed(std::random_device()());
-            std::string seal = database["forged_moa_seals"][randi(rng)].as<std::string>();
+            std::string moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
             break;
           }
         case 2:
@@ -801,7 +785,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
       }
     }
 
-    return (new AccessPermit(firstname, lastname, seal, country, passport_number,
+    return (new AccessPermit(firstname, lastname, moa_stamp, country, passport_number,
       purpose, duration, height, weight, expiration_date, physical_appearance));
 }
 
@@ -812,13 +796,9 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
     RandomInt randi;
 
     // Work end date
-    Duration d = accesspermit->duration;
-    struct tm aux;
-    aux.tm_year = d.year - 1900;
-    aux.tm_mon = d.month - 1;
-    aux.tm_mday = d.day;
-    time_t tend = 406944000 + mktime(&aux);
+    time_t tend = 406944000;
     struct tm* tm = localtime(&tend);
+    tm->tm_mday += accesspermit->duration;
     Date end(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
 
     // Work field
@@ -826,17 +806,17 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
     rng.seed(std::random_device()());
     std::string field = database["works"][randi(rng)].as<std::string>();
 
-    // Seal
-    randi = RandomInt(0, database["valid_mol_seals"].size() - 1);
+    // M.O.L. tamp
+    randi = RandomInt(0, database["valid_mol_stamps"].size() - 1);
     rng.seed(std::random_device()());
-    std::string seal = database["valid_mol_seals"][randi(rng)].as<std::string>();
+    std::string mol_stamp = database["valid_mol_stamps"][randi(rng)].as<std::string>();
 
     // If the entrant is illegal
     if (illegal) {
-      // Seal
-      randi = RandomInt(0, database["forged_mol_seals"].size() - 1);
+      // M.O.L. stamp
+      randi = RandomInt(0, database["forged_mol_stamps"].size() - 1);
       rng.seed(std::random_device()());
-      seal = database["forged_mol_seals"][randi(rng)].as<std::string>();
+      mol_stamp = database["forged_mol_stamps"][randi(rng)].as<std::string>();
       // Update invalid fields
       invalid_fields--;
       if (invalid_fields == 0) {
@@ -844,5 +824,5 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
       }
     }
 
-    return (new WorkPass(entrant->firstname, entrant->lastname, field, seal, end));
+    return (new WorkPass(entrant->firstname, entrant->lastname, field, mol_stamp, end));
 }

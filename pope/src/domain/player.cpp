@@ -10,7 +10,7 @@ void Player::approve() {
     if (typeid(paper) == typeid(Passport)) {
       // Approve
       Passport* passport = dynamic_cast<Passport*>(passport);
-      passport->stamp = true;
+      passport->entry_visa = true;
     }
   }
 }
@@ -21,7 +21,7 @@ void Player::deny() {
     if (typeid(paper) == typeid(Passport)) {
       // Deny
       Passport* passport = dynamic_cast<Passport*>(passport);
-      passport->stamp = false;
+      passport->entry_visa = false;
     }
   }
 }

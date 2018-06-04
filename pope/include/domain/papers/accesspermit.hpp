@@ -18,11 +18,11 @@
  */
 class AccessPermit : public Paper {
   public:
-    std::string seal; ///< Seal
+    std::string moa_stamp; ///< Ministry of admission stamp
     std::string nationality; ///< Nationality
     std::string passport_number; ///< Passport number
     std::string purpose; ///< Purpose
-    Duration duration; ///< Duration of stay
+    unsigned int duration; ///< Duration of stay in days
     float height; ///< Entrant height
     unsigned int weight; ///< Entrant weight
     Date expiration_date; ///< Expiration date
@@ -35,8 +35,8 @@ class AccessPermit : public Paper {
      *     Entrant's firstname
      * \param lastname
      *     Entrant's lastname
-     * \param seal
-     *     Seal
+     * \param moa_stamp
+     *     Ministry of admission stamp
      * \param nationality
      *     Nationality
      * \param passport_number
@@ -44,7 +44,7 @@ class AccessPermit : public Paper {
      * \param purpose
      *     Purpose
      * \param duration
-     *     Duration of stay
+     *     Duration of stay in days
      * \param height
      *     Entrant height
      * \param weight
@@ -54,19 +54,19 @@ class AccessPermit : public Paper {
      * \param physical_appearance
      *     Physical appearance
      */
-    AccessPermit(std::string firstname, std::string lastname, std::string seal,
+    AccessPermit(std::string firstname, std::string lastname, std::string moa_stamp,
       std::string nationality, std::string passport_number, std::string purpose,
-      Duration duration, float height, unsigned int weight, Date expiration_date,
+      unsigned int duration, float height, unsigned int weight, Date expiration_date,
       std::string physical_appearance) : Paper(firstname, lastname) {
-          this->seal = seal;
-          this->nationality = nationality;
-          this->passport_number = passport_number;
-          this->purpose = purpose;
-          this->duration = duration;
-          this->height = height;
-          this->weight = weight;
-          this->expiration_date = expiration_date;
-          this->physical_appearance = physical_appearance;
+        this->moa_stamp = moa_stamp;
+        this->nationality = nationality;
+        this->passport_number = passport_number;
+        this->purpose = purpose;
+        this->duration = duration;
+        this->height = height;
+        this->weight = weight;
+        this->expiration_date = expiration_date;
+        this->physical_appearance = physical_appearance;
     }
 
     /*!

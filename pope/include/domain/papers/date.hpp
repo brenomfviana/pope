@@ -54,6 +54,4 @@ class Date {
     }
 };
 
-typedef Date Duration;
-
 #endif /* _POPE_DATE_HPP_ */

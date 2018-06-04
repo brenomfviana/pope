@@ -19,7 +19,7 @@
 class WorkPass : public Paper {
   public:
     std::string field; ///< Field of work
-    std::string seal; ///< Seal
+    std::string mol_stamp; ///< Ministry of Labor stamp
     Date end; ///< Work end date
 
     /*!
@@ -31,15 +31,15 @@ class WorkPass : public Paper {
      *     Entrant's lastname
      * \param field
      *     Field of work
-     * \param seal
-     *     Seal
+     * \param mol_stamp
+     *     Ministry of Labor stamp
      * \param end
      *     Work end date
      */
     WorkPass(std::string firstname, std::string lastname, std::string field,
-      std::string seal, Date end) : Paper(firstname, lastname) {
+      std::string mol_stamp, Date end) : Paper(firstname, lastname) {
         this->field = field;
-        this->seal = seal;
+        this->mol_stamp = mol_stamp;
         this->end = end;
     }
 
