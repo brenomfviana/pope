@@ -76,7 +76,7 @@ class Game {
      *     True if the player made a right decision (according to the laws) and
      *     false otherwise
      */
-    bool check_service(Entrant* entrant);
+    bool check_decision(Entrant* entrant);
 
     /*!
      * \brief Check player illegal gains

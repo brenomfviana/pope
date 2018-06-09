@@ -301,16 +301,6 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
     std::string facial_hair = entrant->pic.facial_hair;
     std::string vision = entrant->pic.vision;
     std::string other = entrant->pic.other;
-    // // Change picture
-    // if (entrant->sex == MALE) {
-    //   randi = RandomInt(0, database["male_hair"].size() - 1);
-    //   rng.seed(std::random_device()());
-    //   hair = database["male_hair"][randi(rng)].as<std::string>();
-    // } else {
-    //   randi = RandomInt(0, database["female_hair"].size() - 1);
-    //   rng.seed(std::random_device()());
-    //   hair = database["female_hair"][randi(rng)].as<std::string>();
-    // }
     Picture picture(hair, facial_hair, vision, other);
 
     // If the entrant is illegal
@@ -795,6 +785,9 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
     std::mt19937 rng;
     RandomInt randi;
 
+    std::string firstname = entrant->firstname;
+    std::string lastname = entrant->lastname;
+
     // Work end date
     time_t tend = 406944000;
     struct tm* tm = localtime(&tend);
@@ -813,10 +806,50 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
 
     // If the entrant is illegal
     if (illegal) {
-      // M.O.L. stamp
-      randi = RandomInt(0, database["forged_mol_stamps"].size() - 1);
+      randi = RandomInt(0, 3);
       rng.seed(std::random_device()());
-      mol_stamp = database["forged_mol_stamps"][randi(rng)].as<std::string>();
+      switch (randi(rng)) {
+        case 0:
+          // Firstname
+          do {
+            // Random invalid firstname
+            rng.seed(std::random_device()());
+            randi = RandomInt(0, 1);
+            if (randi(rng) == 1) {
+              // Male firstnames
+              randi = RandomInt(0, database["male_firstnames"].size() - 1);
+              rng.seed(std::random_device()());
+              firstname = database["male_firstnames"][randi(rng)].as<std::string>();
+            } else {
+              // Female firstnames
+              randi = RandomInt(0, database["female_firstnames"].size() - 1);
+              rng.seed(std::random_device()());
+              firstname = database["female_firstnames"][randi(rng)].as<std::string>();
+            }
+          } while(firstname == entrant->firstname);
+          break;
+        case 1:
+          // Lastnames
+          do {
+            randi = RandomInt(0, database["lastnames"].size() - 1);
+            rng.seed(std::random_device()());
+            lastname = database["lastnames"][randi(rng)].as<std::string>();
+          } while(lastname == entrant->lastname);
+          break;
+        case 2:
+          // M.O.L. stamp
+          randi = RandomInt(0, database["forged_mol_stamps"].size() - 1);
+          rng.seed(std::random_device()());
+          mol_stamp = database["forged_mol_stamps"][randi(rng)].as<std::string>();
+        case 3:
+          // Work end date
+          randi = RandomInt(14, 180);
+          rng.seed(std::random_device()());
+          tend = 406944000;
+          struct tm* tm = localtime(&tend);
+          tm->tm_mday += accesspermit->duration + randi(rng);
+          end = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
+      }
       // Update invalid fields
       invalid_fields--;
       if (invalid_fields == 0) {
