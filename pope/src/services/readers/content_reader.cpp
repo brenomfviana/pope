@@ -46,7 +46,7 @@ std::list<Entrant*> ContentReader::read(std::string path) {
       IDCard* idcard = new IDCard(pic, paper["firstname"].as<std::string>(),
         paper["lastname"].as<std::string>(), paper["sex"].as<char>(),
         paper["date_of_birth"].as<Date>(), paper["country"].as<std::string>(),
-        paper["issuing_city"].as<std::string>(), paper["height"].as<float>(),
+        paper["city"].as<std::string>(), paper["height"].as<float>(),
         paper["weight"].as<unsigned int>());
       papers.push_back(idcard);
     }
@@ -70,18 +70,20 @@ std::list<Entrant*> ContentReader::read(std::string path) {
       papers.push_back(workpass);
     }
     // Get entrant
-    Picture pic(object["pic"][0].as<std::string>(),
-      object["pic"][1].as<std::string>(),
-      object["pic"][2].as<std::string>(),
-      object["pic"][3].as<std::string>());
-    Entrant* entrant = new Entrant(pic, object["firstname"].as<std::string>(),
-      object["lastname"].as<std::string>(), object["sex"].as<char>(),
-      object["date_of_birth"].as<Date>(), object["height"].as<float>(),
-      object["weight"].as<unsigned int>(), object["country"].as<std::string>(),
-      object["city"].as<std::string>(), papers, object["purpose"].as<std::string>(),
-      object["bribe"].as<unsigned int>());
+    const YAML::Node& eobj = object["entrant"];
+    Picture pic(eobj["pic"][0].as<std::string>(),
+      eobj["pic"][1].as<std::string>(),
+      eobj["pic"][2].as<std::string>(),
+      eobj["pic"][3].as<std::string>());
+    Entrant* entrant = new Entrant(pic, eobj["firstname"].as<std::string>(),
+      eobj["lastname"].as<std::string>(), eobj["sex"].as<char>(),
+      eobj["date_of_birth"].as<Date>(), eobj["height"].as<float>(),
+      eobj["weight"].as<unsigned int>(), eobj["country"].as<std::string>(),
+      eobj["city"].as<std::string>(), papers, eobj["purpose"].as<std::string>(),
+      eobj["bribe"].as<unsigned int>(), eobj["illegal"].as<bool>());
+    entrants.push_back(entrant);
   }
   // Shuffle list
-  shuffle(entrants);
+  // shuffle(entrants);
   return entrants;
 }

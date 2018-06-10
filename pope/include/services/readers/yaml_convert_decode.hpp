@@ -10,6 +10,7 @@
 #ifndef _POPE_YAML_TO_HPP_
 #define _POPE_YAML_TO_HPP_
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <yaml-cpp/yaml.h>
@@ -31,7 +32,7 @@ namespace YAML {
       if(node.IsSequence()) {
         return false;
       }
-      std::vector<std::string> v = split(node.as<std::string>(), '\\');
+      std::vector<std::string> v = split(node.as<std::string>(), '/');
       rhs = Date(std::stoi(v[0]), std::stoi(v[1]), std::stoi(v[2]));
       return true;
     }

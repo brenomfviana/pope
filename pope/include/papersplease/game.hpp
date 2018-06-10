@@ -13,7 +13,7 @@
 #include <iostream>
 #include <chrono>
 #include <yaml-cpp/yaml.h>
-#include "domain/player.hpp"
+#include "domain/players/player.hpp"
 #include "services/readers/database_reader.hpp"
 
 #define NAM 2 // Number of acceptable mistakes

@@ -9,9 +9,11 @@
 
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <list>
 #include "domain/entrant.hpp"
 #include "papersplease/game.hpp"
+#include "services/readers/content_reader.hpp"
 #include "services/readers/database_reader.hpp"
 #include "services/pcg/peg.hpp"
 
@@ -23,15 +25,16 @@ int main(int argc, char *argv[]) {
     entrants = PEG::generate(DatabaseReader::read("assets/database.yml"), 100);
   } else if (strcmp(argv[1], "-r") == 0) {
     // Read list of people (entrants)
+    entrants = ContentReader::read(std::string(argv[2]));
+    // Start game
+    Player* player = new PerfectBot();
+    Game game(entrants, player);
+    game.start();
   } else {
     // ERROR
     std::cerr << "Error: Invalid arguments." << '\n';
     return EXIT_FAILURE;
   }
-  // Start game
-  Player* player = new Player();
-  Game game(entrants, player);
-  game.start();
   // Exit
   return EXIT_SUCCESS;
 }

@@ -10,6 +10,7 @@
 #ifndef _POPE_CONTENT_READER_HPP_
 #define _POPE_CONTENT_READER_HPP_
 
+#include <iostream>
 #include <list>
 #include <string>
 #include <yaml-cpp/yaml.h>
@@ -31,7 +32,7 @@ class ContentReader {
      * \param path
      *     File path
      */
-    std::list<Entrant*> read(std::string path);
+    static std::list<Entrant*> read(std::string path);
 };
 
 #endif /* _POPE_CONTENT_READER_HPP_ */
