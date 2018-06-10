@@ -61,7 +61,7 @@ class PEG {
      *     Database
      */
     static Passport* new_passport(YAML::Node database, Entrant* entrant,
-      bool illegal, int& invalid_fields);
+      int& invalid_fields);
 
     /*!
      * \brief
@@ -70,7 +70,7 @@ class PEG {
      *     Database
      */
     static IDCard* new_idcard(YAML::Node database, Entrant* entrant,
-      bool illegal, int& invalid_fields);
+      int& invalid_fields);
 
     /*!
      * \brief
@@ -79,7 +79,7 @@ class PEG {
      *     Database
      */
     static AccessPermit* new_accesspermit(YAML::Node database, Entrant* entrant,
-      Passport* passport, bool illegal, int& invalid_fields);
+      Passport* passport, int& invalid_fields);
 
     /*!
      * \brief
@@ -88,7 +88,7 @@ class PEG {
      *     Database
      */
     static WorkPass* new_workpass(YAML::Node database, Entrant* entrant,
-      AccessPermit* accesspermit, bool illegal, int& invalid_fields);
+      AccessPermit* accesspermit, int& invalid_fields);
 };
 
 typedef std::uniform_int_distribution<std::mt19937::result_type> RandomInt;

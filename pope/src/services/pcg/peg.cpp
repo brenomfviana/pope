@@ -16,12 +16,14 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   out << YAML::BeginSeq;
   for (int i = 0; i < n; i++) {
     Entrant* entrant;
+    bool illegal = false;
     if (i < noie) {
       // Illegal entrant
-      entrant = new_entrant(database, true);
+      illegal = true;
+      entrant = new_entrant(database, illegal);
     } else {
       // Legal entrant
-      entrant = new_entrant(database, false);
+      entrant = new_entrant(database, illegal);
     }
     entrants.push_back(entrant);
     out << YAML::Value << YAML::BeginMap;
@@ -40,6 +42,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
         out << YAML::Key << "city" << YAML::Value << entrant->city;
         out << YAML::Key << "purpose" << YAML::Value << entrant->purpose;
         out << YAML::Key << "bribe" << YAML::Value << std::to_string(entrant->bribe);
+        out << YAML::Key << "illegal" << YAML::Value << (entrant->illegal ? "true" : "false");
       out << YAML::EndMap;
     for (Paper* paper : entrant->papers) {
       // Passport
@@ -132,7 +135,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   return entrants;
 }
 
-Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
+Entrant* PEG::new_entrant(YAML::Node database, bool illegal_entrant) {
   // Random variables
   std::mt19937 rng;
   RandomInt randi;
@@ -211,19 +214,18 @@ Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
   rng.seed(std::random_device()());
   std::string purpose = database["purpose"][randi(rng)].as<std::string>();
 
-
   //// Illegal entrant
   // Illegal variables
-  int invalid_fields;
-  unsigned int bribe;
+  int invalid_fields = 0;
+  unsigned int bribe = 0;
   // If the entrant is illegal
-  if (illegal) {
+  if (illegal_entrant) {
     // Amount of invalid fields
     randi = RandomInt(1, 5);
     rng.seed(std::random_device()());
     invalid_fields = randi(rng);
     // Amount of bribe
-    randi = RandomInt(0, 4);
+    randi = RandomInt(0, 7);
     rng.seed(std::random_device()());
     bribe = randi(rng) * 5;
   }
@@ -232,31 +234,31 @@ Entrant* PEG::new_entrant(YAML::Node database, bool illegal) {
   std::list<Paper*> papers;
   // Create entrant
   Entrant* entrant = new Entrant(pic, firstname, lastname, sex, date_of_birth,
-    height, weight, country, city, papers, purpose, bribe);
+    height, weight, country, city, papers, purpose, bribe, illegal_entrant);
   // Passport
-  Passport* passport = new_passport(database, entrant, illegal, invalid_fields);
+  Passport* passport = new_passport(database, entrant, invalid_fields);
   entrant->papers.push_back(passport);
   // If the entrant is a native
   if (country == "arstotzka") {
     // ID Card
-    entrant->papers.push_back(new_idcard(database, entrant, illegal,
-      invalid_fields));
+    entrant->papers.push_back(new_idcard(database, entrant, invalid_fields));
+    entrant->purpose = "";
     purpose = "";
   } else {
     // Access permit
     AccessPermit* accesspermit = new_accesspermit(database, entrant, passport,
-      illegal, invalid_fields);
+      invalid_fields);
     entrant->papers.push_back(accesspermit);
     if (purpose == "Work") {
       // Work pass
       entrant->papers.push_back(new_workpass(database, entrant, accesspermit,
-        illegal, invalid_fields));
+        invalid_fields));
     }
   }
   return entrant;
 }
 
-Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
+Passport* PEG::new_passport(YAML::Node database, Entrant* entrant,
   int& invalid_fields) {
     Passport* passport;
     // Random variables
@@ -304,11 +306,13 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
     Picture picture(hair, facial_hair, vision, other);
 
     // If the entrant is illegal
-    if (illegal) {
-      randi = RandomInt(0, 7);
+    if (invalid_fields > 0) {
+      randi = RandomInt(0, 6);
       rng.seed(std::random_device()());
       switch (randi(rng)) {
         case 0:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport firstname */" << '\n';
           // Firstname
           do {
             // Random invalid firstname
@@ -328,6 +332,8 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
           } while(firstname == entrant->firstname);
           break;
         case 1:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport lastname */" << '\n';
           // Lastnames
           do {
             randi = RandomInt(0, database["lastnames"].size() - 1);
@@ -336,6 +342,8 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
           } while(lastname == entrant->lastname);
           break;
         case 2:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport sex */" << '\n';
           // Sex
           if (entrant->sex == MALE) {
             sex = FEMALE;
@@ -343,14 +351,16 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
             sex = MALE;
           }
         case 3:
-          {
-            // M.O.A. Stamp
-            randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
-            rng.seed(std::random_device()());
-            std::string moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
-            break;
-          }
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport stamp */" << '\n';
+          // M.O.A. Stamp
+          randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
+          rng.seed(std::random_device()());
+          moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
+          break;
         case 4:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport picture */" << '\n';
           {
             // Picture
             do {
@@ -384,34 +394,25 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
             break;
           }
         case 5:
-          // Country
-          do {
-            randi = RandomInt(0, database["countries"].size() - 1);
-            rng.seed(std::random_device()());
-            country = database["countries"][randi(rng)].as<std::string>();
-          } while(country == entrant->country);
-          break;
-        case 6:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport issuing_city */" << '\n';
           // Issuing city
           random_shuffle(issuing_city.begin(), issuing_city.end());
           break;
-        case 7:
-          {
-            // Expiration date
-            time_t dmin = 86400;
-            time_t dmax = 604800;
-            randi = RandomInt(dmin, dmax);
-            time_t gd = 406944000 - randi(rng);
-            struct tm* tm = localtime(&gd);
-            expiration_date = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
-            break;
-          }
+        case 6:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Passport expiration_date */" << '\n';
+          // Expiration date
+          time_t dmin = 86400;
+          time_t dmax = 604800;
+          randi = RandomInt(dmin, dmax);
+          time_t gd = 406944000 - randi(rng);
+          struct tm* tm = localtime(&gd);
+          expiration_date = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+          break;
       }
       // Update invalid fields
-      invalid_fields--;
-      if (invalid_fields == 0) {
-        illegal = false;
-      }
+      invalid_fields -= 1;
     }
 
     picture = Picture(hair, facial_hair, vision, other);
@@ -420,7 +421,7 @@ Passport* PEG::new_passport(YAML::Node database, Entrant* entrant, bool illegal,
       sex, date_of_birth, country, issuing_city, expiration_date));
 }
 
-IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
+IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant,
   int& invalid_fields) {
     // Random variables
     std::mt19937 rng;
@@ -440,24 +441,16 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
     std::string facial_hair = entrant->pic.facial_hair;
     std::string vision = entrant->pic.vision;
     std::string other = entrant->pic.other;
-    // // Change picture
-    // if (entrant->sex == MALE) {
-    //   randi = RandomInt(0, database["male_hair"].size() - 1);
-    //   rng.seed(std::random_device()());
-    //   hair = database["male_hair"][randi(rng)].as<std::string>();
-    // } else {
-    //   randi = RandomInt(0, database["female_hair"].size() - 1);
-    //   rng.seed(std::random_device()());
-    //   hair = database["female_hair"][randi(rng)].as<std::string>();
-    // }
     Picture picture(hair, facial_hair, vision, other);
 
     // If the entrant is illegal
-    if (illegal) {
-      randi = RandomInt(0, 7);
+    if (invalid_fields > 0) {
+      randi = RandomInt(0, 5);
       rng.seed(std::random_device()());
       switch (randi(rng)) {
         case 0:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard firstname */" << '\n';
           // Firstname
           do {
             // Random invalid firstname
@@ -477,6 +470,8 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
           } while(firstname == entrant->firstname);
           break;
         case 1:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard lastname */" << '\n';
           // Lastnames
           do {
             randi = RandomInt(0, database["lastnames"].size() - 1);
@@ -485,6 +480,8 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
           } while(lastname == entrant->lastname);
           break;
         case 2:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard sex */" << '\n';
           // Sex
           if (entrant->sex == MALE) {
             sex = FEMALE;
@@ -492,22 +489,8 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
             sex = MALE;
           }
         case 3:
-          // Country
-          do {
-            randi = RandomInt(0, database["countries"].size() - 1);
-            rng.seed(std::random_device()());
-            country = database["countries"][randi(rng)].as<std::string>();
-          } while(country == entrant->country);
-          break;
-        case 4:
-          // City
-          do {
-            randi = RandomInt(0, database["cities"][country].size() - 1);
-            rng.seed(std::random_device()());
-            city = database["cities"][country][randi(rng)].as<std::string>();
-          } while(city == entrant->city);
-          break;
-        case 5:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard height */" << '\n';
           // Height
           do {
             rng.seed(std::random_device()());
@@ -516,7 +499,9 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
             height = (randi(rng) / (float) 100);
           } while(height == entrant->height);
           break;
-        case 6:
+        case 4:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard weight */" << '\n';
           // Weight
           do {
             rng.seed(std::random_device()());
@@ -525,45 +510,42 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
             weight = randi(rng);
           } while(weight == entrant->weight);
           break;
-        case 7:
-          {
-            // Picture
-            do {
+        case 5:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* IDCard picture */" << '\n';
+          // Picture
+          do {
+            rng.seed(std::random_device()());
+            randi = RandomInt(0, 1);
+            if (randi(rng) == 1) {
+              randi = RandomInt(0, database["male_hair"].size() - 1);
               rng.seed(std::random_device()());
-              randi = RandomInt(0, 1);
-              if (randi(rng) == 1) {
-                randi = RandomInt(0, database["male_hair"].size() - 1);
-                rng.seed(std::random_device()());
-                hair = database["male_hair"][randi(rng)].as<std::string>();
-              } else {
-                randi = RandomInt(0, database["female_hair"].size() - 1);
-                rng.seed(std::random_device()());
-                hair = database["female_hair"][randi(rng)].as<std::string>();
-              }
-            } while(hair == entrant->pic.hair);
-            do {
-              randi = RandomInt(0, database["facial_hair"].size() - 1);
+              hair = database["male_hair"][randi(rng)].as<std::string>();
+            } else {
+              randi = RandomInt(0, database["female_hair"].size() - 1);
               rng.seed(std::random_device()());
-              facial_hair = database["facial_hair"][randi(rng)].as<std::string>();
-            } while(facial_hair == entrant->pic.facial_hair);
-            do {
-              randi = RandomInt(0, database["vision"].size() - 1);
-              rng.seed(std::random_device()());
-              vision = database["vision"][randi(rng)].as<std::string>();
-            } while(vision == entrant->pic.vision);
-            do {
-              randi = RandomInt(0, database["other"].size() - 1);
-              rng.seed(std::random_device()());
-              other = database["other"][randi(rng)].as<std::string>();
-            } while(other == entrant->pic.other);
-            break;
-          }
-      }
+              hair = database["female_hair"][randi(rng)].as<std::string>();
+            }
+          } while(hair == entrant->pic.hair);
+          do {
+            randi = RandomInt(0, database["facial_hair"].size() - 1);
+            rng.seed(std::random_device()());
+            facial_hair = database["facial_hair"][randi(rng)].as<std::string>();
+          } while(facial_hair == entrant->pic.facial_hair);
+          do {
+            randi = RandomInt(0, database["vision"].size() - 1);
+            rng.seed(std::random_device()());
+            vision = database["vision"][randi(rng)].as<std::string>();
+          } while(vision == entrant->pic.vision);
+          do {
+            randi = RandomInt(0, database["other"].size() - 1);
+            rng.seed(std::random_device()());
+            other = database["other"][randi(rng)].as<std::string>();
+          } while(other == entrant->pic.other);
+          break;
+        }
       // Update invalid fields
-      invalid_fields--;
-      if (invalid_fields == 0) {
-        illegal = false;
-      }
+      invalid_fields -= 1;
     }
 
     picture = Picture(hair, facial_hair, vision, other);
@@ -573,7 +555,7 @@ IDCard* PEG::new_idcard(YAML::Node database, Entrant* entrant, bool illegal,
 }
 
 AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
-  Passport* passport, bool illegal, int& invalid_fields) {
+  Passport* passport, int& invalid_fields) {
     // Random variables
     std::mt19937 rng;
     RandomInt randi;
@@ -636,11 +618,13 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
     }
 
     // If the entrant is illegal
-    if (illegal) {
+    if (invalid_fields > 0) {
       randi = RandomInt(0, 9);
       rng.seed(std::random_device()());
       switch (randi(rng)) {
         case 0:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access passport number */" << '\n';
           // Passport number
           do {
             char s[10];
@@ -654,25 +638,27 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(passport_number == passport->passport_number);
           break;
         case 1:
-          {
-            // M.O.A. Stamp
-            randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
-            rng.seed(std::random_device()());
-            std::string moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
-            break;
-          }
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access stamp */" << '\n';
+          // M.O.A. Stamp
+          randi = RandomInt(0, database["forged_moa_stamps"].size() - 1);
+          rng.seed(std::random_device()());
+          moa_stamp = database["forged_moa_stamps"][randi(rng)].as<std::string>();
+          break;
         case 2:
-          {
-            // Expiration date
-            time_t dmin = 86400;
-            time_t dmax = 604800;
-            randi = RandomInt(dmin, dmax);
-            time_t gd = 406944000 - randi(rng);
-            struct tm* tm = localtime(&gd);
-            expiration_date = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
-            break;
-          }
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access expiration_date */" << '\n';
+          // Expiration date
+          dmin = 86400;
+          dmax = 604800;
+          randi = RandomInt(dmin, dmax);
+          gd = 406944000 - randi(rng);
+          tm = localtime(&gd);
+          expiration_date = Date(tm->tm_mday, tm->tm_mon, tm->tm_year + 1900);
+          break;
         case 3:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access physical_appearance */" << '\n';
           // Physical appearance
           do {
             rng.seed(std::random_device()());
@@ -707,6 +693,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(std::find(pa.begin(), pa.end(), physical_appearance) != pa.end());
           break;
         case 4:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access firstname */" << '\n';
           // Firstname
           do {
             // Random invalid firstname
@@ -726,6 +714,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(firstname == entrant->firstname);
           break;
         case 5:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access lastname */" << '\n';
           // Lastnames
           do {
             randi = RandomInt(0, database["lastnames"].size() - 1);
@@ -734,6 +724,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(lastname == entrant->lastname);
           break;
         case 6:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access height */" << '\n';
           // Height
           do {
             rng.seed(std::random_device()());
@@ -743,6 +735,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(height == entrant->height);
           break;
         case 7:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access weight */" << '\n';
           // Weight
           do {
             rng.seed(std::random_device()());
@@ -752,6 +746,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(weight == entrant->weight);
           break;
         case 8:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access country */" << '\n';
           // Country
           do {
             randi = RandomInt(0, database["countries"].size() - 1);
@@ -760,6 +756,8 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           } while(country == entrant->country);
           break;
         case 9:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Access purpose */" << '\n';
           // Purpose
           do {
             randi = RandomInt(0, database["purpose"].size() - 1);
@@ -769,10 +767,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
           break;
       }
       // Update invalid fields
-      invalid_fields--;
-      if (invalid_fields == 0) {
-        illegal = false;
-      }
+      invalid_fields -= 1;
     }
 
     return (new AccessPermit(firstname, lastname, moa_stamp, country, passport_number,
@@ -780,7 +775,7 @@ AccessPermit* PEG::new_accesspermit(YAML::Node database, Entrant* entrant,
 }
 
 WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
-  AccessPermit* accesspermit, bool illegal, int& invalid_fields) {
+  AccessPermit* accesspermit, int& invalid_fields) {
     // Random variables
     std::mt19937 rng;
     RandomInt randi;
@@ -805,11 +800,13 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
     std::string mol_stamp = database["valid_mol_stamps"][randi(rng)].as<std::string>();
 
     // If the entrant is illegal
-    if (illegal) {
+    if (invalid_fields > 0) {
       randi = RandomInt(0, 3);
       rng.seed(std::random_device()());
       switch (randi(rng)) {
         case 0:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Work pass firstname */" << '\n';
           // Firstname
           do {
             // Random invalid firstname
@@ -829,6 +826,8 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
           } while(firstname == entrant->firstname);
           break;
         case 1:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Work pass lastname */" << '\n';
           // Lastnames
           do {
             randi = RandomInt(0, database["lastnames"].size() - 1);
@@ -837,11 +836,15 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
           } while(lastname == entrant->lastname);
           break;
         case 2:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Work pass stamp */" << '\n';
           // M.O.L. stamp
           randi = RandomInt(0, database["forged_mol_stamps"].size() - 1);
           rng.seed(std::random_device()());
           mol_stamp = database["forged_mol_stamps"][randi(rng)].as<std::string>();
         case 3:
+          std::cout << entrant->firstname << " " << entrant->lastname << '\n';
+          std::cout << "/* Work pass work end date */" << '\n';
           // Work end date
           randi = RandomInt(14, 180);
           rng.seed(std::random_device()());
@@ -851,10 +854,7 @@ WorkPass* PEG::new_workpass(YAML::Node database, Entrant* entrant,
           end = Date(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
       }
       // Update invalid fields
-      invalid_fields--;
-      if (invalid_fields == 0) {
-        illegal = false;
-      }
+      invalid_fields -= 1;
     }
 
     return (new WorkPass(entrant->firstname, entrant->lastname, field, mol_stamp, end));
