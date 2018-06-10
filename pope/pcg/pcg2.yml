@@ -1,0 +1,4538 @@
+- entrant:
+    pic:
+      - Straight Hair
+      - None
+      - No Glasses
+      - Slim Figure
+    firstname: Ni
+    lastname: Farrugia
+    sex: F
+    date_of_birth: 1/3/1949
+    height: 1.67
+    weight: 54
+    country: republia
+    city: Bostan
+    purpose: Work
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Straight Hair
+      - None
+      - No Glasses
+      - Slim Figure
+    firstname: Fran
+    lastname: Farrugia
+    passport_number: JY9757ACX1
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 1/3/1949
+    country: republia
+    issuing_city: Bostan
+    expiration_date: 9/12/1983
+  accesspermit:
+    firstname: Ni
+    lastname: Farrugia
+    moa_stamp: AB
+    nationality: republia
+    passport_number: JY9757ACX1
+    purpose: Work
+    duration: 53
+    height: 1.67
+    weight: 54
+    expiration_date: 9/6/1984
+    physical_appearance: Slim Figure
+  workpass:
+    firstname: Ni
+    lastname: Farrugia
+    mol_stamp: LD
+    field: Agriculture
+    enddate: 76/11/1982
+- entrant:
+    pic:
+      - Dark Hair
+      - Killer Sideburns
+      - Glasses
+      - None
+    firstname: Daniel
+    lastname: Lindholm
+    sex: M
+    date_of_birth: 17/6/1932
+    height: 1.78
+    weight: 139
+    country: kolechia
+    city: Vedor
+    purpose: Visit
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Dark Hair
+      - Killer Sideburns
+      - Glasses
+      - None
+    firstname: Remas
+    lastname: Lindholm
+    passport_number: EVE7NMOIGS
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 17/6/1932
+    country: kolechia
+    issuing_city: Vedor
+    expiration_date: 1/1/1983
+  accesspermit:
+    firstname: Daniel
+    lastname: Lindholm
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: EVE7NMOIGS
+    purpose: Visit
+    duration: 33
+    height: 1.78
+    weight: 139
+    expiration_date: 18/10/1982
+    physical_appearance: Killer Sideburns
+- entrant:
+    pic:
+      - Short Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Maja
+    lastname: Rivero
+    sex: F
+    date_of_birth: 15/5/1936
+    height: 1.8
+    weight: 66
+    country: impor
+    city: Tsunkeido
+    purpose: Transit
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Short Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Maja
+    lastname: Rivero
+    passport_number: Z8FXQQQVJJ
+    moa_stamp: AC
+    sex: F
+    date_of_birth: 15/5/1936
+    country: impor
+    issuing_city: Tsunkeido
+    expiration_date: 11/1/1983
+  accesspermit:
+    firstname: Maja
+    lastname: Rivero
+    moa_stamp: AB
+    nationality: impor
+    passport_number: Z8FXQQQVJJ
+    purpose: Transit
+    duration: 6
+    height: 1.8
+    weight: 66
+    expiration_date: 21/10/1982
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Bobbed Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Fillip
+    lastname: Kukk
+    sex: M
+    date_of_birth: 11/9/1943
+    height: 1.63
+    weight: 136
+    country: arstotzka
+    city: Vescillo
+    purpose: ""
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Bobbed Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Fillip
+    lastname: Kukk
+    passport_number: 5IIU531GVY
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 11/9/1943
+    country: arstotzka
+    issuing_city: stsr niaGEet
+    expiration_date: 21/11/1983
+  idcard:
+    pic:
+      - Bobbed Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Maha
+    lastname: Kukk
+    sex: M
+    date_of_birth: 11/9/1943
+    country: arstotzka
+    city: Vescillo
+    height: 1.63
+    weight: 136
+- entrant:
+    pic:
+      - Long Wavy Hair
+      - Pencil Mustache
+      - No Glasses
+      - Round Face
+    firstname: Hugo
+    lastname: Clarke
+    sex: M
+    date_of_birth: 8/5/1953
+    height: 1.71
+    weight: 63
+    country: antegria
+    city: Glorian
+    purpose: Work
+    bribe: 35
+    illegal: true
+  passport:
+    pic:
+      - Long Wavy Hair
+      - Pencil Mustache
+      - No Glasses
+      - Round Face
+    firstname: Hugo
+    lastname: Clarke
+    passport_number: AJ889EE4DX
+    moa_stamp: AG
+    sex: M
+    date_of_birth: 8/5/1953
+    country: antegria
+    issuing_city: Glorian
+    expiration_date: 19/6/1983
+  accesspermit:
+    firstname: Hugo
+    lastname: Clarke
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: AJ889EE4DX
+    purpose: Work
+    duration: 153
+    height: 1.71
+    weight: 63
+    expiration_date: 22/1/1984
+    physical_appearance: Pencil Mustache
+  workpass:
+    firstname: Hugo
+    lastname: Clarke
+    mol_stamp: LA
+    field: General labor
+    enddate: 176/11/1982
+- entrant:
+    pic:
+      - Dark Hair
+      - No Mustache
+      - Glasses
+      - Slim Figure
+    firstname: Emils
+    lastname: Simic
+    sex: M
+    date_of_birth: 21/8/1932
+    height: 1.92
+    weight: 137
+    country: republia
+    city: True Glorian
+    purpose: Immigrate
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Dark Hair
+      - No Mustache
+      - Glasses
+      - Slim Figure
+    firstname: Emils
+    lastname: Simic
+    passport_number: 9WFKHYLDT0
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 21/8/1932
+    country: republia
+    issuing_city: True Glorian
+    expiration_date: 22/10/1982
+  accesspermit:
+    firstname: Emils
+    lastname: Simic
+    moa_stamp: AB
+    nationality: republia
+    passport_number: 9WFKHYLDT0
+    purpose: Immigrate
+    duration: 153
+    height: 1.92
+    weight: 137
+    expiration_date: 19/2/1983
+    physical_appearance: Slim Figure
+- entrant:
+    pic:
+      - Afro
+      - None
+      - Thick Glasses
+      - None
+    firstname: Malea
+    lastname: Mortensen
+    sex: F
+    date_of_birth: 13/6/1946
+    height: 1.8
+    weight: 150
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Work
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Afro
+      - None
+      - Thick Glasses
+      - None
+    firstname: Malea
+    lastname: Mortensen
+    passport_number: RI92F2WFE7
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 13/6/1946
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 22/10/1982
+  accesspermit:
+    firstname: Malea
+    lastname: Mortensen
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: RI92F2WFE7
+    purpose: Work
+    duration: 70
+    height: 1.8
+    weight: 150
+    expiration_date: 12/9/1984
+    physical_appearance: None
+  workpass:
+    firstname: Malea
+    lastname: Mortensen
+    mol_stamp: LC
+    field: Statistics
+    enddate: 93/11/1982
+- entrant:
+    pic:
+      - Shaved Head
+      - None
+      - Thick Glasses
+      - None
+    firstname: Kamile
+    lastname: Oliynyk
+    sex: F
+    date_of_birth: 16/12/1945
+    height: 1.45
+    weight: 139
+    country: obristan
+    city: Mergerous
+    purpose: Work
+    bribe: 15
+    illegal: true
+  passport:
+    pic:
+      - Shaved Head
+      - None
+      - Thick Glasses
+      - None
+    firstname: Kamile
+    lastname: Oliynyk
+    passport_number: OOQWCFBQJO
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 16/12/1945
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 17/10/1982
+  accesspermit:
+    firstname: Kamile
+    lastname: Oliynyk
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: OOQWCFBQJO
+    purpose: Work
+    duration: 60
+    height: 1.45
+    weight: 139
+    expiration_date: 26/3/1983
+    physical_appearance: None
+  workpass:
+    firstname: Kamile
+    lastname: Oliynyk
+    mol_stamp: LE
+    field: Research
+    enddate: 103/11/1982
+- entrant:
+    pic:
+      - Short Curly Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Round Face
+    firstname: Emils
+    lastname: Davies
+    sex: M
+    date_of_birth: 18/6/1936
+    height: 1.98
+    weight: 105
+    country: obristan
+    city: Skal
+    purpose: Immigrate
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Short Curly Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Round Face
+    firstname: Emils
+    lastname: Davies
+    passport_number: O80JSYIUBR
+    moa_stamp: AD
+    sex: F
+    date_of_birth: 18/6/1936
+    country: obristan
+    issuing_city: Skal
+    expiration_date: 21/3/1983
+  accesspermit:
+    firstname: Emils
+    lastname: Davies
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: O80JSYIUBR
+    purpose: Immigrate
+    duration: 60
+    height: 1.98
+    weight: 105
+    expiration_date: 11/6/1984
+    physical_appearance: Clean Shaven
+- entrant:
+    pic:
+      - Long Wavy Hair
+      - Clean Shaven
+      - Glasses
+      - None
+    firstname: Arnav
+    lastname: Neves
+    sex: M
+    date_of_birth: 12/10/1930
+    height: 2.08
+    weight: 107
+    country: republia
+    city: Bostan
+    purpose: Immigrate
+    bribe: 0
+    illegal: true
+  passport:
+    pic:
+      - Cropped Hair
+      - Large Sideburns
+      - Thick Glasses
+      - Overweight
+    firstname: Arnav
+    lastname: Neves
+    passport_number: A2AZL52X0G
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 12/10/1930
+    country: republia
+    issuing_city: Bostan
+    expiration_date: 3/9/1984
+  accesspermit:
+    firstname: Arnav
+    lastname: Neves
+    moa_stamp: AI
+    nationality: republia
+    passport_number: A2AZL52X0G
+    purpose: Immigrate
+    duration: 60
+    height: 2.08
+    weight: 107
+    expiration_date: 9/8/1983
+    physical_appearance: Long Wavy Hair
+- entrant:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - No Glasses
+      - Slim Figure
+    firstname: Fang
+    lastname: Neves
+    sex: F
+    date_of_birth: 4/3/1936
+    height: 1.65
+    weight: 70
+    country: arstotzka
+    city: Vescillo
+    purpose: ""
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - No Glasses
+      - Slim Figure
+    firstname: Fang
+    lastname: Moser
+    passport_number: KPKQ1X5SN4
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 4/3/1936
+    country: arstotzka
+    issuing_city: East Grestin
+    expiration_date: 27/4/1984
+  idcard:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - No Glasses
+      - Slim Figure
+    firstname: Fang
+    lastname: Neves
+    sex: F
+    date_of_birth: 4/3/1936
+    country: arstotzka
+    city: Vescillo
+    height: 1.65
+    weight: 70
+- entrant:
+    pic:
+      - Short Straight Hair
+      - Large Sideburns
+      - Thick Glasses
+      - Small Head
+    firstname: Jayden
+    lastname: Oblak
+    sex: M
+    date_of_birth: 15/8/1931
+    height: 1.6
+    weight: 51
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Transit
+    bribe: 35
+    illegal: true
+  passport:
+    pic:
+      - Short Straight Hair
+      - Large Sideburns
+      - Thick Glasses
+      - Small Head
+    firstname: Jayden
+    lastname: Oblak
+    passport_number: XRDXBLB9V3
+    moa_stamp: AG
+    sex: M
+    date_of_birth: 15/8/1931
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 30/6/1983
+  accesspermit:
+    firstname: Jayden
+    lastname: Oblak
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: XRDXBLB9V3
+    purpose: Transit
+    duration: 3
+    height: 1.6
+    weight: 51
+    expiration_date: 25/8/1983
+    physical_appearance: Short Straight Hair
+- entrant:
+    pic:
+      - Widow's Peak
+      - Pencil Mustache
+      - No Glasses
+      - None
+    firstname: Nihad
+    lastname: Marin
+    sex: M
+    date_of_birth: 11/1/1946
+    height: 1.74
+    weight: 48
+    country: kolechia
+    city: West Grestin
+    purpose: Immigrate
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Widow's Peak
+      - Pencil Mustache
+      - No Glasses
+      - None
+    firstname: Dan
+    lastname: Marin
+    passport_number: G5L65MBNKS
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 11/1/1946
+    country: kolechia
+    issuing_city: West Grestin
+    expiration_date: 26/12/1984
+  accesspermit:
+    firstname: Nihad
+    lastname: Marin
+    moa_stamp: AB
+    nationality: kolechia
+    passport_number: G5L65MBNKS
+    purpose: Immigrate
+    duration: 3
+    height: 1.74
+    weight: 48
+    expiration_date: 3/11/1984
+    physical_appearance: Pencil Mustache
+- entrant:
+    pic:
+      - Straight Hair
+      - None
+      - No Glasses
+      - Small Head
+    firstname: Angel
+    lastname: Paulauskas
+    sex: F
+    date_of_birth: 6/2/1962
+    height: 1.41
+    weight: 83
+    country: kolechia
+    city: Vedor
+    purpose: Visit
+    bribe: 5
+    illegal: true
+  passport:
+    pic:
+      - Straight Hair
+      - None
+      - No Glasses
+      - Small Head
+    firstname: Angel
+    lastname: Paulauskas
+    passport_number: 3KH3BI0GB4
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 6/2/1962
+    country: kolechia
+    issuing_city: deVro
+    expiration_date: 24/4/1983
+  accesspermit:
+    firstname: Angel
+    lastname: Paulauskas
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: 3KH3BI0GB4
+    purpose: Visit
+    duration: 79
+    height: 1.41
+    weight: 83
+    expiration_date: 13/7/1983
+    physical_appearance: Straight Hair
+- entrant:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Tianna
+    lastname: Ortiz
+    sex: F
+    date_of_birth: 15/10/1940
+    height: 1.53
+    weight: 118
+    country: republia
+    city: True Glorian
+    purpose: Immigrate
+    bribe: 35
+    illegal: true
+  passport:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Tianna
+    lastname: Ortiz
+    passport_number: 12FDBBG8W1
+    moa_stamp: AG
+    sex: M
+    date_of_birth: 15/10/1940
+    country: republia
+    issuing_city: True Glorian
+    expiration_date: 1/8/1984
+  accesspermit:
+    firstname: Tianna
+    lastname: Ortiz
+    moa_stamp: AA
+    nationality: republia
+    passport_number: 12FDBBG8W1
+    purpose: Immigrate
+    duration: 79
+    height: 1.53
+    weight: 118
+    expiration_date: 4/11/1984
+    physical_appearance: Curly Bobbed Hair
+- entrant:
+    pic:
+      - Bald
+      - Pencil Mustache
+      - No Glasses
+      - Small Head
+    firstname: Alvaro
+    lastname: Vella
+    sex: M
+    date_of_birth: 31/8/1938
+    height: 2.02
+    weight: 113
+    country: impor
+    city: Tsunkeido
+    purpose: Work
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Bald
+      - Pencil Mustache
+      - No Glasses
+      - Small Head
+    firstname: Sota
+    lastname: Vella
+    passport_number: E14Q4OYN8F
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 31/8/1938
+    country: impor
+    issuing_city: Tsunkeido
+    expiration_date: 30/10/1984
+  accesspermit:
+    firstname: Alvaro
+    lastname: Vella
+    moa_stamp: AB
+    nationality: impor
+    passport_number: E14Q4OYN8F
+    purpose: Work
+    duration: 48
+    height: 2.02
+    weight: 113
+    expiration_date: 2/3/1984
+    physical_appearance: Small Head
+  workpass:
+    firstname: Alvaro
+    lastname: Vella
+    mol_stamp: LB
+    field: General labor
+    enddate: 159/11/1982
+- entrant:
+    pic:
+      - Long Wavy Hair
+      - Goatee
+      - No Glasses
+      - Small Head
+    firstname: Riley
+    lastname: Bozic
+    sex: M
+    date_of_birth: 22/9/1939
+    height: 1.96
+    weight: 132
+    country: republia
+    city: Lesrenadi
+    purpose: Visit
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Long Wavy Hair
+      - Goatee
+      - No Glasses
+      - Small Head
+    firstname: Riley
+    lastname: Bozic
+    passport_number: RZDRG4BHSN
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 22/9/1939
+    country: republia
+    issuing_city: anLiedsre
+    expiration_date: 1/9/1984
+  accesspermit:
+    firstname: Riley
+    lastname: Bozic
+    moa_stamp: AA
+    nationality: republia
+    passport_number: RZDRG4BHSN
+    purpose: Visit
+    duration: 81
+    height: 1.96
+    weight: 132
+    expiration_date: 23/8/1984
+    physical_appearance: Goatee
+- entrant:
+    pic:
+      - Short Curly Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Habiba
+    lastname: Knudsen
+    sex: F
+    date_of_birth: 10/11/1956
+    height: 1.81
+    weight: 140
+    country: unitedfederation
+    city: Korista City
+    purpose: Work
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Short Curly Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Habiba
+    lastname: Knudsen
+    passport_number: PEK3FO9KS7
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 10/11/1956
+    country: unitedfederation
+    issuing_city: Ks Caotiiytr
+    expiration_date: 5/4/1984
+  accesspermit:
+    firstname: Habiba
+    lastname: Knudsen
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: PEK3FO9KS7
+    purpose: Work
+    duration: 77
+    height: 1.81
+    weight: 140
+    expiration_date: 5/12/1983
+    physical_appearance: Short Curly Hair
+  workpass:
+    firstname: Habiba
+    lastname: Knudsen
+    mol_stamp: LH
+    field: Research
+    enddate: 130/11/1982
+- entrant:
+    pic:
+      - Long Hair
+      - None
+      - No Glasses
+      - Overweight
+    firstname: Fatin
+    lastname: Pichler
+    sex: F
+    date_of_birth: 17/7/1931
+    height: 1.54
+    weight: 142
+    country: obristan
+    city: Skal
+    purpose: Immigrate
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Curly Bobbed Hair
+      - No Mustache
+      - Thick Glasses
+      - Slim Figure
+    firstname: Fatin
+    lastname: Pichler
+    passport_number: T0K36BQNST
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 17/7/1931
+    country: obristan
+    issuing_city: Skal
+    expiration_date: 15/5/1984
+  accesspermit:
+    firstname: Fatin
+    lastname: Pichler
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: T0K36BQNST
+    purpose: Immigrate
+    duration: 77
+    height: 1.54
+    weight: 142
+    expiration_date: 3/2/1984
+    physical_appearance: Long Hair
+- entrant:
+    pic:
+      - Short Hair
+      - No Mustache
+      - Glasses
+      - Small Head
+    firstname: Faris
+    lastname: Sanders
+    sex: M
+    date_of_birth: 19/11/1956
+    height: 1.66
+    weight: 110
+    country: unitedfederation
+    city: Korista City
+    purpose: Visit
+    bribe: 5
+    illegal: true
+  passport:
+    pic:
+      - Short Hair
+      - No Mustache
+      - Glasses
+      - Small Head
+    firstname: Faris
+    lastname: Sanders
+    passport_number: S6TB2YL268
+    moa_stamp: AG
+    sex: F
+    date_of_birth: 19/11/1956
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 7/9/1983
+  accesspermit:
+    firstname: Faris
+    lastname: Sanders
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: S6TB2YL268
+    purpose: Visit
+    duration: 26
+    height: 1.66
+    weight: 110
+    expiration_date: 22/10/1982
+    physical_appearance: No Mustache
+- entrant:
+    pic:
+      - Light Curly Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Elisabeth
+    lastname: Schmid
+    sex: F
+    date_of_birth: 30/5/1954
+    height: 1.91
+    weight: 74
+    country: republia
+    city: Bostan
+    purpose: Work
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Light Curly Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Rinor
+    lastname: Schmid
+    passport_number: P3R4KNQCN3
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 30/5/1954
+    country: republia
+    issuing_city: Bostan
+    expiration_date: 11/10/1983
+  accesspermit:
+    firstname: Elisabeth
+    lastname: Schmid
+    moa_stamp: AB
+    nationality: republia
+    passport_number: P3R4KNQCN3
+    purpose: Work
+    duration: 137
+    height: 1.91
+    weight: 74
+    expiration_date: 9/6/1983
+    physical_appearance: Small Head
+  workpass:
+    firstname: Elisabeth
+    lastname: Schmid
+    mol_stamp: LA
+    field: Dentistry
+    enddate: 160/11/1982
+- entrant:
+    pic:
+      - Cropped Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - None
+    firstname: Nikoloz
+    lastname: Oblak
+    sex: M
+    date_of_birth: 15/2/1931
+    height: 1.6
+    weight: 74
+    country: obristan
+    city: Mergerous
+    purpose: Immigrate
+    bribe: 0
+    illegal: true
+  passport:
+    pic:
+      - Cropped Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - None
+    firstname: Nikoloz
+    lastname: Oblak
+    passport_number: MW4MZAXPD6
+    moa_stamp: AH
+    sex: F
+    date_of_birth: 15/2/1931
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 16/12/1984
+  accesspermit:
+    firstname: Nikoloz
+    lastname: Oblak
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: MW4MZAXPD6
+    purpose: Immigrate
+    duration: 137
+    height: 1.6
+    weight: 74
+    expiration_date: 12/4/1984
+    physical_appearance: Pencil Mustache
+- entrant:
+    pic:
+      - Bobbed Hair
+      - Beard
+      - No Glasses
+      - Slim Figure
+    firstname: Javier
+    lastname: Kazlauskas
+    sex: M
+    date_of_birth: 9/10/1959
+    height: 1.57
+    weight: 148
+    country: antegria
+    city: St. Marmero
+    purpose: Visit
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Mohawk
+      - Large Mustache
+      - Thick Glasses
+      - Round Face
+    firstname: Javier
+    lastname: Kazlauskas
+    passport_number: Y5C8GU6HWS
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 9/10/1959
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 11/11/1984
+  accesspermit:
+    firstname: Javier
+    lastname: Kazlauskas
+    moa_stamp: AG
+    nationality: antegria
+    passport_number: Y5C8GU6HWS
+    purpose: Visit
+    duration: 38
+    height: 1.57
+    weight: 148
+    expiration_date: 4/6/1983
+    physical_appearance: No Glasses
+- entrant:
+    pic:
+      - Large Curly Locks
+      - Large Sideburns
+      - Thick Glasses
+      - None
+    firstname: Atharv
+    lastname: Muller
+    sex: M
+    date_of_birth: 19/4/1933
+    height: 1.43
+    weight: 92
+    country: impor
+    city: Enkyo
+    purpose: Transit
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Large Curly Locks
+      - Large Sideburns
+      - Thick Glasses
+      - None
+    firstname: Atharv
+    lastname: Lechkov/Lechkova
+    passport_number: 62WX6W0C8N
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 19/4/1933
+    country: impor
+    issuing_city: Enkyo
+    expiration_date: 5/7/1983
+  accesspermit:
+    firstname: Atharv
+    lastname: Muller
+    moa_stamp: AA
+    nationality: impor
+    passport_number: FAKZXZ9AP2
+    purpose: Transit
+    duration: 2
+    height: 1.43
+    weight: 92
+    expiration_date: 21/12/1984
+    physical_appearance: Thick Glasses
+- entrant:
+    pic:
+      - Balding
+      - Large Sideburns
+      - No Glasses
+      - Slim Figure
+    firstname: Silvio
+    lastname: Barisic
+    sex: M
+    date_of_birth: 28/1/1942
+    height: 2.01
+    weight: 126
+    country: impor
+    city: Haihan
+    purpose: Visit
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Balding
+      - Large Sideburns
+      - No Glasses
+      - Slim Figure
+    firstname: Silvio
+    lastname: Barisic
+    passport_number: G37TB43X10
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 28/1/1942
+    country: impor
+    issuing_city: aanHih
+    expiration_date: 5/7/1983
+  accesspermit:
+    firstname: Silvio
+    lastname: Barisic
+    moa_stamp: AB
+    nationality: impor
+    passport_number: G37TB43X10
+    purpose: Visit
+    duration: 55
+    height: 2.01
+    weight: 126
+    expiration_date: 5/6/1984
+    physical_appearance: No Glasses
+- entrant:
+    pic:
+      - Shaved Head
+      - None
+      - No Glasses
+      - Overweight
+    firstname: Shreya
+    lastname: Semjonov
+    sex: F
+    date_of_birth: 3/1/1940
+    height: 1.67
+    weight: 119
+    country: impor
+    city: Enkyo
+    purpose: Immigrate
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Shaved Head
+      - None
+      - No Glasses
+      - Overweight
+    firstname: Shreya
+    lastname: Semjonov
+    passport_number: OYK06OVXOV
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 3/1/1940
+    country: impor
+    issuing_city: yEkon
+    expiration_date: 12/11/1983
+  accesspermit:
+    firstname: Shreya
+    lastname: Semjonov
+    moa_stamp: AA
+    nationality: impor
+    passport_number: OYK06OVXOV
+    purpose: Immigrate
+    duration: 55
+    height: 1.67
+    weight: 119
+    expiration_date: 20/1/1984
+    physical_appearance: Overweight
+- entrant:
+    pic:
+      - Short Hair
+      - Killer Sideburns
+      - No Glasses
+      - Slim Figure
+    firstname: Said
+    lastname: Petersons
+    sex: M
+    date_of_birth: 20/11/1934
+    height: 1.63
+    weight: 83
+    country: antegria
+    city: St. Marmero
+    purpose: Immigrate
+    bribe: 35
+    illegal: true
+  passport:
+    pic:
+      - Short Hair
+      - Killer Sideburns
+      - No Glasses
+      - Slim Figure
+    firstname: Said
+    lastname: Petersons
+    passport_number: S3LWQUNUX1
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 20/11/1934
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 18/10/1982
+  accesspermit:
+    firstname: Said
+    lastname: Petersons
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: S3LWQUNUX1
+    purpose: Immigrate
+    duration: 55
+    height: 1.63
+    weight: 83
+    expiration_date: 21/10/1982
+    physical_appearance: Killer Sideburns
+- entrant:
+    pic:
+      - Long Straight Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Abril
+    lastname: Stankevicius
+    sex: F
+    date_of_birth: 10/6/1963
+    height: 1.75
+    weight: 149
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Transit
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Long Straight Hair
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Abril
+    lastname: Stankevicius
+    passport_number: CD7ZV9KJ7K
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 10/6/1963
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 17/10/1982
+  accesspermit:
+    firstname: Abril
+    lastname: Stankevicius
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: CD7ZV9KJ7K
+    purpose: Transit
+    duration: 12
+    height: 1.75
+    weight: 149
+    expiration_date: 29/3/1983
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - Small Head
+    firstname: Ronja
+    lastname: Jones
+    sex: F
+    date_of_birth: 15/4/1962
+    height: 1.85
+    weight: 74
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Immigrate
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - Small Head
+    firstname: Ronja
+    lastname: Jones
+    passport_number: ZTOBQCM0GM
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 15/4/1962
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 19/10/1982
+  accesspermit:
+    firstname: Ronja
+    lastname: Jones
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: 58P6KG08QD
+    purpose: Immigrate
+    duration: 12
+    height: 1.85
+    weight: 74
+    expiration_date: 8/10/1984
+    physical_appearance: Small Head
+- entrant:
+    pic:
+      - Long Straight Hair
+      - None
+      - No Glasses
+      - Small Head
+    firstname: Brianna
+    lastname: Beqiri
+    sex: F
+    date_of_birth: 9/9/1947
+    height: 1.77
+    weight: 150
+    country: antegria
+    city: St. Marmero
+    purpose: Visit
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Long Straight Hair
+      - None
+      - No Glasses
+      - Small Head
+    firstname: Brianna
+    lastname: Beqiri
+    passport_number: 927G22522C
+    moa_stamp: AI
+    sex: M
+    date_of_birth: 9/9/1947
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 26/6/1983
+  accesspermit:
+    firstname: Brianna
+    lastname: Beqiri
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: 2HLRSCJESZ
+    purpose: Visit
+    duration: 62
+    height: 1.77
+    weight: 150
+    expiration_date: 3/2/1984
+    physical_appearance: Long Straight Hair
+- entrant:
+    pic:
+      - Bobbed Hair
+      - Beard
+      - Glasses
+      - None
+    firstname: Nu'rislam
+    lastname: Alonso
+    sex: M
+    date_of_birth: 19/5/1956
+    height: 1.74
+    weight: 119
+    country: arstotzka
+    city: Fardesto
+    purpose: ""
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Bobbed Hair
+      - Beard
+      - Glasses
+      - None
+    firstname: Nu'rislam
+    lastname: Alonso
+    passport_number: HX86JSMZGD
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 19/5/1956
+    country: arstotzka
+    issuing_city: Paradizna
+    expiration_date: 21/10/1982
+  idcard:
+    pic:
+      - Bobbed Hair
+      - Beard
+      - Glasses
+      - None
+    firstname: Nu'rislam
+    lastname: Alonso
+    sex: F
+    date_of_birth: 19/5/1956
+    country: arstotzka
+    city: Fardesto
+    height: 1.87
+    weight: 119
+- entrant:
+    pic:
+      - Large Curly Locks
+      - Goatee
+      - Glasses
+      - Overweight
+    firstname: Mustapha
+    lastname: Schneide
+    sex: M
+    date_of_birth: 30/7/1957
+    height: 1.62
+    weight: 72
+    country: impor
+    city: Haihan
+    purpose: Transit
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Large Curly Locks
+      - Goatee
+      - Glasses
+      - Overweight
+    firstname: Mustapha
+    lastname: Schneide
+    passport_number: D5VK1D26F4
+    moa_stamp: AI
+    sex: F
+    date_of_birth: 30/7/1957
+    country: impor
+    issuing_city: Haihan
+    expiration_date: 1/10/1984
+  accesspermit:
+    firstname: Mustapha
+    lastname: Schneide
+    moa_stamp: AB
+    nationality: impor
+    passport_number: YY2KPUCOP4
+    purpose: Transit
+    duration: 10
+    height: 1.62
+    weight: 72
+    expiration_date: 29/9/1984
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Mohawk
+      - No Mustache
+      - No Glasses
+      - Round Face
+    firstname: Dmitry
+    lastname: Hernandez
+    sex: M
+    date_of_birth: 10/8/1952
+    height: 1.84
+    weight: 90
+    country: kolechia
+    city: West Grestin
+    purpose: Immigrate
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Short Hair
+      - Clean Shaven
+      - Thick Glasses
+      - None
+    firstname: Dmitry
+    lastname: Hernandez
+    passport_number: O6ICC1KF11
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 10/8/1952
+    country: kolechia
+    issuing_city: West Grestin
+    expiration_date: 22/9/1984
+  accesspermit:
+    firstname: Dmitry
+    lastname: Hernandez
+    moa_stamp: AB
+    nationality: kolechia
+    passport_number: O6ICC1KF11
+    purpose: Immigrate
+    duration: 10
+    height: 1.84
+    weight: 90
+    expiration_date: 25/6/1984
+    physical_appearance: No Mustache
+- entrant:
+    pic:
+      - Very Short Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Shira
+    lastname: Hagen
+    sex: F
+    date_of_birth: 6/4/1931
+    height: 2.08
+    weight: 80
+    country: obristan
+    city: Skal
+    purpose: Visit
+    bribe: 25
+    illegal: true
+  passport:
+    pic:
+      - Very Short Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Shira
+    lastname: Hagen
+    passport_number: 8U6JU8XWUC
+    moa_stamp: AE
+    sex: M
+    date_of_birth: 6/4/1931
+    country: obristan
+    issuing_city: Skal
+    expiration_date: 17/10/1984
+  accesspermit:
+    firstname: Shira
+    lastname: Hagen
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: 8U6JU8XWUC
+    purpose: Visit
+    duration: 30
+    height: 2.08
+    weight: 80
+    expiration_date: 4/5/1983
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Short Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - None
+    firstname: Joona
+    lastname: Serrano
+    sex: M
+    date_of_birth: 11/9/1963
+    height: 1.89
+    weight: 93
+    country: arstotzka
+    city: Gennistora
+    purpose: ""
+    bribe: 5
+    illegal: true
+  passport:
+    pic:
+      - Short Hair
+      - Pencil Mustache
+      - Thick Glasses
+      - None
+    firstname: Joona
+    lastname: Medina
+    passport_number: HTAJDFT54I
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 11/9/1963
+    country: arstotzka
+    issuing_city: Paradizna
+    expiration_date: 27/4/1984
+  idcard:
+    pic:
+      - Bald
+      - Clean Shaven
+      - No Glasses
+      - Slim Figure
+    firstname: Joona
+    lastname: Serrano
+    sex: M
+    date_of_birth: 11/9/1963
+    country: arstotzka
+    city: Gennistora
+    height: 1.89
+    weight: 93
+- entrant:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - Overweight
+    firstname: Aishah
+    lastname: Berger
+    sex: F
+    date_of_birth: 12/6/1956
+    height: 1.98
+    weight: 110
+    country: obristan
+    city: Mergerous
+    purpose: Immigrate
+    bribe: 15
+    illegal: true
+  passport:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - Overweight
+    firstname: Aishah
+    lastname: Berger
+    passport_number: 9847KX94CQ
+    moa_stamp: AI
+    sex: M
+    date_of_birth: 12/6/1956
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 28/11/1984
+  accesspermit:
+    firstname: Aishah
+    lastname: Berger
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: 9847KX94CQ
+    purpose: Immigrate
+    duration: 30
+    height: 1.98
+    weight: 110
+    expiration_date: 15/8/1983
+    physical_appearance: Overweight
+- entrant:
+    pic:
+      - Large Curly Locks
+      - Goatee
+      - Glasses
+      - None
+    firstname: Nicolo
+    lastname: Molina
+    sex: M
+    date_of_birth: 27/8/1951
+    height: 1.47
+    weight: 118
+    country: unitedfederation
+    city: Korista City
+    purpose: Immigrate
+    bribe: 5
+    illegal: true
+  passport:
+    pic:
+      - Large Curly Locks
+      - Goatee
+      - Glasses
+      - None
+    firstname: Nicolo
+    lastname: Molina
+    passport_number: L0K8JEWGQQ
+    moa_stamp: AI
+    sex: F
+    date_of_birth: 27/8/1951
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 31/1/1984
+  accesspermit:
+    firstname: Nicolo
+    lastname: Molina
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: L0K8JEWGQQ
+    purpose: Immigrate
+    duration: 30
+    height: 1.47
+    weight: 118
+    expiration_date: 9/5/1983
+    physical_appearance: Large Curly Locks
+- entrant:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Ema
+    lastname: Ozolins
+    sex: F
+    date_of_birth: 5/1/1936
+    height: 2.04
+    weight: 59
+    country: unitedfederation
+    city: Shingleton
+    purpose: Visit
+    bribe: 10
+    illegal: true
+  passport:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Ema
+    lastname: Ozolins
+    passport_number: 97JZQCFKHZ
+    moa_stamp: AC
+    sex: M
+    date_of_birth: 5/1/1936
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 29/12/1984
+  accesspermit:
+    firstname: Ema
+    lastname: Ozolins
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: 97JZQCFKHZ
+    purpose: Visit
+    duration: 67
+    height: 2.04
+    weight: 59
+    expiration_date: 27/6/1983
+    physical_appearance: No Glasses
+- entrant:
+    pic:
+      - Dark Hair
+      - Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Matas
+    lastname: Dushku
+    sex: M
+    date_of_birth: 6/7/1936
+    height: 1.95
+    weight: 129
+    country: republia
+    city: Lesrenadi
+    purpose: Visit
+    bribe: 0
+    illegal: true
+  passport:
+    pic:
+      - Shaved Head
+      - Large Mustache
+      - No Glasses
+      - Round Face
+    firstname: Matas
+    lastname: Dushku
+    passport_number: I7NNE7K3RC
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 6/7/1936
+    country: republia
+    issuing_city: Lesrenadi
+    expiration_date: 20/12/1982
+  accesspermit:
+    firstname: Matas
+    lastname: Dushku
+    moa_stamp: AB
+    nationality: republia
+    passport_number: I7NNE7K3RC
+    purpose: Visit
+    duration: 29
+    height: 1.95
+    weight: 129
+    expiration_date: 30/7/1983
+    physical_appearance: Mustache
+- entrant:
+    pic:
+      - Long Straight Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Stefania
+    lastname: Volkov/Volkova
+    sex: F
+    date_of_birth: 15/1/1955
+    height: 1.87
+    weight: 144
+    country: antegria
+    city: Outer Grouse
+    purpose: Visit
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Long Straight Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Stefania
+    lastname: Hasanovic
+    passport_number: TDCT1B7XSY
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 15/1/1955
+    country: antegria
+    issuing_city: Outer Grouse
+    expiration_date: 14/3/1983
+  accesspermit:
+    firstname: Stefania
+    lastname: Volkov/Volkova
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: NHLNGCZBCX
+    purpose: Visit
+    duration: 18
+    height: 1.87
+    weight: 144
+    expiration_date: 14/3/1984
+    physical_appearance: Long Straight Hair
+- entrant:
+    pic:
+      - Very Short Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Nahia
+    lastname: Thomas
+    sex: F
+    date_of_birth: 8/5/1945
+    height: 1.98
+    weight: 92
+    country: obristan
+    city: Lorndaz
+    purpose: Work
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Very Short Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Nahia
+    lastname: Thomas
+    passport_number: AUKXXEKHIC
+    moa_stamp: AD
+    sex: F
+    date_of_birth: 8/5/1945
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 23/3/1984
+  accesspermit:
+    firstname: Nahia
+    lastname: Thomas
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: 9R5LL6X835
+    purpose: Work
+    duration: 94
+    height: 1.98
+    weight: 92
+    expiration_date: 14/12/1984
+    physical_appearance: No Glasses
+  workpass:
+    firstname: Nahia
+    lastname: Thomas
+    mol_stamp: LD
+    field: Food Service
+    enddate: 233/11/1982
+- entrant:
+    pic:
+      - Flat-top Hair
+      - Beard
+      - No Glasses
+      - Overweight
+    firstname: Chase
+    lastname: Galea
+    sex: M
+    date_of_birth: 1/5/1936
+    height: 1.72
+    weight: 52
+    country: republia
+    city: Bostan
+    purpose: Visit
+    bribe: 5
+    illegal: true
+  passport:
+    pic:
+      - Flat-top Hair
+      - Beard
+      - No Glasses
+      - Overweight
+    firstname: Marija
+    lastname: Galea
+    passport_number: 66MST2K9EW
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 1/5/1936
+    country: republia
+    issuing_city: Bostan
+    expiration_date: 25/8/1983
+  accesspermit:
+    firstname: Chase
+    lastname: Galea
+    moa_stamp: AB
+    nationality: republia
+    passport_number: 66MST2K9EW
+    purpose: Visit
+    duration: 81
+    height: 1.72
+    weight: 52
+    expiration_date: 26/11/1982
+    physical_appearance: Overweight
+- entrant:
+    pic:
+      - Short Straight Hair
+      - Beard
+      - Thick Glasses
+      - Slim Figure
+    firstname: Demetre
+    lastname: Brien
+    sex: M
+    date_of_birth: 1/7/1944
+    height: 1.51
+    weight: 143
+    country: antegria
+    city: Outer Grouse
+    purpose: Immigrate
+    bribe: 20
+    illegal: true
+  passport:
+    pic:
+      - Short Straight Hair
+      - Beard
+      - Thick Glasses
+      - Slim Figure
+    firstname: Demetre
+    lastname: Brien
+    passport_number: M466I4KI1I
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 1/7/1944
+    country: antegria
+    issuing_city: Outer Grouse
+    expiration_date: 22/10/1982
+  accesspermit:
+    firstname: Demetre
+    lastname: Brien
+    moa_stamp: AC
+    nationality: antegria
+    passport_number: M466I4KI1I
+    purpose: Immigrate
+    duration: 81
+    height: 1.51
+    weight: 143
+    expiration_date: 21/6/1983
+    physical_appearance: Beard
+- entrant:
+    pic:
+      - Long Wavy Hair
+      - Clean Shaven
+      - Glasses
+      - None
+    firstname: Andrej
+    lastname: Roux
+    sex: M
+    date_of_birth: 4/8/1939
+    height: 1.99
+    weight: 55
+    country: kolechia
+    city: Yurko City
+    purpose: Transit
+    bribe: 30
+    illegal: true
+  passport:
+    pic:
+      - Long Wavy Hair
+      - Clean Shaven
+      - Glasses
+      - None
+    firstname: Alyssa
+    lastname: Roux
+    passport_number: ABAFCB1PJK
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 4/8/1939
+    country: kolechia
+    issuing_city: Yurko City
+    expiration_date: 31/1/1984
+  accesspermit:
+    firstname: Andrej
+    lastname: Roux
+    moa_stamp: AB
+    nationality: kolechia
+    passport_number: ABAFCB1PJK
+    purpose: Transit
+    duration: 7
+    height: 1.99
+    weight: 55
+    expiration_date: 19/10/1982
+    physical_appearance: Long Wavy Hair
+- entrant:
+    pic:
+      - Short Curly Hair
+      - Goatee
+      - Thick Glasses
+      - Overweight
+    firstname: Yanis
+    lastname: Vllasaliu
+    sex: M
+    date_of_birth: 3/7/1944
+    height: 1.64
+    weight: 48
+    country: antegria
+    city: St. Marmero
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Curly Hair
+      - Goatee
+      - Thick Glasses
+      - Overweight
+    firstname: Yanis
+    lastname: Vllasaliu
+    passport_number: A67WE0FEP9
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 3/7/1944
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 30/9/1983
+  accesspermit:
+    firstname: Yanis
+    lastname: Vllasaliu
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: A67WE0FEP9
+    purpose: Transit
+    duration: 2
+    height: 1.64
+    weight: 48
+    expiration_date: 20/4/1983
+    physical_appearance: Thick Glasses
+- entrant:
+    pic:
+      - Huge Afro
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Florence
+    lastname: Galea
+    sex: F
+    date_of_birth: 17/4/1934
+    height: 1.87
+    weight: 54
+    country: impor
+    city: Tsunkeido
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Huge Afro
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Florence
+    lastname: Galea
+    passport_number: QBTWXRGYAY
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 17/4/1934
+    country: impor
+    issuing_city: Tsunkeido
+    expiration_date: 9/9/1984
+  accesspermit:
+    firstname: Florence
+    lastname: Galea
+    moa_stamp: AA
+    nationality: impor
+    passport_number: QBTWXRGYAY
+    purpose: Transit
+    duration: 12
+    height: 1.87
+    weight: 54
+    expiration_date: 3/2/1983
+    physical_appearance: Thick Glasses
+- entrant:
+    pic:
+      - Large Curly Locks
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Ilija
+    lastname: Beridze
+    sex: M
+    date_of_birth: 17/12/1947
+    height: 1.78
+    weight: 128
+    country: obristan
+    city: Lorndaz
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Large Curly Locks
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Ilija
+    lastname: Beridze
+    passport_number: GK96G1HX7H
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 17/12/1947
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 4/11/1984
+  accesspermit:
+    firstname: Ilija
+    lastname: Beridze
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: GK96G1HX7H
+    purpose: Transit
+    duration: 6
+    height: 1.78
+    weight: 128
+    expiration_date: 19/12/1983
+    physical_appearance: Overweight
+- entrant:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - Small Head
+    firstname: Camila
+    lastname: Ahonen
+    sex: F
+    date_of_birth: 10/6/1936
+    height: 2.04
+    weight: 64
+    country: impor
+    city: Haihan
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - Small Head
+    firstname: Camila
+    lastname: Ahonen
+    passport_number: IH3PEH59VV
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 10/6/1936
+    country: impor
+    issuing_city: Haihan
+    expiration_date: 3/12/1983
+  accesspermit:
+    firstname: Camila
+    lastname: Ahonen
+    moa_stamp: AA
+    nationality: impor
+    passport_number: IH3PEH59VV
+    purpose: Work
+    duration: 82
+    height: 2.04
+    weight: 64
+    expiration_date: 7/6/1983
+    physical_appearance: Shaved Head
+  workpass:
+    firstname: Camila
+    lastname: Ahonen
+    mol_stamp: LC
+    field: Construction
+    enddate: 105/11/1982
+- entrant:
+    pic:
+      - Light Curly Hair
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Chloe
+    lastname: Bianchi
+    sex: F
+    date_of_birth: 21/9/1963
+    height: 1.54
+    weight: 61
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Light Curly Hair
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Chloe
+    lastname: Bianchi
+    passport_number: ILMRX0JEYT
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 21/9/1963
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 5/12/1984
+  accesspermit:
+    firstname: Chloe
+    lastname: Bianchi
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: ILMRX0JEYT
+    purpose: Visit
+    duration: 28
+    height: 1.54
+    weight: 61
+    expiration_date: 22/1/1984
+    physical_appearance: Light Curly Hair
+- entrant:
+    pic:
+      - Light Curly Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Sakeena
+    lastname: Ozturk
+    sex: F
+    date_of_birth: 22/2/1960
+    height: 1.52
+    weight: 62
+    country: kolechia
+    city: West Grestin
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Light Curly Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Sakeena
+    lastname: Ozturk
+    passport_number: CUT119IY7P
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 22/2/1960
+    country: kolechia
+    issuing_city: West Grestin
+    expiration_date: 18/12/1984
+  accesspermit:
+    firstname: Sakeena
+    lastname: Ozturk
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: CUT119IY7P
+    purpose: Transit
+    duration: 14
+    height: 1.52
+    weight: 62
+    expiration_date: 11/6/1983
+    physical_appearance: Light Curly Hair
+- entrant:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Ya-ting
+    lastname: Dvorak/Dvorakova
+    sex: F
+    date_of_birth: 22/6/1958
+    height: 1.93
+    weight: 73
+    country: arstotzka
+    city: Octovalis
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Ya-ting
+    lastname: Dvorak/Dvorakova
+    passport_number: V57YA1VFA6
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 22/6/1958
+    country: arstotzka
+    issuing_city: East Grestin
+    expiration_date: 2/11/1983
+  idcard:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - Slim Figure
+    firstname: Ya-ting
+    lastname: Dvorak/Dvorakova
+    sex: F
+    date_of_birth: 22/6/1958
+    country: arstotzka
+    city: Octovalis
+    height: 1.93
+    weight: 73
+- entrant:
+    pic:
+      - Short Cropped Hair
+      - Pencil Mustache
+      - Glasses
+      - None
+    firstname: Matheo
+    lastname: Bertrand
+    sex: M
+    date_of_birth: 5/8/1931
+    height: 1.75
+    weight: 149
+    country: impor
+    city: Tsunkeido
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Cropped Hair
+      - Pencil Mustache
+      - Glasses
+      - None
+    firstname: Matheo
+    lastname: Bertrand
+    passport_number: Q87TF5TYZ7
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 5/8/1931
+    country: impor
+    issuing_city: Tsunkeido
+    expiration_date: 25/10/1983
+  accesspermit:
+    firstname: Matheo
+    lastname: Bertrand
+    moa_stamp: AA
+    nationality: impor
+    passport_number: Q87TF5TYZ7
+    purpose: Immigrate
+    duration: 14
+    height: 1.75
+    weight: 149
+    expiration_date: 3/9/1983
+    physical_appearance: None
+- entrant:
+    pic:
+      - Cropped Hair
+      - Goatee
+      - Thick Glasses
+      - Small Head
+    firstname: Steven
+    lastname: Hasanovic
+    sex: M
+    date_of_birth: 18/2/1932
+    height: 1.81
+    weight: 135
+    country: unitedfederation
+    city: Korista City
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Cropped Hair
+      - Goatee
+      - Thick Glasses
+      - Small Head
+    firstname: Steven
+    lastname: Hasanovic
+    passport_number: 7R1H8IQQHD
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 18/2/1932
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 2/12/1983
+  accesspermit:
+    firstname: Steven
+    lastname: Hasanovic
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: 7R1H8IQQHD
+    purpose: Visit
+    duration: 18
+    height: 1.81
+    weight: 135
+    expiration_date: 9/5/1984
+    physical_appearance: Small Head
+- entrant:
+    pic:
+      - Short Wavy Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Maha
+    lastname: Molnar
+    sex: F
+    date_of_birth: 21/9/1936
+    height: 1.52
+    weight: 112
+    country: impor
+    city: Enkyo
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Wavy Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Maha
+    lastname: Molnar
+    passport_number: GSY3R8424U
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 21/9/1936
+    country: impor
+    issuing_city: Enkyo
+    expiration_date: 16/11/1983
+  accesspermit:
+    firstname: Maha
+    lastname: Molnar
+    moa_stamp: AB
+    nationality: impor
+    passport_number: GSY3R8424U
+    purpose: Transit
+    duration: 13
+    height: 1.52
+    weight: 112
+    expiration_date: 6/8/1983
+    physical_appearance: None
+- entrant:
+    pic:
+      - Short Cropped Hair
+      - Clean Shaven
+      - No Glasses
+      - None
+    firstname: Yegor
+    lastname: Katzarov/Katzarova
+    sex: M
+    date_of_birth: 20/8/1934
+    height: 1.66
+    weight: 70
+    country: antegria
+    city: Glorian
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Cropped Hair
+      - Clean Shaven
+      - No Glasses
+      - None
+    firstname: Yegor
+    lastname: Katzarov/Katzarova
+    passport_number: 9UIG3X1WC0
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 20/8/1934
+    country: antegria
+    issuing_city: Glorian
+    expiration_date: 3/4/1984
+  accesspermit:
+    firstname: Yegor
+    lastname: Katzarov/Katzarova
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: 9UIG3X1WC0
+    purpose: Visit
+    duration: 75
+    height: 1.66
+    weight: 70
+    expiration_date: 10/9/1983
+    physical_appearance: Short Cropped Hair
+- entrant:
+    pic:
+      - Bobbed Hair
+      - None
+      - No Glasses
+      - Overweight
+    firstname: Yan
+    lastname: Kaminski/Kaminska
+    sex: F
+    date_of_birth: 6/8/1957
+    height: 1.78
+    weight: 143
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Bobbed Hair
+      - None
+      - No Glasses
+      - Overweight
+    firstname: Yan
+    lastname: Kaminski/Kaminska
+    passport_number: 3Z7LGF3NMK
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 6/8/1957
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 11/12/1983
+  accesspermit:
+    firstname: Yan
+    lastname: Kaminski/Kaminska
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: 3Z7LGF3NMK
+    purpose: Immigrate
+    duration: 75
+    height: 1.78
+    weight: 143
+    expiration_date: 1/3/1983
+    physical_appearance: Bobbed Hair
+- entrant:
+    pic:
+      - Bobbed Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Raya
+    lastname: Christensen
+    sex: F
+    date_of_birth: 25/6/1947
+    height: 1.54
+    weight: 146
+    country: republia
+    city: True Glorian
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Bobbed Hair
+      - None
+      - No Glasses
+      - Round Face
+    firstname: Raya
+    lastname: Christensen
+    passport_number: GITFLK3527
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 25/6/1947
+    country: republia
+    issuing_city: True Glorian
+    expiration_date: 25/4/1983
+  accesspermit:
+    firstname: Raya
+    lastname: Christensen
+    moa_stamp: AB
+    nationality: republia
+    passport_number: GITFLK3527
+    purpose: Immigrate
+    duration: 75
+    height: 1.54
+    weight: 146
+    expiration_date: 20/1/1983
+    physical_appearance: Round Face
+- entrant:
+    pic:
+      - Wavy Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Saanvi
+    lastname: Johansson
+    sex: F
+    date_of_birth: 7/11/1955
+    height: 1.67
+    weight: 55
+    country: unitedfederation
+    city: Korista City
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Wavy Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Saanvi
+    lastname: Johansson
+    passport_number: FBIDSLQ9Y2
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 7/11/1955
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 4/10/1984
+  accesspermit:
+    firstname: Saanvi
+    lastname: Johansson
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: FBIDSLQ9Y2
+    purpose: Work
+    duration: 169
+    height: 1.67
+    weight: 55
+    expiration_date: 12/4/1983
+    physical_appearance: No Glasses
+  workpass:
+    firstname: Saanvi
+    lastname: Johansson
+    mol_stamp: LB
+    field: Architecture
+    enddate: 192/11/1982
+- entrant:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - None
+    firstname: Loreen
+    lastname: Paterson
+    sex: F
+    date_of_birth: 22/6/1948
+    height: 1.61
+    weight: 136
+    country: impor
+    city: Enkyo
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Afro
+      - None
+      - Glasses
+      - None
+    firstname: Loreen
+    lastname: Paterson
+    passport_number: AH2X2YD6LZ
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 22/6/1948
+    country: impor
+    issuing_city: Enkyo
+    expiration_date: 6/10/1984
+  accesspermit:
+    firstname: Loreen
+    lastname: Paterson
+    moa_stamp: AB
+    nationality: impor
+    passport_number: AH2X2YD6LZ
+    purpose: Work
+    duration: 126
+    height: 1.61
+    weight: 136
+    expiration_date: 16/12/1984
+    physical_appearance: None
+  workpass:
+    firstname: Loreen
+    lastname: Paterson
+    mol_stamp: LA
+    field: Manufacturing
+    enddate: 149/11/1982
+- entrant:
+    pic:
+      - Long Hair
+      - None
+      - Glasses
+      - Small Head
+    firstname: Gogo
+    lastname: Wojcik
+    sex: F
+    date_of_birth: 3/1/1940
+    height: 1.74
+    weight: 89
+    country: unitedfederation
+    city: Korista City
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Long Hair
+      - None
+      - Glasses
+      - Small Head
+    firstname: Gogo
+    lastname: Wojcik
+    passport_number: 62XZHIZK32
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 3/1/1940
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 22/5/1984
+  accesspermit:
+    firstname: Gogo
+    lastname: Wojcik
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: 62XZHIZK32
+    purpose: Visit
+    duration: 90
+    height: 1.74
+    weight: 89
+    expiration_date: 1/11/1983
+    physical_appearance: Small Head
+- entrant:
+    pic:
+      - Long Curly Hair
+      - Clean Shaven
+      - No Glasses
+      - Small Head
+    firstname: Lukas
+    lastname: Hristov/Hristova
+    sex: M
+    date_of_birth: 7/7/1961
+    height: 1.67
+    weight: 101
+    country: obristan
+    city: Lorndaz
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Long Curly Hair
+      - Clean Shaven
+      - No Glasses
+      - Small Head
+    firstname: Lukas
+    lastname: Hristov/Hristova
+    passport_number: 8ITQB1R1BP
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 7/7/1961
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 10/12/1983
+  accesspermit:
+    firstname: Lukas
+    lastname: Hristov/Hristova
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: 8ITQB1R1BP
+    purpose: Immigrate
+    duration: 90
+    height: 1.67
+    weight: 101
+    expiration_date: 25/1/1983
+    physical_appearance: Small Head
+- entrant:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - Glasses
+      - Round Face
+    firstname: Ralfs
+    lastname: Wojcik
+    sex: M
+    date_of_birth: 12/6/1941
+    height: 1.81
+    weight: 120
+    country: obristan
+    city: Lorndaz
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - Glasses
+      - Round Face
+    firstname: Ralfs
+    lastname: Wojcik
+    passport_number: KL72IP0BBM
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 12/6/1941
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 21/3/1984
+  accesspermit:
+    firstname: Ralfs
+    lastname: Wojcik
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: KL72IP0BBM
+    purpose: Transit
+    duration: 5
+    height: 1.81
+    weight: 120
+    expiration_date: 2/10/1983
+    physical_appearance: Round Face
+- entrant:
+    pic:
+      - Unkempt Curly Hair
+      - Goatee
+      - Thick Glasses
+      - Round Face
+    firstname: Balazs
+    lastname: Jorgensen
+    sex: M
+    date_of_birth: 1/6/1954
+    height: 1.73
+    weight: 90
+    country: impor
+    city: Enkyo
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Unkempt Curly Hair
+      - Goatee
+      - Thick Glasses
+      - Round Face
+    firstname: Balazs
+    lastname: Jorgensen
+    passport_number: QIONXLLDLO
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 1/6/1954
+    country: impor
+    issuing_city: Enkyo
+    expiration_date: 4/6/1984
+  accesspermit:
+    firstname: Balazs
+    lastname: Jorgensen
+    moa_stamp: AB
+    nationality: impor
+    passport_number: QIONXLLDLO
+    purpose: Visit
+    duration: 88
+    height: 1.73
+    weight: 90
+    expiration_date: 29/5/1984
+    physical_appearance: Thick Glasses
+- entrant:
+    pic:
+      - Very Short Hair
+      - None
+      - Glasses
+      - None
+    firstname: Ecrin
+    lastname: Santana
+    sex: F
+    date_of_birth: 20/10/1931
+    height: 1.77
+    weight: 75
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Very Short Hair
+      - None
+      - Glasses
+      - None
+    firstname: Ecrin
+    lastname: Santana
+    passport_number: VTMOZXQRZ1
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 20/10/1931
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 28/4/1983
+  accesspermit:
+    firstname: Ecrin
+    lastname: Santana
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: VTMOZXQRZ1
+    purpose: Transit
+    duration: 6
+    height: 1.77
+    weight: 75
+    expiration_date: 24/11/1982
+    physical_appearance: None
+- entrant:
+    pic:
+      - Cropped Hair
+      - Goatee
+      - Glasses
+      - Round Face
+    firstname: Somchai
+    lastname: Svensson
+    sex: M
+    date_of_birth: 15/10/1935
+    height: 1.8
+    weight: 77
+    country: obristan
+    city: Lorndaz
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Cropped Hair
+      - Goatee
+      - Glasses
+      - Round Face
+    firstname: Somchai
+    lastname: Svensson
+    passport_number: WJ2JL091CK
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 15/10/1935
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 12/9/1984
+  accesspermit:
+    firstname: Somchai
+    lastname: Svensson
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: WJ2JL091CK
+    purpose: Visit
+    duration: 17
+    height: 1.8
+    weight: 77
+    expiration_date: 30/5/1983
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Flat-top Hair
+      - Pencil Mustache
+      - No Glasses
+      - Overweight
+    firstname: Vlad
+    lastname: Bogdanovski
+    sex: M
+    date_of_birth: 5/6/1938
+    height: 1.75
+    weight: 63
+    country: unitedfederation
+    city: Great Rapid
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Flat-top Hair
+      - Pencil Mustache
+      - No Glasses
+      - Overweight
+    firstname: Vlad
+    lastname: Bogdanovski
+    passport_number: NIIR6WS79E
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 5/6/1938
+    country: unitedfederation
+    issuing_city: Great Rapid
+    expiration_date: 15/5/1983
+  accesspermit:
+    firstname: Vlad
+    lastname: Bogdanovski
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: NIIR6WS79E
+    purpose: Immigrate
+    duration: 17
+    height: 1.75
+    weight: 63
+    expiration_date: 28/5/1983
+    physical_appearance: No Glasses
+- entrant:
+    pic:
+      - Widow's Peak
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Arturs
+    lastname: Dupont
+    sex: M
+    date_of_birth: 21/10/1962
+    height: 1.69
+    weight: 135
+    country: unitedfederation
+    city: Shingleton
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Widow's Peak
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Arturs
+    lastname: Dupont
+    passport_number: W4NIS3WYAB
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 21/10/1962
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 25/2/1984
+  accesspermit:
+    firstname: Arturs
+    lastname: Dupont
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: W4NIS3WYAB
+    purpose: Immigrate
+    duration: 17
+    height: 1.69
+    weight: 135
+    expiration_date: 15/9/1984
+    physical_appearance: Thick Glasses
+- entrant:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - No Glasses
+      - Round Face
+    firstname: Andres
+    lastname: Leka
+    sex: M
+    date_of_birth: 31/3/1956
+    height: 1.66
+    weight: 134
+    country: impor
+    city: Haihan
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - No Glasses
+      - Round Face
+    firstname: Andres
+    lastname: Leka
+    passport_number: Z6U1QVIFWU
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 31/3/1956
+    country: impor
+    issuing_city: Haihan
+    expiration_date: 10/10/1983
+  accesspermit:
+    firstname: Andres
+    lastname: Leka
+    moa_stamp: AB
+    nationality: impor
+    passport_number: Z6U1QVIFWU
+    purpose: Immigrate
+    duration: 17
+    height: 1.66
+    weight: 134
+    expiration_date: 11/8/1983
+    physical_appearance: Unkempt Curly Hair
+- entrant:
+    pic:
+      - Light Hair
+      - Large Mustache
+      - No Glasses
+      - None
+    firstname: Youssef
+    lastname: Muhaxheri
+    sex: M
+    date_of_birth: 7/9/1955
+    height: 1.85
+    weight: 131
+    country: unitedfederation
+    city: Shingleton
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Light Hair
+      - Large Mustache
+      - No Glasses
+      - None
+    firstname: Youssef
+    lastname: Muhaxheri
+    passport_number: F0SYREUKMJ
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 7/9/1955
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 15/12/1982
+  accesspermit:
+    firstname: Youssef
+    lastname: Muhaxheri
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: F0SYREUKMJ
+    purpose: Visit
+    duration: 84
+    height: 1.85
+    weight: 131
+    expiration_date: 6/2/1984
+    physical_appearance: No Glasses
+- entrant:
+    pic:
+      - Bobbed Hair
+      - Killer Sideburns
+      - Glasses
+      - Round Face
+    firstname: Stefan
+    lastname: Driscoll
+    sex: M
+    date_of_birth: 16/9/1947
+    height: 1.53
+    weight: 111
+    country: unitedfederation
+    city: Shingleton
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Bobbed Hair
+      - Killer Sideburns
+      - Glasses
+      - Round Face
+    firstname: Stefan
+    lastname: Driscoll
+    passport_number: EI3HGVKSUU
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 16/9/1947
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 10/12/1982
+  accesspermit:
+    firstname: Stefan
+    lastname: Driscoll
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: EI3HGVKSUU
+    purpose: Work
+    duration: 62
+    height: 1.53
+    weight: 111
+    expiration_date: 13/5/1984
+    physical_appearance: Glasses
+  workpass:
+    firstname: Stefan
+    lastname: Driscoll
+    mol_stamp: LA
+    field: Accounting
+    enddate: 85/11/1982
+- entrant:
+    pic:
+      - Short Cropped Hair
+      - Large Sideburns
+      - Thick Glasses
+      - Slim Figure
+    firstname: Muhamed
+    lastname: Cavadini
+    sex: M
+    date_of_birth: 9/6/1938
+    height: 1.46
+    weight: 80
+    country: kolechia
+    city: Vedor
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Cropped Hair
+      - Large Sideburns
+      - Thick Glasses
+      - Slim Figure
+    firstname: Muhamed
+    lastname: Cavadini
+    passport_number: 39HXR789M5
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 9/6/1938
+    country: kolechia
+    issuing_city: Vedor
+    expiration_date: 29/11/1984
+  accesspermit:
+    firstname: Muhamed
+    lastname: Cavadini
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: 39HXR789M5
+    purpose: Transit
+    duration: 6
+    height: 1.46
+    weight: 80
+    expiration_date: 5/8/1983
+    physical_appearance: Large Sideburns
+- entrant:
+    pic:
+      - Short Light Hair
+      - Killer Sideburns
+      - Glasses
+      - Slim Figure
+    firstname: Aleksi
+    lastname: Ivanovski
+    sex: M
+    date_of_birth: 6/11/1942
+    height: 1.65
+    weight: 137
+    country: unitedfederation
+    city: Shingleton
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Light Hair
+      - Killer Sideburns
+      - Glasses
+      - Slim Figure
+    firstname: Aleksi
+    lastname: Ivanovski
+    passport_number: J15BFCQPCC
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 6/11/1942
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 17/1/1983
+  accesspermit:
+    firstname: Aleksi
+    lastname: Ivanovski
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: J15BFCQPCC
+    purpose: Immigrate
+    duration: 6
+    height: 1.65
+    weight: 137
+    expiration_date: 21/6/1983
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Short Curly Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Saida
+    lastname: Pavlov/Pavlova
+    sex: F
+    date_of_birth: 8/6/1962
+    height: 1.81
+    weight: 54
+    country: unitedfederation
+    city: Korista City
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Curly Hair
+      - None
+      - Glasses
+      - Overweight
+    firstname: Saida
+    lastname: Pavlov/Pavlova
+    passport_number: O6ARO6NOZX
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 8/6/1962
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 9/3/1983
+  accesspermit:
+    firstname: Saida
+    lastname: Pavlov/Pavlova
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: O6ARO6NOZX
+    purpose: Transit
+    duration: 11
+    height: 1.81
+    weight: 54
+    expiration_date: 26/3/1984
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - None
+    firstname: Claudia
+    lastname: Novikov/Novikova
+    sex: F
+    date_of_birth: 21/8/1963
+    height: 1.42
+    weight: 46
+    country: republia
+    city: Lesrenadi
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Shaved Head
+      - None
+      - Glasses
+      - None
+    firstname: Claudia
+    lastname: Novikov/Novikova
+    passport_number: Z26GGD3OM5
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 21/8/1963
+    country: republia
+    issuing_city: Lesrenadi
+    expiration_date: 26/1/1984
+  accesspermit:
+    firstname: Claudia
+    lastname: Novikov/Novikova
+    moa_stamp: AB
+    nationality: republia
+    passport_number: Z26GGD3OM5
+    purpose: Work
+    duration: 51
+    height: 1.42
+    weight: 46
+    expiration_date: 6/10/1984
+    physical_appearance: Glasses
+  workpass:
+    firstname: Claudia
+    lastname: Novikov/Novikova
+    mol_stamp: LA
+    field: Fishing
+    enddate: 74/11/1982
+- entrant:
+    pic:
+      - Bald
+      - Clean Shaven
+      - Glasses
+      - Round Face
+    firstname: Romet
+    lastname: Krawczyk
+    sex: M
+    date_of_birth: 11/11/1947
+    height: 1.44
+    weight: 99
+    country: kolechia
+    city: Vedor
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Bald
+      - Clean Shaven
+      - Glasses
+      - Round Face
+    firstname: Romet
+    lastname: Krawczyk
+    passport_number: 95MUHI7N7J
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 11/11/1947
+    country: kolechia
+    issuing_city: Vedor
+    expiration_date: 19/12/1983
+  accesspermit:
+    firstname: Romet
+    lastname: Krawczyk
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: 95MUHI7N7J
+    purpose: Transit
+    duration: 12
+    height: 1.44
+    weight: 99
+    expiration_date: 22/4/1984
+    physical_appearance: Bald
+- entrant:
+    pic:
+      - Short Hair
+      - None
+      - Glasses
+      - Small Head
+    firstname: Lia
+    lastname: Kennedy
+    sex: F
+    date_of_birth: 17/4/1931
+    height: 1.61
+    weight: 119
+    country: unitedfederation
+    city: Korista City
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Hair
+      - None
+      - Glasses
+      - Small Head
+    firstname: Lia
+    lastname: Kennedy
+    passport_number: ZWQP3UVQYU
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 17/4/1931
+    country: unitedfederation
+    issuing_city: Korista City
+    expiration_date: 8/7/1984
+  accesspermit:
+    firstname: Lia
+    lastname: Kennedy
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: ZWQP3UVQYU
+    purpose: Transit
+    duration: 14
+    height: 1.61
+    weight: 119
+    expiration_date: 19/1/1984
+    physical_appearance: Small Head
+- entrant:
+    pic:
+      - Wavy Hair
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Zehra
+    lastname: Russo
+    sex: F
+    date_of_birth: 16/4/1957
+    height: 1.64
+    weight: 54
+    country: arstotzka
+    city: Fardesto
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Wavy Hair
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Zehra
+    lastname: Russo
+    passport_number: 3XXQTD3WHQ
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 16/4/1957
+    country: arstotzka
+    issuing_city: Orvech Vonor
+    expiration_date: 9/4/1984
+  idcard:
+    pic:
+      - Wavy Hair
+      - None
+      - Thick Glasses
+      - Slim Figure
+    firstname: Zehra
+    lastname: Russo
+    sex: F
+    date_of_birth: 16/4/1957
+    country: arstotzka
+    city: Fardesto
+    height: 1.64
+    weight: 54
+- entrant:
+    pic:
+      - Short Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Maitha
+    lastname: Lechkov/Lechkova
+    sex: F
+    date_of_birth: 30/1/1950
+    height: 1.54
+    weight: 58
+    country: arstotzka
+    city: Burnton
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Maitha
+    lastname: Lechkov/Lechkova
+    passport_number: HRB4LSMSF9
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 30/1/1950
+    country: arstotzka
+    issuing_city: Orvech Vonor
+    expiration_date: 20/11/1983
+  idcard:
+    pic:
+      - Short Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Maitha
+    lastname: Lechkov/Lechkova
+    sex: F
+    date_of_birth: 30/1/1950
+    country: arstotzka
+    city: Burnton
+    height: 1.54
+    weight: 58
+- entrant:
+    pic:
+      - Short Light Hair
+      - Killer Sideburns
+      - Glasses
+      - Overweight
+    firstname: Majid
+    lastname: Jones
+    sex: M
+    date_of_birth: 3/3/1930
+    height: 1.83
+    weight: 47
+    country: obristan
+    city: Skal
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Light Hair
+      - Killer Sideburns
+      - Glasses
+      - Overweight
+    firstname: Majid
+    lastname: Jones
+    passport_number: SULYJP8FV6
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 3/3/1930
+    country: obristan
+    issuing_city: Skal
+    expiration_date: 27/7/1984
+  accesspermit:
+    firstname: Majid
+    lastname: Jones
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: SULYJP8FV6
+    purpose: Work
+    duration: 64
+    height: 1.83
+    weight: 47
+    expiration_date: 19/8/1983
+    physical_appearance: Killer Sideburns
+  workpass:
+    firstname: Majid
+    lastname: Jones
+    mol_stamp: LD
+    field: Drafting
+    enddate: 87/11/1982
+- entrant:
+    pic:
+      - Dark Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Slim Figure
+    firstname: Christof
+    lastname: Morrison
+    sex: M
+    date_of_birth: 27/5/1941
+    height: 1.83
+    weight: 104
+    country: arstotzka
+    city: Vescillo
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Dark Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Slim Figure
+    firstname: Christof
+    lastname: Morrison
+    passport_number: PF4M5DFOQX
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 27/5/1941
+    country: arstotzka
+    issuing_city: Orvech Vonor
+    expiration_date: 26/10/1983
+  idcard:
+    pic:
+      - Dark Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Slim Figure
+    firstname: Christof
+    lastname: Morrison
+    sex: M
+    date_of_birth: 27/5/1941
+    country: arstotzka
+    city: Vescillo
+    height: 1.83
+    weight: 104
+- entrant:
+    pic:
+      - Short Cropped Hair
+      - Pencil Mustache
+      - No Glasses
+      - Round Face
+    firstname: Ben
+    lastname: Savolainen
+    sex: M
+    date_of_birth: 1/4/1939
+    height: 2.03
+    weight: 102
+    country: impor
+    city: Haihan
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Cropped Hair
+      - Pencil Mustache
+      - No Glasses
+      - Round Face
+    firstname: Ben
+    lastname: Savolainen
+    passport_number: U746RPYTYU
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 1/4/1939
+    country: impor
+    issuing_city: Haihan
+    expiration_date: 13/1/1984
+  accesspermit:
+    firstname: Ben
+    lastname: Savolainen
+    moa_stamp: AB
+    nationality: impor
+    passport_number: U746RPYTYU
+    purpose: Work
+    duration: 81
+    height: 2.03
+    weight: 102
+    expiration_date: 3/6/1983
+    physical_appearance: Round Face
+  workpass:
+    firstname: Ben
+    lastname: Savolainen
+    mol_stamp: LC
+    field: Sports
+    enddate: 104/11/1982
+- entrant:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - Glasses
+      - Small Head
+    firstname: Mahdi
+    lastname: Khan
+    sex: M
+    date_of_birth: 27/6/1948
+    height: 1.7
+    weight: 140
+    country: arstotzka
+    city: Wozenfield
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - Glasses
+      - Small Head
+    firstname: Mahdi
+    lastname: Khan
+    passport_number: 36444O9CJ5
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 27/6/1948
+    country: arstotzka
+    issuing_city: East Grestin
+    expiration_date: 30/9/1983
+  idcard:
+    pic:
+      - Unkempt Curly Hair
+      - Large Sideburns
+      - Glasses
+      - Small Head
+    firstname: Mahdi
+    lastname: Khan
+    sex: M
+    date_of_birth: 27/6/1948
+    country: arstotzka
+    city: Wozenfield
+    height: 1.7
+    weight: 140
+- entrant:
+    pic:
+      - Large Curly Locks
+      - Large Mustache
+      - Glasses
+      - Small Head
+    firstname: Luan
+    lastname: Thomsen
+    sex: M
+    date_of_birth: 14/6/1963
+    height: 1.63
+    weight: 111
+    country: arstotzka
+    city: Octovalis
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Large Curly Locks
+      - Large Mustache
+      - Glasses
+      - Small Head
+    firstname: Luan
+    lastname: Thomsen
+    passport_number: I802B5G696
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 14/6/1963
+    country: arstotzka
+    issuing_city: Orvech Vonor
+    expiration_date: 12/1/1984
+  idcard:
+    pic:
+      - Large Curly Locks
+      - Large Mustache
+      - Glasses
+      - Small Head
+    firstname: Luan
+    lastname: Thomsen
+    sex: M
+    date_of_birth: 14/6/1963
+    country: arstotzka
+    city: Octovalis
+    height: 1.63
+    weight: 111
+- entrant:
+    pic:
+      - Short Cropped Hair
+      - No Mustache
+      - Thick Glasses
+      - Round Face
+    firstname: Kang
+    lastname: Pedersen
+    sex: M
+    date_of_birth: 15/11/1947
+    height: 1.67
+    weight: 94
+    country: antegria
+    city: St. Marmero
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Cropped Hair
+      - No Mustache
+      - Thick Glasses
+      - Round Face
+    firstname: Kang
+    lastname: Pedersen
+    passport_number: J4TNALTOER
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 15/11/1947
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 28/4/1984
+  accesspermit:
+    firstname: Kang
+    lastname: Pedersen
+    moa_stamp: AB
+    nationality: antegria
+    passport_number: J4TNALTOER
+    purpose: Visit
+    duration: 36
+    height: 1.67
+    weight: 94
+    expiration_date: 30/1/1984
+    physical_appearance: Short Cropped Hair
+- entrant:
+    pic:
+      - Huge Afro
+      - Large Mustache
+      - Glasses
+      - Round Face
+    firstname: Guilherme
+    lastname: Muratovic
+    sex: M
+    date_of_birth: 29/5/1947
+    height: 2.09
+    weight: 93
+    country: unitedfederation
+    city: Shingleton
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Huge Afro
+      - Large Mustache
+      - Glasses
+      - Round Face
+    firstname: Guilherme
+    lastname: Muratovic
+    passport_number: YXX3IH7R9Q
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 29/5/1947
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 11/6/1983
+  accesspermit:
+    firstname: Guilherme
+    lastname: Muratovic
+    moa_stamp: AB
+    nationality: unitedfederation
+    passport_number: YXX3IH7R9Q
+    purpose: Work
+    duration: 122
+    height: 2.09
+    weight: 93
+    expiration_date: 31/5/1984
+    physical_appearance: Huge Afro
+  workpass:
+    firstname: Guilherme
+    lastname: Muratovic
+    mol_stamp: LD
+    field: Engineering
+    enddate: 145/11/1982
+- entrant:
+    pic:
+      - Short Curly Hair
+      - None
+      - Thick Glasses
+      - None
+    firstname: Regina
+    lastname: Wozniak
+    sex: F
+    date_of_birth: 11/5/1954
+    height: 1.42
+    weight: 91
+    country: antegria
+    city: St. Marmero
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Curly Hair
+      - None
+      - Thick Glasses
+      - None
+    firstname: Regina
+    lastname: Wozniak
+    passport_number: CRECA5X6C7
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 11/5/1954
+    country: antegria
+    issuing_city: St. Marmero
+    expiration_date: 12/4/1983
+  accesspermit:
+    firstname: Regina
+    lastname: Wozniak
+    moa_stamp: AB
+    nationality: antegria
+    passport_number: CRECA5X6C7
+    purpose: Immigrate
+    duration: 122
+    height: 1.42
+    weight: 91
+    expiration_date: 12/8/1984
+    physical_appearance: None
+- entrant:
+    pic:
+      - Curly Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Odval
+    lastname: Reyes
+    sex: F
+    date_of_birth: 7/10/1943
+    height: 1.81
+    weight: 92
+    country: obristan
+    city: Mergerous
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Curly Hair
+      - None
+      - No Glasses
+      - None
+    firstname: Odval
+    lastname: Reyes
+    passport_number: SVBLZLMSPH
+    moa_stamp: AA
+    sex: F
+    date_of_birth: 7/10/1943
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 11/10/1984
+  accesspermit:
+    firstname: Odval
+    lastname: Reyes
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: SVBLZLMSPH
+    purpose: Work
+    duration: 83
+    height: 1.81
+    weight: 92
+    expiration_date: 16/2/1984
+    physical_appearance: Curly Hair
+  workpass:
+    firstname: Odval
+    lastname: Reyes
+    mol_stamp: LA
+    field: Dentistry
+    enddate: 106/11/1982
+- entrant:
+    pic:
+      - Long Straight Hair
+      - Pencil Mustache
+      - Glasses
+      - Overweight
+    firstname: Kaspar
+    lastname: Mattila
+    sex: M
+    date_of_birth: 16/3/1963
+    height: 1.48
+    weight: 134
+    country: antegria
+    city: Glorian
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Long Straight Hair
+      - Pencil Mustache
+      - Glasses
+      - Overweight
+    firstname: Kaspar
+    lastname: Mattila
+    passport_number: JOEWRCTY42
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 16/3/1963
+    country: antegria
+    issuing_city: Glorian
+    expiration_date: 30/12/1982
+  accesspermit:
+    firstname: Kaspar
+    lastname: Mattila
+    moa_stamp: AA
+    nationality: antegria
+    passport_number: JOEWRCTY42
+    purpose: Transit
+    duration: 6
+    height: 1.48
+    weight: 134
+    expiration_date: 14/3/1983
+    physical_appearance: Glasses
+- entrant:
+    pic:
+      - Unkempt Curly Hair
+      - Beard
+      - Thick Glasses
+      - None
+    firstname: Eisa
+    lastname: Arianiti
+    sex: M
+    date_of_birth: 2/12/1949
+    height: 1.9
+    weight: 123
+    country: obristan
+    city: Mergerous
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Unkempt Curly Hair
+      - Beard
+      - Thick Glasses
+      - None
+    firstname: Eisa
+    lastname: Arianiti
+    passport_number: 4WTY9J46PW
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 2/12/1949
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 27/10/1983
+  accesspermit:
+    firstname: Eisa
+    lastname: Arianiti
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: 4WTY9J46PW
+    purpose: Transit
+    duration: 4
+    height: 1.9
+    weight: 123
+    expiration_date: 27/2/1983
+    physical_appearance: Beard
+- entrant:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Neza
+    lastname: Lehtonen
+    sex: F
+    date_of_birth: 22/9/1934
+    height: 1.63
+    weight: 121
+    country: obristan
+    city: Lorndaz
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Curly Bobbed Hair
+      - None
+      - Thick Glasses
+      - Small Head
+    firstname: Neza
+    lastname: Lehtonen
+    passport_number: TH74J655YV
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 22/9/1934
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 5/6/1983
+  accesspermit:
+    firstname: Neza
+    lastname: Lehtonen
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: TH74J655YV
+    purpose: Work
+    duration: 117
+    height: 1.63
+    weight: 121
+    expiration_date: 12/4/1983
+    physical_appearance: Small Head
+  workpass:
+    firstname: Neza
+    lastname: Lehtonen
+    mol_stamp: LB
+    field: Fine Arts
+    enddate: 140/11/1982
+- entrant:
+    pic:
+      - Huge Afro
+      - Beard
+      - No Glasses
+      - Small Head
+    firstname: Andria
+    lastname: Andovski
+    sex: M
+    date_of_birth: 7/7/1938
+    height: 1.79
+    weight: 76
+    country: kolechia
+    city: Yurko City
+    purpose: Work
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Huge Afro
+      - Beard
+      - No Glasses
+      - Small Head
+    firstname: Andria
+    lastname: Andovski
+    passport_number: MXZH9QT24D
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 7/7/1938
+    country: kolechia
+    issuing_city: Yurko City
+    expiration_date: 26/8/1983
+  accesspermit:
+    firstname: Andria
+    lastname: Andovski
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: MXZH9QT24D
+    purpose: Work
+    duration: 162
+    height: 1.79
+    weight: 76
+    expiration_date: 2/11/1984
+    physical_appearance: Beard
+  workpass:
+    firstname: Andria
+    lastname: Andovski
+    mol_stamp: LC
+    field: Architecture
+    enddate: 185/11/1982
+- entrant:
+    pic:
+      - Huge Afro
+      - Clean Shaven
+      - Glasses
+      - Small Head
+    firstname: Tunar
+    lastname: Filipovski
+    sex: M
+    date_of_birth: 5/3/1940
+    height: 1.72
+    weight: 144
+    country: kolechia
+    city: Yurko City
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Huge Afro
+      - Clean Shaven
+      - Glasses
+      - Small Head
+    firstname: Tunar
+    lastname: Filipovski
+    passport_number: 4OAE2ZX653
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 5/3/1940
+    country: kolechia
+    issuing_city: Yurko City
+    expiration_date: 13/8/1983
+  accesspermit:
+    firstname: Tunar
+    lastname: Filipovski
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: 4OAE2ZX653
+    purpose: Immigrate
+    duration: 162
+    height: 1.72
+    weight: 144
+    expiration_date: 10/8/1984
+    physical_appearance: Huge Afro
+- entrant:
+    pic:
+      - Short Hair
+      - Beard
+      - Glasses
+      - Round Face
+    firstname: Matus
+    lastname: Goossens
+    sex: M
+    date_of_birth: 17/11/1937
+    height: 1.98
+    weight: 107
+    country: obristan
+    city: Mergerous
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Short Hair
+      - Beard
+      - Glasses
+      - Round Face
+    firstname: Matus
+    lastname: Goossens
+    passport_number: IF0QJJW55B
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 17/11/1937
+    country: obristan
+    issuing_city: Mergerous
+    expiration_date: 28/3/1984
+  accesspermit:
+    firstname: Matus
+    lastname: Goossens
+    moa_stamp: AA
+    nationality: obristan
+    passport_number: IF0QJJW55B
+    purpose: Visit
+    duration: 48
+    height: 1.98
+    weight: 107
+    expiration_date: 17/5/1984
+    physical_appearance: Beard
+- entrant:
+    pic:
+      - Long Straight Hair
+      - Large Sideburns
+      - No Glasses
+      - Round Face
+    firstname: Robin
+    lastname: Petek
+    sex: M
+    date_of_birth: 22/6/1961
+    height: 1.85
+    weight: 144
+    country: arstotzka
+    city: Octovalis
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Long Straight Hair
+      - Large Sideburns
+      - No Glasses
+      - Round Face
+    firstname: Robin
+    lastname: Petek
+    passport_number: GR8F8Y5I0P
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 22/6/1961
+    country: arstotzka
+    issuing_city: East Grestin
+    expiration_date: 17/1/1983
+  idcard:
+    pic:
+      - Long Straight Hair
+      - Large Sideburns
+      - No Glasses
+      - Round Face
+    firstname: Robin
+    lastname: Petek
+    sex: M
+    date_of_birth: 22/6/1961
+    country: arstotzka
+    city: Octovalis
+    height: 1.85
+    weight: 144
+- entrant:
+    pic:
+      - Mohawk
+      - Pencil Mustache
+      - Thick Glasses
+      - Slim Figure
+    firstname: Said
+    lastname: Durand
+    sex: M
+    date_of_birth: 25/5/1942
+    height: 1.63
+    weight: 138
+    country: arstotzka
+    city: Vescillo
+    purpose: ""
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Mohawk
+      - Pencil Mustache
+      - Thick Glasses
+      - Slim Figure
+    firstname: Said
+    lastname: Durand
+    passport_number: V5D5ZVKW26
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 25/5/1942
+    country: arstotzka
+    issuing_city: Orvech Vonor
+    expiration_date: 5/2/1984
+  idcard:
+    pic:
+      - Mohawk
+      - Pencil Mustache
+      - Thick Glasses
+      - Slim Figure
+    firstname: Said
+    lastname: Durand
+    sex: M
+    date_of_birth: 25/5/1942
+    country: arstotzka
+    city: Vescillo
+    height: 1.63
+    weight: 138
+- entrant:
+    pic:
+      - Widow's Peak
+      - Large Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Saba
+    lastname: Armas
+    sex: M
+    date_of_birth: 27/6/1956
+    height: 2.08
+    weight: 145
+    country: republia
+    city: Bostan
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Widow's Peak
+      - Large Mustache
+      - Thick Glasses
+      - Overweight
+    firstname: Saba
+    lastname: Armas
+    passport_number: F0LGQKF3PK
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 27/6/1956
+    country: republia
+    issuing_city: Bostan
+    expiration_date: 4/1/1983
+  accesspermit:
+    firstname: Saba
+    lastname: Armas
+    moa_stamp: AB
+    nationality: republia
+    passport_number: F0LGQKF3PK
+    purpose: Visit
+    duration: 59
+    height: 2.08
+    weight: 145
+    expiration_date: 22/2/1984
+    physical_appearance: Large Mustache
+- entrant:
+    pic:
+      - Dark Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Valon
+    lastname: Silva
+    sex: M
+    date_of_birth: 9/9/1930
+    height: 1.46
+    weight: 77
+    country: republia
+    city: Lesrenadi
+    purpose: Transit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Dark Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Overweight
+    firstname: Valon
+    lastname: Silva
+    passport_number: E5S2KG05YH
+    moa_stamp: AA
+    sex: M
+    date_of_birth: 9/9/1930
+    country: republia
+    issuing_city: Lesrenadi
+    expiration_date: 25/12/1982
+  accesspermit:
+    firstname: Valon
+    lastname: Silva
+    moa_stamp: AB
+    nationality: republia
+    passport_number: E5S2KG05YH
+    purpose: Transit
+    duration: 11
+    height: 1.46
+    weight: 77
+    expiration_date: 10/7/1984
+    physical_appearance: Dark Hair
+- entrant:
+    pic:
+      - Cropped Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Small Head
+    firstname: Muhammed
+    lastname: Pena
+    sex: M
+    date_of_birth: 29/1/1949
+    height: 1.61
+    weight: 126
+    country: obristan
+    city: Lorndaz
+    purpose: Immigrate
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Cropped Hair
+      - Clean Shaven
+      - Thick Glasses
+      - Small Head
+    firstname: Muhammed
+    lastname: Pena
+    passport_number: UU2NF1J0D1
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 29/1/1949
+    country: obristan
+    issuing_city: Lorndaz
+    expiration_date: 21/11/1983
+  accesspermit:
+    firstname: Muhammed
+    lastname: Pena
+    moa_stamp: AB
+    nationality: obristan
+    passport_number: UU2NF1J0D1
+    purpose: Immigrate
+    duration: 11
+    height: 1.61
+    weight: 126
+    expiration_date: 24/5/1983
+    physical_appearance: Cropped Hair
+- entrant:
+    pic:
+      - Very Short Hair
+      - None
+      - Thick Glasses
+      - None
+    firstname: Yui
+    lastname: Harris
+    sex: F
+    date_of_birth: 19/2/1933
+    height: 1.92
+    weight: 149
+    country: unitedfederation
+    city: Shingleton
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Very Short Hair
+      - None
+      - Thick Glasses
+      - None
+    firstname: Yui
+    lastname: Harris
+    passport_number: 6TH7P8R4RH
+    moa_stamp: AB
+    sex: F
+    date_of_birth: 19/2/1933
+    country: unitedfederation
+    issuing_city: Shingleton
+    expiration_date: 28/3/1983
+  accesspermit:
+    firstname: Yui
+    lastname: Harris
+    moa_stamp: AA
+    nationality: unitedfederation
+    passport_number: 6TH7P8R4RH
+    purpose: Visit
+    duration: 17
+    height: 1.92
+    weight: 149
+    expiration_date: 2/11/1984
+    physical_appearance: Very Short Hair
+- entrant:
+    pic:
+      - Long Straight Hair
+      - Large Mustache
+      - Glasses
+      - Overweight
+    firstname: Jason
+    lastname: Vanags
+    sex: M
+    date_of_birth: 20/4/1951
+    height: 1.82
+    weight: 80
+    country: kolechia
+    city: Yurko City
+    purpose: Visit
+    bribe: 0
+    illegal: false
+  passport:
+    pic:
+      - Long Straight Hair
+      - Large Mustache
+      - Glasses
+      - Overweight
+    firstname: Jason
+    lastname: Vanags
+    passport_number: 552XNND48S
+    moa_stamp: AB
+    sex: M
+    date_of_birth: 20/4/1951
+    country: kolechia
+    issuing_city: Yurko City
+    expiration_date: 20/9/1983
+  accesspermit:
+    firstname: Jason
+    lastname: Vanags
+    moa_stamp: AA
+    nationality: kolechia
+    passport_number: 552XNND48S
+    purpose: Visit
+    duration: 21
+    height: 1.82
+    weight: 80
+    expiration_date: 20/2/1983
+    physical_appearance: Large Mustache
