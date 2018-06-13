@@ -6,7 +6,7 @@ bool PerfectBot::decision() {
   IDCard* idcard = nullptr;
   AccessPermit* accesspermit = nullptr;
   WorkPass* workpass = nullptr;
-
+  // If the player has papers
   if (this->entrant.papers.empty()) {
     return false;
   } else {
@@ -29,20 +29,22 @@ bool PerfectBot::decision() {
         workpass = dynamic_cast<WorkPass*>(paper);
       }
     }
-
     // Check passport
     if (passport != nullptr) {
       if (this->entrant.pic.hair != passport->pic.hair ||
           this->entrant.pic.facial_hair != passport->pic.facial_hair ||
           this->entrant.pic.vision != passport->pic.vision ||
           this->entrant.pic.other != passport->pic.other) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
       }
       if (passport->moa_stamp != "AA" && passport->moa_stamp != "AB") {
-        return false;
+        passport->entry_visa = false;
+        return passport->entry_visa;
       }
       if (this->entrant.sex != passport->sex) {
-        return false;
+        passport->entry_visa = false;
+        return passport->entry_visa;
       }
       int count = 0;
       for (std::size_t i = 0; i < database["issuing_city"][this->entrant.country].size(); i++) {
@@ -52,7 +54,8 @@ bool PerfectBot::decision() {
         count++;
       }
       if (count >= database["issuing_city"][this->entrant.country].size()) {
-        return false;
+        passport->entry_visa = false;
+        return passport->entry_visa;
       }
       count = 0;
       for (std::size_t i = 0; i < database["countries"].size(); i++) {
@@ -62,36 +65,39 @@ bool PerfectBot::decision() {
         count++;
       }
       if (count >= database["countries"].size()) {
-        return false;
+        passport->entry_visa = false;
+        return passport->entry_visa;
       }
       Date d = passport->expiration_date;
-
       struct tm* ctm = localtime(&current_day);
-
       if ((ctm->tm_year > d.year - 1900) ||
           (ctm->tm_year == d.year - 1900 && ctm->tm_mon > d.month - 1) ||
           (ctm->tm_year == d.year - 1900 && ctm->tm_mon == d.month - 1 && ctm->tm_mday > d.day)) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
       }
-
       // Check ID card
-      if (this->entrant.country == "arstotzka") {
-        if (idcard != nullptr && passport != nullptr) {
+      if (passport->country == "arstotzka") {
+        if (idcard != nullptr) {
           if (idcard->pic.hair != this->entrant.pic.hair ||
               idcard->pic.facial_hair != this->entrant.pic.facial_hair ||
               idcard->pic.vision != this->entrant.pic.vision ||
               idcard->pic.other != this->entrant.pic.other) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
           }
           if (idcard->firstname != passport->firstname ||
               idcard->lastname != passport->lastname) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
           }
           if (this->entrant.sex != idcard->sex) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (passport->date_of_birth.to_str() != idcard->date_of_birth.to_str()) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           int count = 0;
           for (std::size_t i = 0; i < database["cities"][this->entrant.country].size(); i++) {
@@ -101,73 +107,85 @@ bool PerfectBot::decision() {
             count++;
           }
           if (count >= database["cities"][this->entrant.country].size()) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (idcard->country != passport->country && idcard->country != "arstotzka") {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (idcard->height != this->entrant.height) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (idcard->weight != this->entrant.weight) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
         }
-
-        return true;
+        passport->entry_visa = true;
+        return passport->entry_visa;
       } else {
         if (accesspermit != nullptr) {
           if (accesspermit->firstname != passport->firstname ||
               accesspermit->lastname != passport->lastname) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
           }
           if (accesspermit->moa_stamp != "AA" && accesspermit->moa_stamp != "AB") {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (accesspermit->nationality != passport->country) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (accesspermit->passport_number != passport->passport_number) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (accesspermit->purpose != this->entrant.purpose) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (accesspermit->height != this->entrant.height) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           if (accesspermit->weight != this->entrant.weight) {
-            return false;
+            passport->entry_visa = false;
+            return passport->entry_visa;
           }
           Date d = accesspermit->expiration_date;
-
           struct tm* ctm = localtime(&current_day);
-
           if ((ctm->tm_year > d.year - 1900) ||
               (ctm->tm_year == d.year - 1900 && ctm->tm_mon > d.month - 1) ||
               (ctm->tm_year == d.year - 1900 && ctm->tm_mon == d.month - 1 && ctm->tm_mday > d.day)) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
           }
           if (accesspermit->physical_appearance != this->entrant.pic.hair) {
             if (accesspermit->physical_appearance != this->entrant.pic.facial_hair) {
               if (accesspermit->physical_appearance != this->entrant.pic.vision) {
                 if (accesspermit->physical_appearance != this->entrant.pic.other) {
-                  return false;
+                  passport->entry_visa = false;
+                  return passport->entry_visa;
                 }
               }
             }
           }
-
           // Check work pass
           if (accesspermit->purpose == "Work") {
             if (workpass != nullptr) {
               if (workpass->firstname != passport->firstname ||
                   workpass->lastname != passport->lastname) {
-                    return false;
+                    passport->entry_visa = false;
+                    return passport->entry_visa;
               }
               if (workpass->mol_stamp != "LA" && workpass->mol_stamp != "LB" &&
                   workpass->mol_stamp != "LC" && workpass->mol_stamp != "LD") {
-                    return false;
+                    passport->entry_visa = false;
+                    return passport->entry_visa;
               }
               int count = 0;
               for (std::size_t i = 0; i < database["works"].size(); i++) {
@@ -177,26 +195,31 @@ bool PerfectBot::decision() {
                 count++;
               }
               if (count >= database["works"].size()) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
               }
               struct tm* tm = localtime(&this->current_day);
               tm->tm_mday += accesspermit->duration;
               Date end(tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900);
               if (end.to_str() != workpass->end.to_str()) {
-                return false;
+                passport->entry_visa = false;
+                return passport->entry_visa;
               }
             } else {
-              return false;
+              passport->entry_visa = false;
+              return passport->entry_visa;
             }
           }
-
-          return true;
+          passport->entry_visa = true;
+          return passport->entry_visa;
         } else {
-          return false;
+          passport->entry_visa = false;
+          return passport->entry_visa;
         }
       }
     } else {
-      return false;
+      passport->entry_visa = false;
+      return passport->entry_visa;
     }
   }
 }

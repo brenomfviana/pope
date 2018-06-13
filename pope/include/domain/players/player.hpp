@@ -50,19 +50,9 @@ class Player {
      * \brief Player decision
      */
     virtual bool decision() = 0;
-
-  protected:
-    /*!
-     * \brief Approve entrant
-     */
-    void approve();
-
-    /*!
-     * \brief Deny entrant
-     */
-    void deny();
 };
 
 #include "perfect_bot.hpp"
+#include "arl_bot.hpp"
 
 #endif /* _POPE_PLAYER_HPP_ */
