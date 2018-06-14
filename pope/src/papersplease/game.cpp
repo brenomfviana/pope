@@ -3,12 +3,13 @@
 void Game::start() {
   int size = this->entrants.size();
   // Game loop -- Current day 24/11/1982
-  while (!this->entrants.empty()) {
+  while (!this->entrants.empty() && !this->player->arrested) {
     auto start = steady_clock::now();
     // Get entrant
     Entrant* entrant = this->entrants.front();
     this->entrants.pop_front();
     this->ecount++;
+    this->ecg++;
     // Get papers
     this->player->papers_please(*entrant, current_day);
     // Player decision
@@ -19,6 +20,7 @@ void Game::start() {
       this->player->credits += SALARY;
     } else {
       this->mcount++;
+      this->mcg++;
       std::cout << "\nEntrant: " << entrant->firstname << " " << entrant->lastname;
       if (this->mcount >= NAM) {
         this->player->credits -= SALARY;
@@ -30,21 +32,21 @@ void Game::start() {
     std::cout << "Decision time: " << duration_cast<milliseconds>(end - start).count()
               << " milliseconds\n";
     // Check new day
-    if (this->ecount % 10 == 0) {
+    if (this->ecount == 10) {
       end_day();
       std::cout << "\nNew day" << '\n';
       std::cout << "\ credits=" << this->player->credits << '\n';
     }
   }
   //
-  std::cout << "\nRight decisions: " << (size - this->mcount) << "\n";
-  std::cout << "Wrong decisions: " << this->mcount << "\n";
-  std::cout << "Success rate: " << ((size - this->mcount) / (float) size) << "\n\n";
+  std::cout << "\nRight decisions: " << (size - this->mcg) << "\n";
+  std::cout << "Wrong decisions: " << this->mcg << "\n";
+  std::cout << "Success rate: " << ((size - this->mcg) / (float) size) << "\n\n";
   // Check if the player win
   if (win()) {
     std::cout << "Congrats! You helped your country!" << '\n';
   } else {
-    std::cout << "You were arrested!" << '\n';
+    std::cout << "You were arrested in " << this->number_of_days << "th day!" << '\n';
   }
 }
 
@@ -63,7 +65,7 @@ void Game::end_day() {
   //// This feature was not implemented because the entrant generation should
   //// be updated, and due to the deadline, can not be implemented
   //// This is not important for AI evaluation, so can be ignored for now
-  // this->number_of_days++;
+  this->number_of_days++;
   // struct tm aux;
   // aux.tm_year = current_day / 10000 - 1900;
   // aux.tm_mon = (current_day % 10000) / 100 - 1;
