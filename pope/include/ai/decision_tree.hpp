@@ -41,9 +41,22 @@ class DecisionTree {
     bool decision(Entrant entrant, time_t current_day);
 
   private:
-    unsigned int class_counts(std::list<Row> table);
+    void build();
 
-    float gini_index(std::list<Row> table, std::vector<int> classes);
+    std::list<Row> create_table(std::list<Entrant*> entrants);
+
+    std::tuple<unsigned int, unsigned int> class_counts(std::list<Row> table);
+
+    float gini(std::list<Row> table, std::vector<unsigned int> classes);
+
+    std::tuple<std::list<Row>, std::list<Row>> partition(std::list<Entrant*> entrants,
+      std::list<Row> table, unsigned int action, time_t current_day);
+
+    float info_gain(std::list<Row> left, std::list<Row> right,
+      std::vector<unsigned int> classes, float current_uncertainty);
+
+    std::tuple<float, unsigned int> find_best_split(std::list<Row> table,
+      std::vector<unsigned int> classes);
 };
 
 #endif /* _POPE_DECISION_TREE_BOT_HPP_ */

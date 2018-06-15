@@ -35,7 +35,7 @@ void Game::start() {
     if (this->ecount == 10) {
       end_day();
       std::cout << "\nNew day" << '\n';
-      std::cout << "\ credits=" << this->player->credits << '\n';
+      std::cout << "\n credits=" << this->player->credits << '\n';
     }
   }
   //
