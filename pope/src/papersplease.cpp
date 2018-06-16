@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     shuffle(train);
     shuffle(entrants);
     // Start game
-    Player* player = new ARLBot(train);
+    Player* player = new PopeBot(train);
     Game game(entrants, player);
     game.start();
   } else {

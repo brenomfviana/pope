@@ -4,7 +4,11 @@ void Game::start() {
   int size = this->entrants.size();
   // Game loop -- Current day 24/11/1982
   while (!this->entrants.empty() && !this->player->arrested) {
-    auto start = steady_clock::now();
+    if (this->new_day) {
+      std::cout << "\nDay#" << (this->number_of_days + 1) << '\n';
+      std::cout << "  credits=" << this->player->credits << '\n';
+      this->new_day = false;
+    }
     // Get entrant
     Entrant* entrant = this->entrants.front();
     this->entrants.pop_front();
@@ -21,32 +25,29 @@ void Game::start() {
     } else {
       this->mcount++;
       this->mcg++;
-      std::cout << "\nEntrant: " << entrant->firstname << " " << entrant->lastname;
       if (this->mcount >= NAM) {
         this->player->credits -= SALARY;
       }
     }
-    auto end = steady_clock::now();
     std::cout << "\nPlayer decision: " << (decision ? "allow" : "deny") << "\n";
     std::cout << "Expected decision: " << (expected_decision ? "allow" : "deny") << "\n";
-    std::cout << "Decision time: " << duration_cast<milliseconds>(end - start).count()
-              << " milliseconds\n";
+    std::cout << "  credits=" << this->player->credits << '\n';
     // Check new day
     if (this->ecount == 10) {
       end_day();
-      std::cout << "\nNew day" << '\n';
-      std::cout << "\n credits=" << this->player->credits << '\n';
     }
   }
   //
-  std::cout << "\nRight decisions: " << (size - this->mcg) << "\n";
+  std::cout << "\nRight decisions: " << (this->ecg - this->mcg) << "\n";
   std::cout << "Wrong decisions: " << this->mcg << "\n";
-  std::cout << "Success rate: " << ((size - this->mcg) / (float) size) << "\n\n";
+  std::cout << "Success rate: " << ((this->ecg - this->mcg) / (float) (this->ecg)) << "\n\n";
   // Check if the player win
   if (win()) {
     std::cout << "Congrats! You helped your country!" << '\n';
+    std::cout << "  credits=" << this->player->credits << '\n';
   } else {
     std::cout << "You were arrested in " << this->number_of_days << "th day!" << '\n';
+    std::cout << "  credits=" << this->player->credits << '\n';
   }
 }
 
@@ -66,6 +67,7 @@ void Game::end_day() {
   //// be updated, and due to the deadline, can not be implemented
   //// This is not important for AI evaluation, so can be ignored for now
   this->number_of_days++;
+  this->new_day = true;
   // struct tm aux;
   // aux.tm_year = current_day / 10000 - 1900;
   // aux.tm_mon = (current_day % 10000) / 100 - 1;

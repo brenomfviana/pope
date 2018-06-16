@@ -53,6 +53,6 @@ class Player {
 };
 
 #include "perfect_bot.hpp"
-#include "arl_bot.hpp"
+#include "pope_bot.hpp"
 
 #endif /* _POPE_PLAYER_HPP_ */

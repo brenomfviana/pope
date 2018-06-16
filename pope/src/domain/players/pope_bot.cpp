@@ -1,10 +1,10 @@
-#include "domain/players/arl_bot.hpp"
+#include "domain/players/pope_bot.hpp"
 
-ARLBot::ARLBot(std::list<Entrant*> entrants) : Player() {
+PopeBot::PopeBot(std::list<Entrant*> entrants) : Player() {
   tree = DecisionTree(entrants);
 }
 
-bool ARLBot::decision() {
+bool PopeBot::decision() {
   // If the player has papers
   if (this->entrant.papers.empty()) {
     return false;

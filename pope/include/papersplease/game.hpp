@@ -34,6 +34,7 @@ class Game {
     unsigned int mcg; ///< Mistakes counter per game
     unsigned int ecg; ///< Number of entrant served per game
     unsigned int number_of_days; ///< Number of days
+    bool new_day;
     time_t current_day = 406944000; ///< Currrent day
 
     /*!
@@ -53,6 +54,7 @@ class Game {
       this->mcg = 0;
       this->ecg = 0;
       this->number_of_days = 0;
+      this->new_day = true;
     }
 
     /*!

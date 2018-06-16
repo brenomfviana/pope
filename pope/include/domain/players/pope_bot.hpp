@@ -7,8 +7,8 @@
   terms of the MIT License.
 */
 
-#ifndef _POPE_ARL_BOT_HPP_
-#define _POPE_ARL_BOT_HPP_
+#ifndef _POPE_BOT_HPP_
+#define _POPE_BOT_HPP_
 
 #include <iostream>
 #include "ai/decision_tree.hpp"
@@ -17,11 +17,11 @@
 /*!
  * \brief
  */
-class ARLBot : public Player {
+class PopeBot : public Player {
   public:
     DecisionTree tree;
-    ARLBot(std::list<Entrant*> entrants);
+    PopeBot(std::list<Entrant*> entrants);
     bool decision();
 };
 
-#endif /* _POPE_ARL_BOT_HPP_ */
+#endif /* _POPE_BOT_HPP_ */
