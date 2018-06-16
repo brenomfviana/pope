@@ -7,225 +7,225 @@
   terms of the MIT License.
 */
 
-#include "domain/actions.hpp"
+#include "ai/questions.hpp"
 #include "ai/decision_tree.hpp"
 
 DecisionTree::DecisionTree() { /* empty */ }
 
 DecisionTree::DecisionTree(std::list<Entrant*> entrants) {
-  // Classes
-  std::vector<unsigned int> classes{ INVALID, VALID, NATIVE, NO_NATIVE, WORKPASS, NO_WORKPASS };
   // Currrent day
   time_t current_day = 406944000;
-  // Init decision tree
-  this->root = new Node(HAS_PASSPORT,
-    {{ INVALID, new Node(DENY) },
-     { VALID, nullptr } });
   // Build decision tree
-  build();
+  this->root = build(entrants, current_day, 12);
 }
 
-void DecisionTree::build() {
-  // TODO
+Node* DecisionTree::build(std::list<Entrant*> entrants, time_t current_day, int depth) {
+  // Check dataset
+  if (entrants.empty()) {
+    return new Node(true, true);
+  }
+  // Check if the node is a leaf
+  if (depth == 0) {
+    // Check citizenship
+    std::list<Entrant*> natives, nonnatives;
+    std::tie(natives, nonnatives) = partition(entrants, IS_ARSTOTZKAN, current_day);
+    Node* natives_branch = buildidc(natives, current_day, 8);
+    Node* nonnatives_branch = buildap(nonnatives, current_day, 9);
+    return new Node(IS_ARSTOTZKAN, natives_branch, nonnatives_branch);
+  }
+  // Passport questions
+  std::vector<unsigned int> questions = { CHECK_PICTURE_PASSPORT,
+    CHECK_MOASTAMP_PASSPORT, CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT,
+    CHECK_COUNTRY_PASSPORT, CHECK_EXPIRATIONDATE_PASSPORT, CHECK_PICTURE_PASSPORT,
+    CHECK_MOASTAMP_PASSPORT, CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT,
+    CHECK_COUNTRY_PASSPORT, CHECK_EXPIRATIONDATE_PASSPORT };
+  // Find best split
+  float gain;
+  unsigned int question;
+  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  //
+  std::list<Entrant*> true_rows, false_rows;
+  std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  Node* true_branch = build(true_rows, current_day, depth - 1);
+  Node* false_branch = new Node(true, false);
+  return new Node(question, true_branch, false_branch);
+}
+
+Node* DecisionTree::buildidc(std::list<Entrant*> entrants, time_t current_day, int depth) {
+  // Check if the node is a leaf
+  if (depth == 0 || entrants.empty()) {
+    return new Node(true, true);
+  }
+  // ID card questions
+  std::vector<unsigned int> questions = { CHECK_PICTURE_IDCARD, CHECK_NAME_IDCARD_PASSPORT,
+    CHECK_SEX_IDCARD, CHECK_DATEOFBIRTH_IDCARD, CHECK_CITY_IDCARD, CHECK_COUNTRY_IDCARD,
+    CHECK_HEIGHT_IDCARD, CHECK_WEIGHT_IDCARD };
+  // Find best split
+  float gain;
+  unsigned int question;
+  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  //
+  std::list<Entrant*> true_rows, false_rows;
+  std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  Node* true_branch = buildidc(true_rows, current_day, depth - 1);
+  Node* false_branch = new Node(true, false);
+  return new Node(question, true_branch, false_branch);
+}
+
+Node* DecisionTree::buildap(std::list<Entrant*> entrants, time_t current_day, int depth) {
+  // Check dataset
+  if (entrants.empty()) {
+    return new Node(true, true);
+  }
+  // Check if the node is a leaf
+  if (depth == 0) {
+    // Check if has work pass
+    std::list<Entrant*> workers, nonworkers;
+    std::tie(workers, nonworkers) = partition(entrants, HAS_WORKPASS, current_day);
+    Node* workers_branch = buildwp(workers, current_day, 4);
+    Node* nonworkers_branch = new Node(true, true);
+    return new Node(IS_ARSTOTZKAN, workers_branch, nonworkers_branch);
+  }
+  // Access Permit questions
+  std::vector<unsigned int> questions = { CHECK_NAME_ACCESSPERMIT_PASSPORT,
+    CHECK_MOASTAMP_ACCESSPERMIT, CHECK_NATIONALITY_ACCESSPERMIT,
+    CHECK_PASSPORTNUMBER_ACCESSPERMIT, CHECK_PURPOSE_ACCESSPERMIT,
+    CHECK_HEIGHT_ACCESSPERMIT, CHECK_WEIGHT_ACCESSPERMIT,
+    CHECK_EXPIRATIONDATE_ACCESSPERMIT, CHECK_PHYSICALAPPEARANCE_ACCESSPERMIT };
+  // Find best split
+  float gain;
+  unsigned int question;
+  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  //
+  std::list<Entrant*> true_rows, false_rows;
+  std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  Node* true_branch = buildap(true_rows, current_day, depth - 1);
+  Node* false_branch = new Node(true, false);
+  return new Node(question, true_branch, false_branch);
+}
+
+Node* DecisionTree::buildwp(std::list<Entrant*> entrants, time_t current_day, int depth) {
+  // Check if the node is a leaf
+  if (depth == 0 || entrants.empty()) {
+    return new Node(true, true);
+  }
+  // ID card questions
+  std::vector<unsigned int> questions = { CHECK_NAME_WORKPASS_PASSPORT,
+    CHECK_MOLSTAMP_WORKPASS, CHECK_FIELD_WORKPASS, CHECK_WORKENDDATE_WORKPASS };
+  // Find best split
+  float gain;
+  unsigned int question;
+  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  //
+  std::list<Entrant*> true_rows, false_rows;
+  std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  Node* true_branch = buildwp(true_rows, current_day, depth - 1);
+  Node* false_branch = new Node(true, false);
+  return new Node(question, true_branch, false_branch);
 }
 
 bool DecisionTree::decision(Entrant entrant, time_t current_day) {
   Node* next = this->root;
-  bool making_decision = true;
   while(true) {
-    int action_result = Action::do_action(next->action, entrant, current_day);
-    if (action_result == ALLOW) {
-      return true;
+    // Check if is a leaf
+    if (next->is_leaf) {
+      return next->value;
     }
-    if (action_result == DENY) {
-      return false;
-    }
-    if (!this->root->children.empty()) {
-      next = this->root->children[action_result];
-    }
-  }
-  // ERROR
-  return false;
-}
-
-std::list<Row> create_table(std::list<Entrant*> entrants) {
-  std::list<Row> table;
-  for (Entrant* entrant : entrants) {
-   // Papers
-   Passport* passport = nullptr;
-   IDCard* idcard = nullptr;
-   AccessPermit* accesspermit = nullptr;
-   WorkPass* workpass = nullptr;
-   for (Paper* paper : entrant->papers) {
-     // Passport
-     if (typeid(*paper) == typeid(Passport)) {
-       passport = dynamic_cast<Passport*>(paper);
-     }
-     // ID card
-     if (typeid(*paper) == typeid(IDCard)) {
-       idcard = dynamic_cast<IDCard*>(paper);
-     }
-     // Access permit
-     if (typeid(*paper) == typeid(AccessPermit)) {
-       accesspermit = dynamic_cast<AccessPermit*>(paper);
-     }
-     // Work pass
-     if (typeid(*paper) == typeid(WorkPass)) {
-       workpass = dynamic_cast<WorkPass*>(paper);
-     }
-   }
-   // Passport
-   std::string s = passport->pic.hair + passport->pic.facial_hair +
-     passport->pic.vision + passport->pic.other;
-   unsigned long ppic = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->firstname + passport->lastname;
-   unsigned long pname = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->passport_number;
-   unsigned long ppp = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->moa_stamp;
-   unsigned long pstamp = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->sex + "";
-   unsigned long psex = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->date_of_birth.to_str();
-   unsigned long pdbirth = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->country;
-   unsigned long pcountry = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->issuing_city;
-   unsigned long picity = std::accumulate(s.begin(), s.end(), 0);
-   s = passport->expiration_date.to_str();
-   unsigned long pedate = std::accumulate(s.begin(), s.end(), 0);
-   // Create row
-   if (idcard != nullptr) {
-     // ID Card
-     s = idcard->pic.hair + idcard->pic.facial_hair + idcard->pic.vision + idcard->pic.other;
-     unsigned long idcpic = std::accumulate(s.begin(), s.end(), 0);
-     s = idcard->firstname + idcard->lastname;
-     unsigned long idcname = std::accumulate(s.begin(), s.end(), 0);
-     s = idcard->sex + "";
-     unsigned long idcsex = std::accumulate(s.begin(), s.end(), 0);
-     s = idcard->date_of_birth.to_str();
-     unsigned long idcdbirth = std::accumulate(s.begin(), s.end(), 0);
-     s = idcard->country;
-     unsigned long idccountry = std::accumulate(s.begin(), s.end(), 0);
-     s = idcard->city;
-     unsigned long idccity = std::accumulate(s.begin(), s.end(), 0);
-     // Add to table
-     table.push_back(Row(
-         new PassportT(ppic, pname, ppp, pstamp, psex, pdbirth, pcountry, picity, pedate),
-         new IDCardT(idcpic, idcname, idcsex, idcdbirth, idccountry, idccity,
-           idcard->height, idcard->weight),
-         new AccessPermitT(0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-         new WorkPassT(0, 0, 0, 0), entrant->illegal));
-   } else {
-     if (accesspermit != nullptr) {
-       // Access permit
-       s = accesspermit->firstname + accesspermit->lastname;
-       unsigned long accname = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->moa_stamp;
-       unsigned long accstamp = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->nationality;
-       unsigned long acccountry = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->passport_number;
-       unsigned long accpnumber = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->purpose;
-       unsigned long accpp = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->expiration_date.to_str();
-       unsigned long accedate = std::accumulate(s.begin(), s.end(), 0);
-       s = accesspermit->physical_appearance;
-       unsigned long accpapp = std::accumulate(s.begin(), s.end(), 0);
-       // Add to table
-       if (workpass != nullptr) {
-         // Access permit
-         s = workpass->firstname + workpass->lastname;
-         unsigned long wpname = std::accumulate(s.begin(), s.end(), 0);
-         s = workpass->mol_stamp;
-         unsigned long wpstamp = std::accumulate(s.begin(), s.end(), 0);
-         s = workpass->field;
-         unsigned long wpfield = std::accumulate(s.begin(), s.end(), 0);
-         s = workpass->end.to_str();
-         unsigned long wpend = std::accumulate(s.begin(), s.end(), 0);
-         // Add to table
-         table.push_back(Row(
-           new PassportT(ppic, pname, ppp, pstamp, psex, pdbirth, pcountry, picity, pedate),
-           new IDCardT(0, 0, 0, 0, 0, 0, 0, 0),
-           new AccessPermitT(accname, accstamp, acccountry, accpnumber, accpp,
-               accesspermit->duration, accesspermit->height * 100, accesspermit->weight,
-               accedate, accpapp),
-           new WorkPassT(wpname, wpstamp, wpfield, wpend), entrant->illegal));
-       } else {
-         // Add to table
-         table.push_back(Row(
-           new PassportT(ppic, pname, ppp, pstamp, psex, pdbirth, pcountry, picity, pedate),
-           new IDCardT(0, 0, 0, 0, 0, 0, 0, 0),
-           new AccessPermitT(accname, accstamp, acccountry, accpnumber, accpp,
-               accesspermit->duration, accesspermit->height * 100, accesspermit->weight,
-               accedate, accpapp),
-           new WorkPassT(0, 0, 0, 0), entrant->illegal));
-       }
-     }
-   }
-  }
-  return table;
-}
-
-std::tuple<unsigned int, unsigned int> DecisionTree::class_counts(std::list<Row> table) {
-  unsigned int c0, c1;
-  for (Row r : table) {
-    unsigned int c = 0;
-    std::tie(std::ignore, std::ignore, std::ignore, std::ignore, c) = r;
-    if (c == 0) {
-      c0++;
+    // Make a question
+    bool result = Question::ask(next->question, entrant, current_day);
+    // Check question result and updates current node
+    if (result) {
+      next = next->right;
     } else {
-      c1++;
+      next = next->left;
     }
   }
-  return std::make_tuple(c0, c1);
 }
 
-float DecisionTree::gini(std::list<Row> table, std::vector<unsigned int> classes) {
-  unsigned int c0, c1;
-  std::tie(c0, c1) = class_counts(table);
+std::tuple<unsigned int, unsigned int> DecisionTree::class_counts(std::list<Entrant*> entrants) {
+  unsigned int legal, illegal;
+  for (Entrant* entrant : entrants) {
+    if (entrant->illegal) {
+      illegal++;
+    } else {
+      legal++;
+    }
+  }
+  return std::make_tuple(legal, illegal);
+}
+
+float DecisionTree::gini(std::list<Entrant*> entrants) {
+  // If the list is empty there is no impurity
+  if (entrants.empty()) {
+    return 0.f;
+  }
+  // Get class
+  unsigned int legal, illegal;
+  std::tie(legal, illegal) = class_counts(entrants);
+  // Calculates the impurity
   float impurity = 1.f;
-  float pc0 = c0 / (float) table.size();
-  impurity -= pow(pc0, 2);
-  float pc1 = c1 / (float) table.size();
-  impurity -= pow(pc1, 2);
+  // Proportion of legal entrants
+  float plegal = legal / (float) entrants.size();
+  impurity -= pow(plegal, 2);
+  // Proportion of illegal entrants
+  float pillegal = illegal / (float) entrants.size();
+  impurity -= pow(pillegal, 2);
   return impurity;
 }
 
-std::tuple<std::list<Row>, std::list<Row>> DecisionTree::partition(std::list<Entrant*> entrants,
-  std::list<Row> table, unsigned int action, time_t current_day) {
-    std::list<Row> true_rows, false_rows;
-    for (size_t i = 0; i < table.size(); i++) {
-      std::list<Entrant*>::iterator ite = entrants.begin();
-      std::advance(ite, i);
-      // Build entrant
-      int action_result = Action::do_action(action, **ite, current_day);
-      // Row
-      std::list<Row>::iterator row = table.begin();
-      std::advance(row, i);
-      if (action_result == ALLOW) {
-        true_rows.push_back(*row);
+float DecisionTree::info_gain(std::list<Entrant*> left, std::list<Entrant*> right,
+  float current_uncertainty) {
+    // Percentage of the left dataset
+    float p = left.size() / ((float) left.size() + right.size());
+    // Calculates the gain based on the uncertainty of the left and right datasets
+    float info_gain = (current_uncertainty - (p * gini(left)) - ((1 - p) * gini(right)));
+    return info_gain;
+}
+
+std::tuple<std::list<Entrant*>, std::list<Entrant*>> DecisionTree::partition(std::list<Entrant*> entrants,
+  unsigned int question, time_t current_day) {
+    // Partition dataset
+    std::list<Entrant*> true_rows, false_rows;
+    for (Entrant* entrant : entrants) {
+      // Avoid problems
+      if (entrant != nullptr) {
+        continue;
       }
-      if (action_result == DENY) {
-        false_rows.push_back(*row);
+      // Make a question
+      bool question_result = Question::ask(question, *entrant, current_day);
+      // Check question result and make partition
+      if (question_result) {
+        true_rows.push_back(entrant);
+      } else {
+        false_rows.push_back(entrant);
       }
     }
-    std::make_tuple(true_rows, false_rows);
+    return std::make_tuple(true_rows, false_rows);
 }
 
-float DecisionTree::info_gain(std::list<Row> left, std::list<Row> right,
-  std::vector<unsigned int> classes, float current_uncertainty) {
-    float p = float(left.size()) / (left.size() + right.size());
-    return current_uncertainty - p * gini(left, classes) - (1 - p) * gini(right, classes);
-}
-
-std::tuple<float, unsigned int> DecisionTree::find_best_split(std::list<Row> table,
-  std::vector<unsigned int> classes) {
+std::tuple<float, unsigned int> DecisionTree::find_best_split(std::vector<unsigned int> questions,
+  std::list<Entrant*> entrants, time_t current_day) {
     float best_gain = 0.f;
     unsigned int best_question = 0;
-    float current_uncertainty = gini(table, classes);
-    // unsigned int n_features = 0; // number of columns
-    // TODO
-    std::make_tuple(best_gain, best_question);
+    // Get current uncertainty
+    float current_uncertainty = gini(entrants);
+    // Make questions
+    for (unsigned int question : questions) {
+      // Make a question
+      std::list<Entrant*> true_rows, false_rows;
+      std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+      // Skip this split if it doesn't divide the dataset
+      if (true_rows.size() == 0 && false_rows.size() == 0) {
+        continue;
+      }
+      // Calculates current gain
+      float gain = info_gain(true_rows, false_rows, current_uncertainty);
+      // Check if is the best gain
+      if (gain >= best_gain) {
+        // Updates best gain and best question
+        best_gain = gain;
+        best_question = question;
+      }
+    }
+    return std::make_tuple(best_gain, best_question);
 }

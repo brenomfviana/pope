@@ -14,16 +14,22 @@
 
 class Node {
   public:
-    std::map<int, Node*> children;
-    unsigned int action;
+    Node* left;
+    Node* right;
+    unsigned int question;
+    bool is_leaf;
+    bool value;
 
-    Node(int action) {
-      this->action = action;
+    Node(bool is_leaf, bool value) {
+      this->is_leaf = is_leaf;
+      this->value = value;
     }
 
-    Node(int action, std::map<int, Node*> children) {
-      this->action = action;
-      this->children = children;
+    Node(unsigned int question, Node* left, Node* right) {
+      this->is_leaf = false;
+      this->question = question;
+      this->left = left;
+      this->right = right;
     }
 };
 
