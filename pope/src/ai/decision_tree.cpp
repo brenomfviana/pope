@@ -16,7 +16,7 @@ DecisionTree::DecisionTree(std::list<Entrant*> entrants) {
   // Currrent day
   time_t current_day = 406944000;
   // Build decision tree
-  this->root = build(entrants, current_day, 12);
+  this->root = new Node(HAS_PASSPORT, build(entrants, current_day, 6), new Node(true, false));
 }
 
 Node* DecisionTree::build(std::list<Entrant*> entrants, time_t current_day, int depth) {
@@ -33,16 +33,10 @@ Node* DecisionTree::build(std::list<Entrant*> entrants, time_t current_day, int 
     Node* nonnatives_branch = buildap(nonnatives, current_day, 9);
     return new Node(IS_ARSTOTZKAN, natives_branch, nonnatives_branch);
   }
-  // Passport questions
-  std::vector<unsigned int> questions = { CHECK_PICTURE_PASSPORT,
-    CHECK_MOASTAMP_PASSPORT, CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT,
-    CHECK_COUNTRY_PASSPORT, CHECK_EXPIRATIONDATE_PASSPORT, CHECK_PICTURE_PASSPORT,
-    CHECK_MOASTAMP_PASSPORT, CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT,
-    CHECK_COUNTRY_PASSPORT, CHECK_EXPIRATIONDATE_PASSPORT };
   // Find best split
   float gain;
   unsigned int question;
-  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  std::tie(gain, question) = find_best_split(passport_questions, entrants, current_day);
   //
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
@@ -56,14 +50,10 @@ Node* DecisionTree::buildidc(std::list<Entrant*> entrants, time_t current_day, i
   if (depth == 0 || entrants.empty()) {
     return new Node(true, true);
   }
-  // ID card questions
-  std::vector<unsigned int> questions = { CHECK_PICTURE_IDCARD, CHECK_NAME_IDCARD_PASSPORT,
-    CHECK_SEX_IDCARD, CHECK_DATEOFBIRTH_IDCARD, CHECK_CITY_IDCARD, CHECK_COUNTRY_IDCARD,
-    CHECK_HEIGHT_IDCARD, CHECK_WEIGHT_IDCARD };
   // Find best split
   float gain;
   unsigned int question;
-  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  std::tie(gain, question) = find_best_split(idcard_questions, entrants, current_day);
   //
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
@@ -84,18 +74,12 @@ Node* DecisionTree::buildap(std::list<Entrant*> entrants, time_t current_day, in
     std::tie(workers, nonworkers) = partition(entrants, HAS_WORKPASS, current_day);
     Node* workers_branch = buildwp(workers, current_day, 4);
     Node* nonworkers_branch = new Node(true, true);
-    return new Node(IS_ARSTOTZKAN, workers_branch, nonworkers_branch);
+    return new Node(HAS_WORKPASS, workers_branch, nonworkers_branch);
   }
-  // Access Permit questions
-  std::vector<unsigned int> questions = { CHECK_NAME_ACCESSPERMIT_PASSPORT,
-    CHECK_MOASTAMP_ACCESSPERMIT, CHECK_NATIONALITY_ACCESSPERMIT,
-    CHECK_PASSPORTNUMBER_ACCESSPERMIT, CHECK_PURPOSE_ACCESSPERMIT,
-    CHECK_HEIGHT_ACCESSPERMIT, CHECK_WEIGHT_ACCESSPERMIT,
-    CHECK_EXPIRATIONDATE_ACCESSPERMIT, CHECK_PHYSICALAPPEARANCE_ACCESSPERMIT };
   // Find best split
   float gain;
   unsigned int question;
-  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  std::tie(gain, question) = find_best_split(access_questions, entrants, current_day);
   //
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
@@ -109,13 +93,10 @@ Node* DecisionTree::buildwp(std::list<Entrant*> entrants, time_t current_day, in
   if (depth == 0 || entrants.empty()) {
     return new Node(true, true);
   }
-  // ID card questions
-  std::vector<unsigned int> questions = { CHECK_NAME_WORKPASS_PASSPORT,
-    CHECK_MOLSTAMP_WORKPASS, CHECK_FIELD_WORKPASS, CHECK_WORKENDDATE_WORKPASS };
   // Find best split
   float gain;
   unsigned int question;
-  std::tie(gain, question) = find_best_split(questions, entrants, current_day);
+  std::tie(gain, question) = find_best_split(work_questions, entrants, current_day);
   //
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
@@ -125,19 +106,20 @@ Node* DecisionTree::buildwp(std::list<Entrant*> entrants, time_t current_day, in
 }
 
 bool DecisionTree::decision(Entrant entrant, time_t current_day) {
-  Node* next = this->root;
+  Node* node = this->root;
   while(true) {
     // Check if is a leaf
-    if (next->is_leaf) {
-      return next->value;
+    if (node->is_leaf) {
+      return node->value;
     }
     // Make a question
-    bool result = Question::ask(next->question, entrant, current_day);
+    bool result = Question::ask(node->question, entrant, current_day);
+    // std::cout << "Q" << node->question << " R:" << (result ? "true" : "false") << " E:" << entrant.firstname << '\n';
     // Check question result and updates current node
     if (result) {
-      next = next->right;
+      node = node->left;
     } else {
-      next = next->left;
+      node = node->right;
     }
   }
 }
@@ -188,7 +170,7 @@ std::tuple<std::list<Entrant*>, std::list<Entrant*>> DecisionTree::partition(std
     std::list<Entrant*> true_rows, false_rows;
     for (Entrant* entrant : entrants) {
       // Avoid problems
-      if (entrant != nullptr) {
+      if (entrant == nullptr) {
         continue;
       }
       // Make a question
@@ -203,7 +185,7 @@ std::tuple<std::list<Entrant*>, std::list<Entrant*>> DecisionTree::partition(std
     return std::make_tuple(true_rows, false_rows);
 }
 
-std::tuple<float, unsigned int> DecisionTree::find_best_split(std::vector<unsigned int> questions,
+std::tuple<float, unsigned int> DecisionTree::find_best_split(std::vector<unsigned int>& questions,
   std::list<Entrant*> entrants, time_t current_day) {
     float best_gain = 0.f;
     unsigned int best_question = 0;
@@ -227,5 +209,7 @@ std::tuple<float, unsigned int> DecisionTree::find_best_split(std::vector<unsign
         best_question = question;
       }
     }
+    //
+    questions.erase(std::find(questions.begin(), questions.end(), best_question));
     return std::make_tuple(best_gain, best_question);
 }

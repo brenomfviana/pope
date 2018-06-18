@@ -492,6 +492,8 @@ bool Question::check_weight_idcard(YAML::Node database, Entrant entrant) {
   if (idcard != nullptr && passport != nullptr) {
     if (idcard->weight != entrant.weight) {
       return false;
+    } else {
+      return true;
     }
   }
   return false;
@@ -778,17 +780,7 @@ bool Question::has_workpass(YAML::Node database, Entrant entrant) {
       workpass = dynamic_cast<WorkPass*>(paper);
     }
   }
-  for (Paper* paper : entrant.papers) {
-    // Work pass
-    if (typeid(*paper) == typeid(Passport)) {
-      workpass = dynamic_cast<WorkPass*>(paper);
-    }
-  }
-  //
-  if (workpass != nullptr) {
-    return true;
-  }
-  return false;
+  return (workpass != nullptr);
 }
 
 bool Question::check_name_workpass_passport(YAML::Node database, Entrant entrant) {
