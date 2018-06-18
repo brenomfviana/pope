@@ -10,8 +10,6 @@
 #ifndef _POPE_DECISION_TREE_NODE_HPP_
 #define _POPE_DECISION_TREE_NODE_HPP_
 
-#include <map>
-
 class Node {
   public:
     Node* left;
@@ -26,10 +24,11 @@ class Node {
     }
 
     Node(unsigned int question, Node* left, Node* right) {
-      this->is_leaf = false;
       this->question = question;
       this->left = left;
       this->right = right;
+      this->is_leaf = false;
+      this->value = false;
     }
 };
 

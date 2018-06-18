@@ -28,24 +28,11 @@
  */
 class DecisionTree {
   public:
+    std::vector<unsigned int> passport_questions; ///< Passport questions
+    std::vector<unsigned int> idcard_questions; ///< ID card questions
+    std::vector<unsigned int> access_questions; ///< Access Permit questions
+    std::vector<unsigned int> work_questions; ///< Work pass questions
     Node* root; ///< Tree root
-    // Passport questions
-    std::vector<unsigned int> passport_questions = { CHECK_PICTURE_PASSPORT,
-      CHECK_MOASTAMP_PASSPORT, CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT,
-      CHECK_COUNTRY_PASSPORT, CHECK_EXPIRATIONDATE_PASSPORT };
-    // ID card questions
-    std::vector<unsigned int> idcard_questions = { CHECK_PICTURE_IDCARD, CHECK_NAME_IDCARD_PASSPORT,
-      CHECK_SEX_IDCARD, CHECK_DATEOFBIRTH_IDCARD, CHECK_CITY_IDCARD, CHECK_COUNTRY_IDCARD,
-      CHECK_HEIGHT_IDCARD, CHECK_WEIGHT_IDCARD };
-    // Access Permit questions
-    std::vector<unsigned int> access_questions = { CHECK_NAME_ACCESSPERMIT_PASSPORT,
-      CHECK_MOASTAMP_ACCESSPERMIT, CHECK_NATIONALITY_ACCESSPERMIT,
-      CHECK_PASSPORTNUMBER_ACCESSPERMIT, CHECK_PURPOSE_ACCESSPERMIT,
-      CHECK_HEIGHT_ACCESSPERMIT, CHECK_WEIGHT_ACCESSPERMIT,
-      CHECK_EXPIRATIONDATE_ACCESSPERMIT, CHECK_PHYSICALAPPEARANCE_ACCESSPERMIT };
-    // Work pass questions
-    std::vector<unsigned int> work_questions = { CHECK_NAME_WORKPASS_PASSPORT,
-      CHECK_MOLSTAMP_WORKPASS, CHECK_FIELD_WORKPASS, CHECK_WORKENDDATE_WORKPASS };
 
     /*!
      * \brief Empty constructor of the decision tree
@@ -61,13 +48,14 @@ class DecisionTree {
     DecisionTree(std::list<Entrant*> training_data);
 
     /*!
-     * \brief
+     * \brief Classifies a entrant
      *
      * \param entrant
      *     Entrant to be classified
-     *
      * \param current_day
      *     Current day in the game
+     *
+     * \return True if is a legal entrant and false otherwise
      */
     bool decision(Entrant entrant, time_t current_day);
 
@@ -84,12 +72,14 @@ class DecisionTree {
 
     float gini(std::list<Entrant*> entrants);
 
-    float info_gain(std::list<Entrant*> left, std::list<Entrant*> right, float current_uncertainty);
+    float info_gain(std::list<Entrant*> left, std::list<Entrant*> right,
+      float current_uncertainty);
 
     std::tuple<std::list<Entrant*>, std::list<Entrant*>> partition(std::list<Entrant*> entrants,
       unsigned int action, time_t current_day);
 
-    std::tuple<float, unsigned int> find_best_split(std::vector<unsigned int>& questions, std::list<Entrant*> entrants, time_t current_day);
+    std::tuple<float, unsigned int> find_best_split(std::vector<unsigned int>& questions,
+      std::list<Entrant*> entrants, time_t current_day);
 };
 
 #endif /* _POPE_DECISION_TREE_BOT_HPP_ */

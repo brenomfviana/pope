@@ -13,10 +13,23 @@
 DecisionTree::DecisionTree() { /* empty */ }
 
 DecisionTree::DecisionTree(std::list<Entrant*> entrants) {
+  passport_questions = { CHECK_PICTURE_PASSPORT, CHECK_MOASTAMP_PASSPORT,
+    CHECK_SEX_PASSPORT, CHECK_ISSUINGCITY_PASSPORT, CHECK_COUNTRY_PASSPORT,
+    CHECK_EXPIRATIONDATE_PASSPORT };
+  idcard_questions = { CHECK_PICTURE_IDCARD, CHECK_NAME_IDCARD_PASSPORT,
+    CHECK_SEX_IDCARD, CHECK_DATEOFBIRTH_IDCARD, CHECK_CITY_IDCARD, CHECK_COUNTRY_IDCARD,
+    CHECK_HEIGHT_IDCARD, CHECK_WEIGHT_IDCARD };
+  access_questions = { CHECK_NAME_ACCESSPERMIT_PASSPORT, CHECK_MOASTAMP_ACCESSPERMIT,
+    CHECK_NATIONALITY_ACCESSPERMIT, CHECK_PASSPORTNUMBER_ACCESSPERMIT,
+    CHECK_PURPOSE_ACCESSPERMIT, CHECK_HEIGHT_ACCESSPERMIT, CHECK_WEIGHT_ACCESSPERMIT,
+    CHECK_EXPIRATIONDATE_ACCESSPERMIT, CHECK_PHYSICALAPPEARANCE_ACCESSPERMIT };
+  work_questions = { CHECK_NAME_WORKPASS_PASSPORT, CHECK_MOLSTAMP_WORKPASS,
+    CHECK_FIELD_WORKPASS, CHECK_WORKENDDATE_WORKPASS };
   // Currrent day
   time_t current_day = 406944000;
   // Build decision tree
-  this->root = new Node(HAS_PASSPORT, build(entrants, current_day, 6), new Node(true, false));
+  this->root = new Node(HAS_PASSPORT,
+    build(entrants, current_day, 6), new Node(true, false));
 }
 
 Node* DecisionTree::build(std::list<Entrant*> entrants, time_t current_day, int depth) {
@@ -209,7 +222,5 @@ std::tuple<float, unsigned int> DecisionTree::find_best_split(std::vector<unsign
         best_question = question;
       }
     }
-    //
-    questions.erase(std::find(questions.begin(), questions.end(), best_question));
     return std::make_tuple(best_gain, best_question);
 }
