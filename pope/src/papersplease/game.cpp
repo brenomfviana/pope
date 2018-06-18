@@ -5,8 +5,8 @@ void Game::start() {
   // Game loop -- Current day 24/11/1982
   while (!this->entrants.empty() && !this->player->arrested) {
     if (this->new_day) {
-      std::cout << "\nDay#" << (this->number_of_days + 1) << '\n';
-      std::cout << "  credits=" << this->player->credits << '\n';
+      // std::cout << "\nDay#" << (this->number_of_days + 1) << '\n';
+      // std::cout << "  credits=" << this->player->credits << '\n';
       this->new_day = false;
     }
     // Get entrant
@@ -29,9 +29,9 @@ void Game::start() {
         this->player->credits -= SALARY;
       }
     }
-    std::cout << "\nPlayer decision: " << (decision ? "allow" : "deny") << "\n";
-    std::cout << "Expected decision: " << (expected_decision ? "allow" : "deny") << "\n";
-    std::cout << "  credits=" << this->player->credits << '\n';
+    // std::cout << "\nPlayer decision: " << (decision ? "allow" : "deny") << "\n";
+    // std::cout << "Expected decision: " << (expected_decision ? "allow" : "deny") << "\n";
+    // std::cout << "  credits=" << this->player->credits << '\n';
     // Check new day
     if (this->ecount == 10) {
       end_day();
@@ -58,17 +58,6 @@ void Game::end_day() {
   if (check_illegal_gains() || check_delinquency() || bankruptcy()) {
     // Arrest the player
     arrest_the_player();
-    if (typeid(*this->player) == typeid(ARLBot)) {
-      ARLBot* p = dynamic_cast<ARLBot*>(this->player);
-      p->current_state = ARLBot::LOSING;
-      p->update();
-    }
-  } else {
-    if (typeid(*this->player) == typeid(ARLBot)) {
-      ARLBot* p = dynamic_cast<ARLBot*>(this->player);
-      p->current_state = ARLBot::WINING;
-      p->update();
-    }
   }
   // Reset values
   this->mcount = 0;

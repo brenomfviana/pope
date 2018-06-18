@@ -11,7 +11,6 @@
 #define _POPE_GAME_HPP_
 
 #include <iostream>
-#include <chrono>
 #include <yaml-cpp/yaml.h>
 #include "domain/players/player.hpp"
 #include "services/readers/database_reader.hpp"

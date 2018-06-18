@@ -126,7 +126,7 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   }
   out << YAML::EndSeq;
   std::ofstream write;
-  std::string s = "dataset/pcg" + std::to_string(i - 1) + ".yml";
+  std::string s = "dataset/dataset" + std::to_string(i - 1) + ".yml";
   write.open (s.c_str());
   write << out.c_str();
   write.close();

@@ -8,6 +8,7 @@
 */
 
 #include <iostream>
+#include <chrono>
 #include <cstring>
 #include <string>
 #include <list>
@@ -33,8 +34,12 @@ int main(int argc, char *argv[]) {
     shuffle(entrants);
     // Start game
     std::cout << "Training..." << '\n';
-    Player* player = new ARLBot(train);
+    auto start = steady_clock::now();
+    Player* player = new PopeBot(train);
+    auto end = steady_clock::now();
+    std::cout << "Training time: " << duration_cast<milliseconds>(end - start).count() << " milliseconds\n";
     std::cout << "READY!" << '\n';
+    std::cout << "\nStarting game..." << '\n';
     Game game(entrants, player);
     game.start();
   } else {
