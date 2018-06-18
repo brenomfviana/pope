@@ -32,7 +32,9 @@ int main(int argc, char *argv[]) {
     shuffle(train);
     shuffle(entrants);
     // Start game
-    Player* player = new PopeBot(train);
+    std::cout << "Training..." << '\n';
+    Player* player = new ARLBot(train);
+    std::cout << "READY!" << '\n';
     Game game(entrants, player);
     game.start();
   } else {

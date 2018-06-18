@@ -119,14 +119,14 @@ std::list<Entrant*> PEG::generate(YAML::Node database, int n) {
   DIR *dp;
   int i = 0;
   struct dirent *ep;
-  dp = opendir("pcg/");
+  dp = opendir("dataset/");
   if (dp != NULL) {
     while (ep = readdir(dp)) { i++; }
     (void) closedir(dp);
   }
   out << YAML::EndSeq;
   std::ofstream write;
-  std::string s = "pcg/pcg" + std::to_string(i - 1) + ".yml";
+  std::string s = "dataset/pcg" + std::to_string(i - 1) + ".yml";
   write.open (s.c_str());
   write << out.c_str();
   write.close();

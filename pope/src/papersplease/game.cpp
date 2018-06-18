@@ -52,16 +52,27 @@ void Game::start() {
 }
 
 void Game::end_day() {
+  // Player expenses
+  this->player->credits -= 30;
   // Check for irregularities
   if (check_illegal_gains() || check_delinquency() || bankruptcy()) {
     // Arrest the player
     arrest_the_player();
+    if (typeid(*this->player) == typeid(ARLBot)) {
+      ARLBot* p = dynamic_cast<ARLBot*>(this->player);
+      p->current_state = ARLBot::LOSING;
+      p->update();
+    }
+  } else {
+    if (typeid(*this->player) == typeid(ARLBot)) {
+      ARLBot* p = dynamic_cast<ARLBot*>(this->player);
+      p->current_state = ARLBot::WINING;
+      p->update();
+    }
   }
   // Reset values
   this->mcount = 0;
   this->ecount = 0;
-  // Player expenses
-  this->player->credits -= 30;
   //// -- Update day
   //// This feature was not implemented because the entrant generation should
   //// be updated, and due to the deadline, can not be implemented
