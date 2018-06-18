@@ -2,6 +2,8 @@
 
 # Countries
 countries: [ antegria, arstotzka, impor, kolechia, obristan, republia, unitedfederation ]
+
+# Citis by country
 cities:
   antegria: [ St. Marmero, Glorian, Outer Grouse ]
   arstotzka: [ Altan, Vescillo, Burnton, Octovalis, Gennistora, Lendiforma, Wozenfield, Fardesto ]
@@ -10,6 +12,8 @@ cities:
   obristan: [ Skal, Lorndaz, Mergerous ]
   republia: [ True Glorian, Lesrenadi, Bostan ]
   unitedfederation: [ Great Rapid, Shingleton, Korista City ]
+
+# Issuing city by country
 issuing_city:
   antegria: [ St. Marmero, Glorian, Outer Grouse ]
   arstotzka: [ Orvech Vonor, East Grestin, Paradizna ]
@@ -30,6 +34,7 @@ female_hair: [ Afro, Bobbed Hair, Curly Bobbed Hair, Curly Hair, Dark Hair, Huge
 vision: [ Glasses, No Glasses, Thick Glasses ] # Good Vision, Perfect Vision
 other: [ None, Overweight, Round Face, Slim Figure, Small Head ]
 facial_hair: [ Beard, Clean Shaven, Goatee, Killer Sideburns, Large Mustache, Large Sideburns, Mustache, No Mustache, Pencil Mustache ]
+
 # Other characteristics
 sex: [ M, F ]
 max_height: 2.1
@@ -37,14 +42,22 @@ min_height: 1.4
 max_weight: 150
 min_weight: 45
 
-# Documents
-passport_number: aaaaa_aaaaa # Format
-valid_moa_stamps: [ AA, AB ] # M.O.A (Ministry of Admission)
+# Passport format
+passport_number: aaaaaaaaaa
+
+# M.O.A (Ministry of Admission)
+valid_moa_stamps: [ AA, AB ]
 forged_moa_stamps: [ AC, AD, AE, AF, AG, AH, AI ]
-valid_mol_stamps: [ LA, LB, LC, LD ] # M.O.L (Ministry of Labor)
+
+# M.O.L (Ministry of Labor)
+valid_mol_stamps: [ LA, LB, LC, LD ]
 forged_mol_stamps: [ LE, LF, LG, LH, LI ]
+
+# Field
 works: [ Accounting, Agriculture, Architecture, Aviation, Construction, Dentistry, Drafting, Engineering, Fine Arts, Fishing, Food Service, General labor, Healthcare, Manufacturing, Research, Sports, Statistics, Surveying ]
+
+# Entrant purpose
 purpose: [ Visit, Transit, Work, Immigrate ]
 
-# Items
+# Items for contraband
 contraband: [ drugs, guns, blades, explosives ]
