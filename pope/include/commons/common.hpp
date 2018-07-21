@@ -14,9 +14,17 @@
 #include <random>
 #include <vector>
 
+/*!
+ * \brief This function shuffles a generic list. Code reference: http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper
+ *
+ * \param lst
+ *     A list
+ *
+ * \return
+ *     The list with a different order of elements
+ */
 template<typename T> void shuffle(std::list<T>& lst) {
   // Create a vector of (wrapped) references to elements in the list
-  // http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper
   std::vector<std::reference_wrapper<const T>> vec(lst.begin(), lst.end());
   // Shuffle (the references in) the vector
   std::shuffle(vec.begin(), vec.end(), std::mt19937{std::random_device{}()});
@@ -26,6 +34,17 @@ template<typename T> void shuffle(std::list<T>& lst) {
   lst.swap(shuffled_list);
 }
 
+/*!
+ * \brief Splits a string for each occurrence of the key character
+ *
+ * \param str
+ *     String
+ * \param c
+ *     Key character
+ *
+ * \return
+ *     A vector with the splitted string
+ */
 static std::vector<std::string> split(const std::string& str, const char& c) {
   // Buffer
   std::string buff = "";

@@ -22,6 +22,11 @@ class Date {
     unsigned int year; ///< Year
 
     /*!
+     * \brief Date empty constructor
+     */
+    Date() { /* empty */ }
+
+    /*!
      * \brief Date constructor
      *
      * \param day
@@ -36,11 +41,6 @@ class Date {
       this->month = month;
       this->year = year;
     }
-
-    /*!
-     * \brief Date empty constructor
-     */
-    Date() { /* empty */ }
 
     /*!
      * \brief Convert date to string

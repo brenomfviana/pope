@@ -83,7 +83,5 @@ std::list<Entrant*> ContentReader::read(std::string path) {
       eobj["bribe"].as<unsigned int>(), eobj["illegal"].as<bool>());
     entrants.push_back(entrant);
   }
-  // Shuffle list
-  // shuffle(entrants);
   return entrants;
 }

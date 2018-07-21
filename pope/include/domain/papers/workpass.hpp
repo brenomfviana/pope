@@ -23,6 +23,11 @@ class WorkPass : public Paper {
     Date end; ///< Work end date
 
     /*!
+     * \brief Work pass empty constructor
+     */
+    WorkPass() { /* empty */ }
+
+    /*!
      * \brief Work pass constructor
      *
      * \param firstname
@@ -42,11 +47,6 @@ class WorkPass : public Paper {
         this->mol_stamp = mol_stamp;
         this->end = end;
     }
-
-    /*!
-     * \brief Work pass empty constructor
-     */
-    WorkPass() { /* empty */ }
 
   private:
     void paper() { /* empty */ }

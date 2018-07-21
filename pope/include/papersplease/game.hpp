@@ -16,12 +16,12 @@
 #include "services/readers/database_reader.hpp"
 
 #define NAM 2 // Number of acceptable mistakes
-#define SALARY 5
+#define SALARY 5 // Salary of the player
 
 using namespace std::chrono;
 
 /*!
- * \brief This class represents a game
+ * \brief This class creates and handles the game
  */
 class Game {
   public:
@@ -33,7 +33,7 @@ class Game {
     unsigned int mcg; ///< Mistakes counter per game
     unsigned int ecg; ///< Number of entrant served per game
     unsigned int number_of_days; ///< Number of days
-    bool new_day;
+    bool new_day; ///< True when a new day begins
     time_t current_day = 406944000; ///< Currrent day
 
     /*!

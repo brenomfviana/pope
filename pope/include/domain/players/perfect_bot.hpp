@@ -18,7 +18,11 @@
  */
 class PerfectBot : public Player {
   public:
+    /*!
+     * \brief Perfect bot empty constructor
+     */
     PerfectBot() : Player() { /* empty */ }
+    
     bool decision();
 };
 

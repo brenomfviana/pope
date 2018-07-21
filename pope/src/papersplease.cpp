@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   // Check flags
   if (strcmp(argv[1], "-pcg") == 0) {
     // Generate content
-    PEG::generate(DatabaseReader::read("assets/database.yml"), 100);
+    PEG::generate(DatabaseReader::read("assets/database.yml"), 2000);
   } else if (strcmp(argv[1], "-r") == 0) {
     // Read list of people (entrants)
     std::list<Entrant*> train = ContentReader::read(std::string(argv[2]));

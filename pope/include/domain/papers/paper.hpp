@@ -20,6 +20,11 @@ class Paper {
     std::string firstname, lastname; ///< Entrant's name
 
     /*!
+     * \brief Paper empty constructor
+     */
+    Paper() { /* empty */ }
+
+    /*!
      * \brief Paper constructor
      *
      * \param firstname
@@ -31,11 +36,6 @@ class Paper {
       this->firstname = firstname;
       this->lastname = lastname;
     }
-
-    /*!
-     * \brief Paper empty constructor
-     */
-    Paper() { /* empty */ }
 
   private:
     virtual void paper() = 0;

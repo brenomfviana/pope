@@ -22,12 +22,12 @@
 #include "domain/papers/picture.hpp"
 
 /*!
- * \brief
+ * \brief This class represents the content reader
  */
 class ContentReader {
   public:
     /*!
-     * \brief
+     * \brief Content reader constructor
      *
      * \param path
      *     File path

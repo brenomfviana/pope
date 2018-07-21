@@ -40,6 +40,8 @@ class Player {
      *
      * \param entrant
      *     The entrant to be served
+     * \param current_day
+     *     The current day in the game
      */
     void papers_please(Entrant entrant, time_t current_day) {
       this->entrant = entrant;
@@ -48,6 +50,9 @@ class Player {
 
     /*!
      * \brief Player decision
+     *
+     * \return
+     *     True for approve a entrant and false otherwise
      */
     virtual bool decision() = 0;
 };

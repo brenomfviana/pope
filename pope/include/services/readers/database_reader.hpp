@@ -15,12 +15,12 @@
 #include "services/readers/database_reader.hpp"
 
 /*!
- * \brief
+ * \brief This class represents the content reader
  */
 class DatabaseReader {
   public:
     /*!
-     * \brief
+     * \brief Database reader constructor
      *
      * \param path
      *     File path

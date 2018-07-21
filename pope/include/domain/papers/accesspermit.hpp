@@ -29,6 +29,11 @@ class AccessPermit : public Paper {
     std::string physical_appearance; ///< Physical appearance
 
     /*!
+     * \brief Access permit empty constructor
+     */
+    AccessPermit() { /* empty */ }
+
+    /*!
      * \brief Access permit constructor
      *
      * \param firstname
@@ -68,11 +73,6 @@ class AccessPermit : public Paper {
         this->expiration_date = expiration_date;
         this->physical_appearance = physical_appearance;
     }
-
-    /*!
-     * \brief Access permit empty constructor
-     */
-    AccessPermit() { /* empty */ }
 
   private:
     void paper() { /* empty */ }

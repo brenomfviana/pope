@@ -35,6 +35,11 @@ class Entrant {
     bool illegal; ///< If is an illegal entrant
 
     /*!
+     * \brief Entrant empty constructor
+     */
+    Entrant() { /* empty */ }
+
+    /*!
      * \brief Entrant's constructor
      *
      * \param pic
@@ -82,11 +87,6 @@ class Entrant {
         this->bribe = bribe;
         this->illegal = illegal;
     }
-
-    /*!
-     * \brief Entrant empty constructor
-     */
-    Entrant() { /* empty */ }
 };
 
 #endif /* _POPE_ENTRANT_HPP_ */

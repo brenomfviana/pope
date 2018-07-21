@@ -30,6 +30,11 @@ class Passport : public Paper {
     bool entry_visa; ///< Entry visa
 
     /*!
+     * \brief Passport empty constructor
+     */
+    Passport() { /* empty */ }
+
+    /*!
      * \brief Passport constructor
      *
      * \param passport_number
@@ -67,11 +72,6 @@ class Passport : public Paper {
         this->expiration_date = expiration_date;
         this->entry_visa = false;
     }
-
-    /*!
-     * \brief Passport empty constructor
-     */
-    Passport() { /* empty */ }
 
   private:
     void paper() { /* empty */ }

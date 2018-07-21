@@ -28,6 +28,11 @@ class IDCard : public Paper {
     unsigned int weight; ///< Entrant's weight
 
     /*!
+     * \brief ID card empty constructor
+     */
+    IDCard() { /* empty */ }
+
+    /*!
      * \brief ID card constructor
      *
      * \param pic
@@ -60,11 +65,6 @@ class IDCard : public Paper {
         this->height = height;
         this->weight = weight;
     }
-
-    /*!
-     * \brief ID card empty constructor
-     */
-    IDCard() { /* empty */ }
 
   private:
     void paper() { /* empty */ }

@@ -23,6 +23,11 @@ class Picture {
     std::string other; ///< Entrant's hair
 
     /*!
+     * \brief Paper empty constructor
+     */
+    Picture() { /* empty */ }
+
+    /*!
      * \brief Paper constructor
      *
      * \param hair
@@ -41,11 +46,6 @@ class Picture {
         this->vision = vision;
         this->other = other;
     }
-
-    /*!
-     * \brief Paper empty constructor
-     */
-    Picture() { /* empty */ }
 };
 
 #endif /* _POPE_PICTURE_HPP_ */

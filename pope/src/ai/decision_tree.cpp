@@ -50,9 +50,10 @@ Node* DecisionTree::build(std::list<Entrant*> entrants, time_t current_day, int 
   float gain;
   unsigned int question;
   std::tie(gain, question) = find_best_split(passport_questions, entrants, current_day);
-  //
+  // Get partitions
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  // Continue building the tree
   Node* true_branch = build(true_rows, current_day, depth - 1);
   Node* false_branch = new Node(true, false);
   return new Node(question, true_branch, false_branch);
@@ -67,9 +68,10 @@ Node* DecisionTree::buildidc(std::list<Entrant*> entrants, time_t current_day, i
   float gain;
   unsigned int question;
   std::tie(gain, question) = find_best_split(idcard_questions, entrants, current_day);
-  //
+  // Get partitions
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  // Continue building the tree
   Node* true_branch = buildidc(true_rows, current_day, depth - 1);
   Node* false_branch = new Node(true, false);
   return new Node(question, true_branch, false_branch);
@@ -93,9 +95,10 @@ Node* DecisionTree::buildap(std::list<Entrant*> entrants, time_t current_day, in
   float gain;
   unsigned int question;
   std::tie(gain, question) = find_best_split(access_questions, entrants, current_day);
-  //
+  // Get partitions
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  // Continue building the tree
   Node* true_branch = buildap(true_rows, current_day, depth - 1);
   Node* false_branch = new Node(true, false);
   return new Node(question, true_branch, false_branch);
@@ -110,9 +113,10 @@ Node* DecisionTree::buildwp(std::list<Entrant*> entrants, time_t current_day, in
   float gain;
   unsigned int question;
   std::tie(gain, question) = find_best_split(work_questions, entrants, current_day);
-  //
+  // Get partitions
   std::list<Entrant*> true_rows, false_rows;
   std::tie(true_rows, false_rows) = partition(entrants, question, current_day);
+  // Continue building the tree
   Node* true_branch = buildwp(true_rows, current_day, depth - 1);
   Node* false_branch = new Node(true, false);
   return new Node(question, true_branch, false_branch);

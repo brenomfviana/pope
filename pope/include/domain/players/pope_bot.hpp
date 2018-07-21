@@ -15,12 +15,17 @@
 #include "player.hpp"
 
 /*!
- * \brief
+ * \brief This class represents th pope bot
  */
 class PopeBot : public Player {
   public:
-    DecisionTree tree;
+    DecisionTree tree; ///< Decision tree
+
+    /*!
+     * \brief Pope bot empty constructor
+     */
     PopeBot(std::list<Entrant*> entrants);
+
     bool decision();
 };
 
