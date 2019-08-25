@@ -67,8 +67,6 @@ To run the game and test the Pope bot use the following command:
 |         15 | 0.964 | 0.873 | 0.874 | 0.871 |
 |         22 | 0.999 | 0.999 | 0.999 | 0.999 |
 
-## Author
+## License
 
-[<img src="https://avatars2.githubusercontent.com/u/17532418?v=3&s=400" width="100"/>](https://github.com/brenov) |
----|
-[Breno Viana](https://github.com/brenov) |
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
