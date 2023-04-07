@@ -8,7 +8,7 @@ For each correctly classified entrant the player earns five credits. However, wh
 
 This is a work from the Artificial Intelligence course and the bot was developed using Decision Tree Learning (DTL). The name of this AI was given in honor of the game creator Lucas Pope.
 
-> NOTE: There is no human player mode in this game.
+> NOTE: It is a simulator. There is no human player mode in this game.
 
 ## Dependencies
 
